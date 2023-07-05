@@ -1,0 +1,1 @@
+This protocol enables users to initiate an authorization request to get privileges on a resource. After the authorization request, the user should get an authorization response for understanding the success or fail the authorization flow.

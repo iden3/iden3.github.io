@@ -1,0 +1,67 @@
+site_name: Polygon ID Documentation tutorials
+
+site_url: https://polygon.technology/
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    primary: deep purple
+  logo: logo-white.svg
+  # favicon: favicon.ico
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - content.tabs.link
+    - content.code.copy
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - mkdocs_graphviz
+  - def_list
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - fenced_code
+
+nav:
+  - Home: "index.md"
+  - Protocol:  
+    - Credentials:
+        - Overview: "credentials/overview.md"
+        - Messages:
+          - Issuance Request: "credentials/1.0/issuance-request.md"
+          - Issuance Response: "credentials/1.0/issuance-response.md"
+          - Fetch Request: "credentials/1.0/fetch-request.md"
+          - Offer: "credentials/1.0/offer.md"
+          - Status update: "credentials/1.0/status-update.md"
+    - Authorization:
+        - Overview: "authorization/overview.md"
+        - Messages:
+          - Request: "authorization/1.0/request.md"
+          - Response: "authorization/1.0/response.md"
+    - Proofs:
+        - Overview: "proofs/overview.md"
+        - Messages:
+          - Contract invoke request: "proofs/1.0/contract-invoke-request.md"
+          - Request: "proofs/1.0/request.md"
+          - Response: "proofs/1.0/response.md"
+    - Revocation:
+        - Overview: "revocation/overview.md"
+        - Messages:
+          - Request status: "revocation/1.0/request-status.md"
+          - Status: "revocation/1.0/status.md"
+
+plugins:
+  - search
+  - mermaid2
+
+extra:
+  analytics:
+    provider: custom
+    property: GTM-5TKTB44

@@ -1,0 +1,1 @@
+This protocol enables users to initiate a claim request from an issuer. Additionally, issuers can utilize this protocol to proactively send credential offers to users, even without the user explicitly requesting them.
