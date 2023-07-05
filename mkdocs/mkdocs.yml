@@ -1,6 +1,6 @@
-site_name: Polygon ID Documentation tutorials
+site_name: Iden3 documentation
 
-site_url: https://polygon.technology/
+site_url: https://iden3.io/
 theme:
   name: material
   custom_dir: overrides

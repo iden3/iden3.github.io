@@ -1,8 +1,8 @@
-# Polygon ID Tutorials
+# Iden3 documentation
 
 ## Check the documentation
 
-The documentation is available at [0xPolygon.github.io](https://0xpolygonid.github.io/tutorials/)
+The documentation is available at [iden3.github.io](https://iden3.github.io/)
 
 ## Run the documentation locally
 
@@ -49,7 +49,7 @@ pip3 install mkdocs-video
 ```
 
 ### Clone the repository
-Using this link https://github.com/0xPolygonID/tutorials.git, clone the repository in your local machine.
+Using this link https://github.com/iden3/iden3.github.io, clone the repository in your local machine.
 
 ### Run the webserver
 Find the folder where the repository is installed in your computer and change the directory to 'mkdocs'.
@@ -71,5 +71,5 @@ INFO     -  MERMAID2  - Using javascript library (8.8.0):
                https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js
 INFO     -  Cleaning site directory
 
-Serving on http://127.0.0.1:8000/polygon-id/
+Serving on http://127.0.0.1:8000
 ```
