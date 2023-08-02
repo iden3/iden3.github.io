@@ -31,6 +31,8 @@ markdown_extensions:
 
 nav:
   - Home: "index.md"
+  - Credential Statuses:
+    - Overview: "status/overview.md"    
   - Protocol:  
     - Credentials:
         - Overview: "credentials/overview.md"
