@@ -57,7 +57,7 @@ nav:
         - Overview: "revocation/overview.md"
         - Messages:
           - Request status: "revocation/1.0/request-status.md"
-          - Status: "revocation/1.0/status.md"       
+          - Status: "revocation/1.0/status.md"
 
 plugins:
   - search
