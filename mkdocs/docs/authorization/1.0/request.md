@@ -34,7 +34,7 @@ A resource initiates a request to a user. The user is required to generate a zer
       "typ": "application/iden3comm-plain-json",
       "type": "https://iden3-communication.io/authorization/1.0/request",
       "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
-      "from": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ"
+      "from": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ",
       "body": {
         "callbackUrl": "https://test.com/callback",
         "reason": "age verification",
@@ -42,17 +42,15 @@ A resource initiates a request to a user. The user is required to generate a zer
         "scope": [
           {
             "id": 1,
-            "circuitId": "credentialAtomicQueryMTP",
+            "circuitId": "credentialAtomicQuerySigV2",
             "query": {
-              "allowedIssuers": [
-                "*"
-              ],
-              "req": {
-                "$lt": "24042000"
-              },
-              "schema": {
-                "url": "http://schema.url",
-                "type": "KYCAgeCredential"
+              "allowedIssuers": ["*"],
+              "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v101.json-ld",
+              "type": "KYCEmployee",
+              "credentialSubject": {
+                "hireDate": {
+                  "$eq": "1996-04-24"
+                }
               }
             }
           }
