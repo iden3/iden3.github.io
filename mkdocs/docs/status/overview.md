@@ -87,14 +87,13 @@ For now, only `SparseMerkleTreeProof` credential status is supported as a backup
 }
 ```
 
-********************Workflow:********************
+### Workflow:
 
 1. Attempt to retrieve the latest issuer state using the state contract. Utilize the `GetLatestStateById` method from the state contract.
 2. In the event that the state contract returns the error `IDENTITY_DOES_NOT_EXIST`, follow these steps:
     1. If the `state` parameter exists and it is a `genesis` state, use this state to generate a non-revocation proof via the [RHS service](https://github.com/iden3/reverse-hash-service/). Provide the extracted state as the latest state and the revocation nonce to the [RHS service](https://github.com/iden3/reverse-hash-service/).
     2. If the `state` parameter does not exist - throw an error.
-        1. As a legacy option, for statuses where state doesn’t persist in the current implementation, we use additional custom issuer data from BJJSignatureProof or Iden3SparseMerkleTreeProof  to extract tree roots and the issuer’s state to construct a non-revocation proof. If this param is not provided - an error is thrown. This is not mandatory in new implementations. 
-        
+        1. As a legacy option, for statuses where state doesn’t persist in the current implementation, we use additional custom issuer data from BJJSignatureProof or Iden3SparseMerkleTreeProof  to extract tree roots and the issuer’s state to construct a non-revocation proof. If this param is not provided - an error is thrown. This is not mandatory in new implementations.      
 3. If the state contract returns the latest state, utilize the [RHS service](https://github.com/iden3/reverse-hash-service/) with the latest state and nonce to generate non-revocation/revocation proof according to the [algorithm](https://docs.iden3.io/services/rhs/).
 4. In the event that the [RHS server](https://github.com/iden3/reverse-hash-service/) is unavailable or encounters issues, users can fall back to using the `credentialStatus.statusIssuer` object to process the revocation status. This object must have`SparseMerkleTreeProof` type, so it will be processed accordingly. 
 
@@ -114,7 +113,7 @@ Example of Сredential status:
 
 In this case, the `id` is set to the issuer's agent endpoint. To establish communication with the issuer's agent, users should utilize the [iden3comm protocol](http://iden3-communication.io/credentials/overview/).
 
-## Workflow
+### Workflow
 
 To verify the revocation status of a credential, follow these steps using the appropriate communication protocols:
 
@@ -170,7 +169,7 @@ The format of the `id` field follows this structure:
 [did]:[methodid]:[chain]:[network]:[id]/credentialStatus?(revocationNonce=value)&[contractAddress=[chainID]:[contractAddress]]&(state=issuerState)
 ```
 
-## Workflow
+### Workflow
 
 To verify the revocation status of an onchain using the `Iden3OnchainSparseMerkleTreeProof2023` type, follow these steps:
 
