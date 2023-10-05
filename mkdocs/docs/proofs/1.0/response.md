@@ -31,7 +31,7 @@ The `scope` field contains a list of zero-knowledge proofs and public inputs for
         "scope": [
           {
             "id": 1,
-            "circuit_id": "credentialAtomicQueryMTP",
+            "circuit_id": "credentialAtomicQueryMTPV2",
             "proof": {
               "pi_a": [
                 "9742806134969392226546322490560630802447930806537100408086160321763928272376",
@@ -138,7 +138,7 @@ The `scope` field contains a list of zero-knowledge proofs and public inputs for
           }
         ]
       },
-      "from": "119tqceWdRd2F6WnAyVuFQRFjK3WUXq2LorSPyG9LJ",
-      "to": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ"
+      "to": "did:polygonid:polygon:mumbai:2qJUZDSCFtpR8QvHyBC4eFm6ab9sJo5rqPbcaeyGC4",
+      "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2"
     }
     ```

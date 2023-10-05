@@ -145,7 +145,7 @@ The `scope` field contains a list of zero-knowledge proofs and public inputs for
           }
         ]
       },
-      "from": "119tqceWdRd2F6WnAyVuFQRFjK3WUXq2LorSPyG9LJ",
-      "to": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ"
+      "from": "did:polygonid:polygon:mumbai:2qJG6RYgN1u6v7JAYSdfixSwktnZ7hMzd4t21SCdNu",
+      "to": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp"
     }
     ```

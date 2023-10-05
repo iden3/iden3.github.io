@@ -24,7 +24,7 @@ Request for fetch an VC from an issuer.
       "body": {
         "id": "af9293c5-3c91-40d7-b810-564ae693a578"
       },
-      "from": "119tqceWdRd2F6WnAyVuFQRFjK3WUXq2LorSPyG9LJ",
-      "to": "114vgnnCupQMX4wqUBjg5kUya3zMXfPmKc9HNH4TSE"
+      "from": "did:polygonid:polygon:mumbai:2qJG6RYgN1u6v7JAYSdfixSwktnZ7hMzd4t21SCdNu",
+      "to": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp"
     }
     ```

@@ -35,7 +35,7 @@ This request allow users to verify zk proof on chain.
       "typ": "application/iden3comm-plain-json",
       "type": "https://iden3-communication.io/proofs/1.0/contract-invoke-request",
       "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
-      "from": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ",
+      "from": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp",
       "body": {
         "scope": [
           {
@@ -43,20 +43,20 @@ This request allow users to verify zk proof on chain.
             "circuitId": "credentialAtomicQuerySigV2",
             "query": {
               "allowedIssuers": ["*"],
-              "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v101.json-ld",
-              "type": "KYCEmployee",
+              "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld",
+              "type": "KYCAgeCredential",
               "credentialSubject": {
-                "hireDate": {
-                  "$eq": "1996-04-24"
+                "birthday": {
+                  "$lt": 2000101
                 }
               }
             }
           }
         ],
     		"transaction_data": {
-    			"contract_address": "0x...",
-    			"method_id":"0x12345",
-    			"chain_id": 1,
+    			"contract_address": "0xe826f870852d7eeeb79b2c030298f9b5daa8c8a3",
+    			"method_id":"0xb68967e2",
+    			"chain_id": 80001,
     			"network": "polygon-mumbai"
     		}
       }

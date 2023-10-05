@@ -24,6 +24,6 @@ Message for fetch a message for known resource
       "body": {
         "id": "ceWdRd2F6WnAyVuFQRFjK3WUXq2LorSPyG9LJ"
       },
-      "from": "114vgnnCupQMX4wqUBjg5kUya3zMXfPmKc9HNH4TSE"
+      "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2"
     }
     ```
