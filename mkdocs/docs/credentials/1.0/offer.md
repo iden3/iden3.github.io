@@ -27,7 +27,7 @@ The offer message comprises information regarding the available verifiable crede
     ```json
     {
       "id": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
-      "thid": "36f9e851-d713-4b50-8f8d-8a9382f138ca"
+      "thid": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
       "typ": "application/iden3comm-plain-json",
       "type": "https://iden3-communication.io/credentials/1.0/offer",
       "body": {
@@ -39,8 +39,7 @@ The offer message comprises information regarding the available verifiable crede
         ],
         "url": "http://issuer-agent.com/"
       },
-      "to": "119tqceWdRd2F6WnAyVuFQRFjK3WUXq2LorSPyG9LJ",
-      "from": "114vgnnCupQMX4wqUBjg5kUya3zMXfPmKc9HNH4TSE"
+      "to": "did:polygonid:polygon:mumbai:2qJUZDSCFtpR8QvHyBC4eFm6ab9sJo5rqPbcaeyGC4",
+      "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2"
     }
     ```
-    

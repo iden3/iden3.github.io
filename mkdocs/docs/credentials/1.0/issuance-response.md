@@ -50,67 +50,70 @@ Allow content for `credentials.credentialStatus`:
 - **Example of credential issuance:**
     
     ```json
-    {
-      "id": "1924af5a-7d63-4850-addf-0177cdc34786",
-      "thid": "1924af5a-7d63-4850-addf-0177cdc34786",
-      "typ": "application/iden3comm-plain-json",
-      "type": "https://iden3-communication.io/credentials/1.0/issuance-response",
-      "to": "119tqceWdRd2F6WnAyVuFQRFjK3WUXq2LorSPyG9LJ",
-      "from": "114vgnnCupQMX4wqUBjg5kUya3zMXfPmKc9HNH4TSE",
-      "body": {
-        "credential": {
-          "issuer": "1196RFa2m5Zui1N32JMhEo4V4TsRMPUTsdjWRceEMW",
-          "identifier": "11BXYorwd5gw8PXKPJft25h4HKdoPSN96tTmwo1MzB",
-          "credential": {
-            "id": "812abf03-3f5c-49d9-956f-71046696c7cc",
-            "@context": [
-              "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/iden3credential.json-ld",
-              "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc.json-ld"
-            ],
-            "@type": [
-              "Iden3Credential"
-            ],
-            "expiration": "2361-03-21T21:14:48+02:00",
-            "updatable": false,
-            "version": 0,
-            "rev_nonce": 3093887425188630000,
-            "credentialSubject": {
-              "birthday": 19960424,
-              "document_type": 1,
-              "id": "11BXYorwd5gw8PXKPJft25h4HKdoPSN96tTmwo1MzB",
-              "type": "KYCAgeCredential"
+          {
+  "id": "1924af5a-7d63-4850-addf-0177cdc34786",
+  "thid": "1924af5a-7d63-4850-addf-0177cdc34786",
+  "typ": "application/iden3comm-plain-json",
+  "type": "https://iden3-communication.io/credentials/1.0/issuance-response",
+  "to": "did:polygonid:polygon:mumbai:2qJUZDSCFtpR8QvHyBC4eFm6ab9sJo5rqPbcaeyGC4",
+  "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2",
+  "body": {
+    "credential": {
+      "id": "urn:53a608cb-b5b6-4cc9-96a8-c230ff955554",
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://schema.iden3.io/core/jsonld/iden3proofs.jsonld",
+        "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld"
+      ],
+      "type": [
+        "VerifiableCredential",
+        "KYCAgeCredential"
+      ],
+      "credentialSubject": {
+        "id": "did:polygonid:polygon:mumbai:2qJUZDSCFtpR8QvHyBC4eFm6ab9sJo5rqPbcaeyGC4",
+        "birthday": 19960424,
+        "documentType": 99,
+        "type": "KYCAgeCredential"
+      },
+      "issuer": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2",
+      "expirationDate": "2058-07-10T11:33:20.000Z",
+      "issuanceDate": "2023-09-07T14:36:48.074Z",
+      "credentialSchema": {
+        "id": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential-v3.json",
+        "type": "JsonSchema2023"
+      },
+      "credentialStatus": {
+        "id": "https://rhs-staging.polygonid.me",
+        "revocationNonce": 1000,
+        "type": "Iden3ReverseSparseMerkleTreeProof"
+      },
+      "proof": [
+        {
+          "type": "BJJSignature2021",
+          "issuerData": {
+            "id": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2",
+            "state": {
+              "rootOfRoots": "0000000000000000000000000000000000000000000000000000000000000000",
+              "revocationTreeRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+              "claimsTreeRoot": "5e5dca21a62dfbbd8b984a997dd9d666b6710d5499906301b19fb6996bfc1a02",
+              "value": "139042475daf67e0c340aef5540f8979b46a0eed13951c6ce60dad8875d1ab1e"
             },
-            "credentialSchema": {
-              "@id": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json/KYCAgeCredential.json",
-              "type": "JsonSchemaValidator2018"
+            "authCoreClaim": "cca3371a6cb1b715004407e325bd993c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007cc77af06d6ea9f91434ce69e46821371cc341eb9e190262a16f46d15410ce0d1a090d38ded1e32a74e5fa0908764606adbcb917edff84b6ca60968d8a8d79090000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "mtp": {
+              "existence": true,
+              "siblings": []
             },
             "credentialStatus": {
-              "@id": "https://kyc-issuer.com/identities/1196RFa2m5Zui1N32JMhEo4V4TsRMPUTsdjWRceEMW/revocation/status/3093887425188629987",
-              "type": "JsonSchemaValidator2018"
-            },
-            "proof": {
-              "@type": "BJJSignature2021",
-              "created": 1636990667,
-              "issuer_mtp": {
-                "@type": "Iden3SparseMerkleProof",
-                "state": {
-                  "claims_tree_root": "921fb387abe063e926bb56f906ce5406f30d14b49f6c8119b861c41422123012",
-                  "value": "c04a7b86bbb247e2aba032a7ece7ad03aff1c933eb568db40a796a4a27861a13"
-                },
-                "mtp": {
-                  "@type": "SparseMerkleProof",
-                  "existence": true,
-                  "siblings": []
-                },
-                "issuer": "1196RFa2m5Zui1N32JMhEo4V4TsRMPUTsdjWRceEMW"
-              },
-              "creator": "1196RFa2m5Zui1N32JMhEo4V4TsRMPUTsdjWRceEMW",
-              "verification_method": "ca28a7524c1b110523f300f8aa7b0c4dd3979103075891bf7558467c1f247c9c",
-              "proof_value": "da9820d71153c0a437d51b1b7106d166e8a2931d7f7545096386327bf2e5d8128ae01e1b00b45f598542718a63bbb0ef36e2f3126fe8d8548c4285e9bf3a9102",
-              "proof_purpose": "Authentication"
+              "id": "https://rhs-staging.polygonid.me",
+              "revocationNonce": 0,
+              "type": "Iden3ReverseSparseMerkleTreeProof"
             }
-          }
+          },
+          "coreClaim": "c9b2370371b7fa8b3dab2a5ba81b68382a00000000000000000000000000000002128459e997f3d9402b75af3fb9ad1e2db8f3288d3f5b6a13fa833621070d0069dee7de22463f48d75e219aed6cebcaadde18c1aacce28cd53db0317d1e9d2b0000000000000000000000000000000000000000000000000000000000000000e80300000000000080d481a60000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "signature": "4fb847963a0903ead57a45bcf511f84067b092aa5b21e95349ad3cf284f2678b8522765989e807ec7ab36ca541dab96a0604abc1a1ea27db1bf59a23f0686f04"
         }
-      }
+      ]
     }
+  }
+}
     ```

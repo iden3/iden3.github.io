@@ -34,7 +34,7 @@ A resource initiates a request to a user. The user is required to generate a zer
       "typ": "application/iden3comm-plain-json",
       "type": "https://iden3-communication.io/authorization/1.0/request",
       "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
-      "from": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ",
+      "from": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp",
       "body": {
         "callbackUrl": "https://test.com/callback",
         "reason": "age verification",
@@ -58,3 +58,69 @@ A resource initiates a request to a user. The user is required to generate a zer
       }
     }
     ```
+
+
+- **Example of authorization request with multiple proof queries:**
+
+    ```json
+    {
+      "id": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
+      "typ": "application/iden3comm-plain-json",
+      "type": "https://iden3-communication.io/authorization/1.0/request",
+      "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
+      "from": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp",
+      "body": {
+        "callbackUrl": "https://test.com/callback",
+        "reason": "age verification",
+        "message": "test message",
+        "scope": [
+          {
+            "id": 1,
+            "circuitId": "credentialAtomicQuerySigV2",
+            "query": {
+              "allowedIssuers": ["*"],
+              "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v101.json-ld",
+              "type": "KYCEmployee",
+              "credentialSubject": {
+                "position": {
+                  "$eq": "developer"
+                }
+              }
+            }
+          },
+          {
+            "id": 2,
+            "circuitId": "credentialAtomicQuerySigV2",
+            "query": {
+              "allowedIssuers": ["*"],
+              "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v101.json-ld",
+              "type": "KYCCountryOfResidenceCredential",
+              "credentialSubject": {
+                "countryCode": {
+                  "$in": [980, 340]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+    ```
+- **Example of authorization request without proof queries (basic auth:**
+
+    ```json
+    {
+      "id": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
+      "typ": "application/iden3comm-plain-json",
+      "type": "https://iden3-communication.io/authorization/1.0/request",
+      "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
+      "from": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp",
+      "body": {
+        "callbackUrl": "https://test.com/callback",
+        "reason": "age verification",
+        "message": "test message",
+        "scope": []
+      }
+    }
+    ```
+  

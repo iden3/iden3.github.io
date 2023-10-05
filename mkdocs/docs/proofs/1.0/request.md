@@ -26,7 +26,7 @@ A resource initiates a request to a user. The user is required to generate a zer
       "typ": "application/iden3comm-plain-json",
       "type": "https://iden3-communication.io/proofs/1.0/request",
       "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
-      "from": "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ",
+      "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2",
       "body": {
         "scope": [
           {

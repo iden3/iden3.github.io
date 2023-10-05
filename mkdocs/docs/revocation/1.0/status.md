@@ -32,8 +32,8 @@ More about `mtp` field: [https://github.com/iden3/claim-schema-vocab/blob/main/p
       "id": "f4b6f1a3-ebf4-49a7-8c2d-5d2649b1e65d",
       "typ": "application/iden3comm-plain-json",
       "type": "https://iden3-communication.io/revocation/1.0/status",
-      "from": "11tbD2cY9ZuZc8oQWN5bhtvNVrqmf1zdnES3emJET",
-      "to": "118he3vAmZTWPaD7cyFYKz8ztjXceRGBPYgiuz8CQX",
+      "to": "did:polygonid:polygon:mumbai:2qJUZDSCFtpR8QvHyBC4eFm6ab9sJo5rqPbcaeyGC4",
+      "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2",
       "body": {
         "issuer": {
           "claims_tree_root": "29570142accabef4e58cbdcd38b0ecb22bb9b75ef19503dc47986c2f3aec4712",
