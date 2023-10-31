@@ -5,7 +5,7 @@ The refresh message contains information about the credential that need to be re
 
 ```json
 {
-	"id": "<resource_id>",
+    "id": "<resource_id>",
     "reason": "<reason>"
 }
 ```
@@ -22,7 +22,7 @@ The refresh message contains information about the credential that need to be re
       "id": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
       "thid": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
       "typ": "application/iden3comm-plain-json",
-      "type": "https://iden3-communication.io/credentials/1.0/offer",
+      "type": "https://iden3-communication.io/credentials/1.0/refresh",
       "body": {
         "id": "c7b66a79-b930-49d1-9a97-66ab8fd792ac",
         "reason": "expired"
