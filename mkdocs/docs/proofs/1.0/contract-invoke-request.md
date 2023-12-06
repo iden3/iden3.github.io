@@ -21,6 +21,7 @@ This request allow users to verify zk proof on chain.
 | scope.id | Unique request id | uint64 | ✅ |
 | scope.circuitId | Information that circuit should use user for generating zk proof | string | ✅ |
 | scope.optional | ? | boolean | ❌ |
+| scope.params | circuit specific params| map) | ❌|
 | scope.query | Information about what information the user must prove with ZKPproof | map | ✅ |
 | transaction_data.contract_address | Smart contract address | string | ✅ |
 | transaction_data.method_id | Smart contract method (hash from sc method name) | string | ✅ |
