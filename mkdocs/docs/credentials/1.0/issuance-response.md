@@ -1,7 +1,7 @@
 
 type: `/credentials/1.0/issuance-response`
 
-Message contains [W3Credential](https://www.w3.org/TR/vc-data-model/) with W3C credential inside
+Message contains [W3Credential](https://www.w3.org/TR/vc-data-model/) 
 
 ```json
  {
