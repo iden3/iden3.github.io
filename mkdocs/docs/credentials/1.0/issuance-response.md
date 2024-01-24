@@ -1,56 +1,44 @@
 
 type: `/credentials/1.0/issuance-response`
 
-Message contains [W3Credential](https://www.w3.org/TR/vc-data-model-2.0/) with iden3 proof inside.
+Message contains [W3Credential](https://www.w3.org/TR/vc-data-model/) with W3C credential inside
 
 ```json
-"credential": {
-  "issuer": "<issuer_did>",
-  "identifier": "<iden3_id>",
-  "credential": {
-    "id": "<credential_uuid>",
-    "@context": ["<list_of_contexts>"],
-    "@type": ["<credential_types>"],
-    "expiration": "<expiration_time>",
-    "updatable": "<is_updatable_credential>",
-    "version": "<credential_version>",
-    "rev_nonce": "<credential_revocation_nonce>",
-    "credentialSubject": {"<credential_subject>"},
-    "credentialSchema": {"<credential_schema>"},
-    "credentialStatus": {"<credential_status>"},
-    "proof": ["<list_of_proofs>"]
-  }
-}
+ {
+    "credential":  {
+      "id": "urn:uuid:<credential_uuid>",
+      "@context": ["<list_of_contexts>"],
+      "@type": ["<credential_types>"],
+      "expiration": "<expiration_time>",
+      "updatable": "<is_updatable_credential>",
+      "version": "<credential_version>",
+      "rev_nonce": "<credential_revocation_nonce>",
+      "credentialSubject": {"<credential_subject>"},
+      "credentialSchema": {"<credential_schema>"},
+      "credentialStatus": {"<credential_status>"},
+      "proof": ["<list_of_proofs>"]
+    }
+ } 
 ```
 
 | Field | Description | Type | Required |
 | --- | --- | --- | --- |
-| issuer | Issuer that issued the credential | string | ✅ |
-| identifier | iden3 https://docs.iden3.io/protocol/claims-structure/ | string | ✅ |
-| credentials.id | ID of VC | string | ✅ |
-| credentials.@context | List of contexts | list of strings | ✅ |
-| credentials.@type | Types of credential | list of strings | ✅ |
-| credentials.expiration | The time until which VC is considered valid | string | ✅ |
-| credentials.updatable | Flag that shows if is possible update the VC credential | boolean | ✅ |
-| credentials.version | Version of the VC  | integer | ✅ |
-| credentials.rev_nonce | Unique revocation ID of the VC | integer | ✅ |
-| credentials.credentialSubject | Information about subject | *object | ✅ |
-| credentials.credentialSchema | Information about JSON schema that was used for create the credentials.credentialSubject | object | ✅ |
-| credentials.credentialStatus | Information about revocation the V | *object | ✅ |
-| credentials.proof | List of proofs that the VC has | *list of object | ✅ |
+| credential.id | ID of VC | string | ✅ |
+| credential.@context | List of contexts | list of strings | ✅ |
+| credential.@type | Types of credential | list of strings | ✅ |
+| credential.expiration | The time until which VC is considered valid | string | ✅ |
+| credential.credentialSubject | Information about subject | *object | ✅ |
+| credential.credentialSchema | Information about JSON schema that was used for create the credentials.credentialSubject | object | ✅ |
+| credential.credentialStatus | Information about revocation the V | *object | ✅ |
+| credential.proof | List of proofs that the VC has | *list of object | ✅ |
 
 Content of `credentials.credentialSubject` object depends of `credentials.credentialSchema`.
 
-Allow content for `credentials.credentialStatus`:
-
-1. [Information you can use to obtain revocation status directly from the issuer](https://github.com/iden3/claim-schema-vocab/blob/main/credentials/common-v2.md#credentialstatus).
-2. [The information required to obtain an MTP proof from the RHS (RHS) regarding the revocation status of `credentials.rev_nonce`.](https://github.com/iden3/claim-schema-vocab/blob/main/proofs/Iden3ReverseSparseMerkleTreeProof.md)
-3. IN PROCESS: onchain information about revocation.
 
 - **Example of credential issuance:**
     
-    ```json
-          {
+```json
+{
   "id": "1924af5a-7d63-4850-addf-0177cdc34786",
   "thid": "1924af5a-7d63-4850-addf-0177cdc34786",
   "typ": "application/iden3comm-plain-json",
@@ -59,7 +47,7 @@ Allow content for `credentials.credentialStatus`:
   "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2",
   "body": {
     "credential": {
-      "id": "urn:53a608cb-b5b6-4cc9-96a8-c230ff955554",
+      "id": "urn:uuid:53a608cb-b5b6-4cc9-96a8-c230ff955554",
       "@context": [
         "https://www.w3.org/2018/credentials/v1",
         "https://schema.iden3.io/core/jsonld/iden3proofs.jsonld",
@@ -115,5 +103,5 @@ Allow content for `credentials.credentialStatus`:
       ]
     }
   }
-}
-    ```
+ }
+```
