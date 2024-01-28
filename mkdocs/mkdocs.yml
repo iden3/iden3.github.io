@@ -2,7 +2,7 @@ site_name: Iden3 documentation
 
 site_url: https://iden3.io/
 theme:
-  name: material
+  name: readthedocs
   custom_dir: overrides
   palette:
     primary: deep purple
@@ -31,8 +31,11 @@ markdown_extensions:
 
 nav:
   - Home: "index.md"
-  - Credential Statuses:
-    - Overview: "status/overview.md"    
+  - W3C credential:
+    - Refresh service:
+      - Overview: "refresh-service/overview.md"
+    - Credential Statuses:
+      - Overview: "status/overview.md"    
   - Protocol:  
     - Credentials:
         - Overview: "credentials/overview.md"
