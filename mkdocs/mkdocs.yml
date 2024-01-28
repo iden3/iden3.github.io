@@ -2,7 +2,7 @@ site_name: Iden3 documentation
 
 site_url: https://iden3.io/
 theme:
-  name: readthedocs
+  name: material
   custom_dir: overrides
   palette:
     primary: deep purple
