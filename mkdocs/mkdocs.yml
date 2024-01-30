@@ -32,10 +32,8 @@ markdown_extensions:
 nav:
   - Home: "index.md"
   - W3C credential:
-    - Refresh service:
-      - Overview: "refresh-service/overview.md"
-    - Credential Statuses:
-      - Overview: "status/overview.md"    
+    - Refresh service: "refresh-service/overview.md"
+    - Credential Statuses: "status/overview.md"    
   - Protocol:  
     - Credentials:
         - Overview: "credentials/overview.md"
