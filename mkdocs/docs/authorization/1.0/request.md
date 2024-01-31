@@ -145,7 +145,7 @@ A resource initiates a request to a user. The user is required to generate a zer
     {
         "id": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
         "typ": "application/iden3comm-plain-json",
-        "type": "https://iden3-communication.io/authorization/1.1/request",
+        "type": "https://iden3-communication.io/authorization/1.0/request",
         "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
         "from": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp",
         "body": {
