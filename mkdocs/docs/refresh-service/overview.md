@@ -21,7 +21,7 @@ In protocol level, the revocation service is integrated into the W3C verifiable 
   ],
   ...
   "refreshService": {
-	  "id": "https://refreshService.example", // iden3comm agent endpoint
+    "id": "https://refreshService.example", // iden3comm agent endpoint
     "type": "Iden3RefreshService2023"
   }
 }

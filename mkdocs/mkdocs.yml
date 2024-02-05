@@ -33,7 +33,8 @@ nav:
   - Home: "index.md"
   - W3C credential:
     - Refresh service: "refresh-service/overview.md"
-    - Credential Statuses: "status/overview.md"    
+    - Credential Statuses: "status/overview.md"
+    - Display method: "display-method/overview.md"
   - Protocol:  
     - Credentials:
         - Overview: "credentials/overview.md"
