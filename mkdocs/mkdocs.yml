@@ -37,30 +37,30 @@ nav:
     - Display method: "w3c/display-method/overview.md"
   - Protocol:  
     - Credentials:
-        - Overview: "protocol/credentials/overview.md"
+        - Overview: "credentials/overview.md"
         - Messages:
-          - Issuance Request: "protocol/credentials/1.0/issuance-request.md"
-          - Issuance Response: "protocol/credentials/1.0/issuance-response.md"
-          - Fetch Request: "protocol/credentials/1.0/fetch-request.md"
-          - Offer: "protocol/credentials/1.0/offer.md"
-          - Status update: "protocol/credentials/1.0/status-update.md"
-          - Refresh: "protocol/credentials/1.0/refresh.md"
+          - Issuance Request: "credentials/1.0/issuance-request.md"
+          - Issuance Response: "credentials/1.0/issuance-response.md"
+          - Fetch Request: "credentials/1.0/fetch-request.md"
+          - Offer: "credentials/1.0/offer.md"
+          - Status update: "credentials/1.0/status-update.md"
+          - Refresh: "credentials/1.0/refresh.md"
     - Authorization:
-        - Overview: "protocol/authorization/overview.md"
+        - Overview: "authorization/overview.md"
         - Messages:
-          - Request: "protocol/authorization/1.0/request.md"
-          - Response: "protocol/authorization/1.0/response.md"
+          - Request: "authorization/1.0/request.md"
+          - Response: "authorization/1.0/response.md"
     - Proofs:
-        - Overview: "protocol/proofs/overview.md"
+        - Overview: "proofs/overview.md"
         - Messages:
-          - Contract invoke request: "protocol/proofs/1.0/contract-invoke-request.md"
-          - Request: "protocol/proofs/1.0/request.md"
-          - Response: "protocol/proofs/1.0/response.md"
+          - Contract invoke request: "proofs/1.0/contract-invoke-request.md"
+          - Request: "proofs/1.0/request.md"
+          - Response: "proofs/1.0/response.md"
     - Revocation:
-        - Overview: "protocol/revocation/overview.md"
+        - Overview: "revocation/overview.md"
         - Messages:
-          - Request status: "protocol/revocation/1.0/request-status.md"
-          - Status: "protocol/revocation/1.0/status.md"
+          - Request status: "revocation/1.0/request-status.md"
+          - Status: "revocation/1.0/status.md"
 
 plugins:
   - search
