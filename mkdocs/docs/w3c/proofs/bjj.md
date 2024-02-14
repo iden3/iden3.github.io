@@ -57,7 +57,7 @@ The following terms are used to describe concepts involved in the generation and
 Suite Definition
 ----------------
 
-The BabyJubjub 2021 signature suite MUST be used in conjunction with the signing and verification algorithms in the Linked Data Signatures \[\[LD-SIGNATURES\]\] specification. The suite consists of the following algorithms:
+The BabyJubjub 2021 signature suite MUST be used in conjunction with the signing and verification algorithms in the Linked Data Signatures [specification](https://w3c.github.io/vc-data-integrity/). The suite consists of the following algorithms:
 
 
 | Parameter      | Value                              | Specification                                                                                                                                                              |
