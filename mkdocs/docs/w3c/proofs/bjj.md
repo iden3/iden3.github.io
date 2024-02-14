@@ -1,6 +1,6 @@
-This specification describes the BabyJubjub 2021 Signature Suite, created in 2021 for the Verifiable Credentials Data Integrity Proof specification. The Signature Suite is designed to be zk-friendly, allowing the implementation of an additional security layer that can offer enhence privacy through zero-knowledge signature proofs.
+This specification describes the BabyJubjub 2021 Signature Suite, created in 2021 for the Verifiable Credentials Data Integrity Proof specification. The Signature Suite is designed to be zk-friendly, allowing the implementation of an additional security layer that can offer enhance privacy through zero-knowledge signature proofs.
 
-This document is a draft specification developed by 0kims association and is provided for public review and feedback. The current version of the document is a work in progress and may be subject to changes or updates based on community input, technical advancements, or further research. The specification has not yet been submitted to, reviewed, or approved by any formal standards organization such as the W3C. However, it is intended to align closely with the existing W3C recommendations, specifications, and best practices related to decentralized identifiers, verifiable credentials, and digital signatures.
+This document is a draft specification developed by 0kims association and is provided for public review and feedback. The current version of the document is a work in progress and may be subject to changes or updates based on community input, technical advancements, or further research. The specification has not yet been submitted to, reviewed or approved by any formal standards organization such as the W3C. However, it is intended to align closely with the existing W3C recommendations, specifications, and best practices related to decentralized identifiers, verifiable credentials, and digital signatures.
 
 ##Introduction
 ------------
@@ -111,7 +111,7 @@ Subsequently, the merkle root of jsonld document as a part of core claim represe
 To facilitate the proof check, the prover can share the following information with the verifier:
 
 1.  The core claim representation of the verifiable credential.
-2.  The issuer's signature on the of it.
+2.  The issuer's signature on the of core claim representation.
 3.  The relevant authentication paths for the proving the validity of the issuer key.
 
 By providing this information, the prover demonstrates the possession of a valid credential containing specific entries without revealing the entire credential content. Consequently, this enables the prover to confirm the issuance of a credential of a particular type that contains specific values while preserving the confidentiality of other credential details. This approach aligns with W3C's official specifications and ensures data privacy during the verification process.
@@ -148,7 +148,7 @@ Where:
 
    *  `coreClaim` is a signed hex of core claim representation of W3C credential.
    * `signature` is a hex value of BJJ compressed signature produced by the issuer public key.
-   *  The issuer stores their public key in the state tree. In proof it is represented a `authCoreClaim` hex in the `issuerData` property. `mtp` property contains merkle tree proof of inclusion to the issuer claims tree.
+   *  The issuer stores their public key in the state tree. In proof it is represented as an `authCoreClaim` hex in the `issuerData` property. `mtp` property contains merkle tree proof of inclusion to the issuer claims tree.
    *  `issuerData` contains information about how to check the credential status of the issuer key. More details regarding `credentialStatus` can be found [here](../status/overview.md).
    * `state` object represents the roots of issuer's trees  at the time of auth key has been issued.
 
@@ -182,7 +182,7 @@ To verify the authenticity and integrity of signature, the following steps shoul
 3.  Obtain the core claim of the Merkleized credential, the issuer's signature on it from proof object.
 4.  Validate the issuer's signature on the VC root using the issuer's public key.
 5.  Validate that issuer's public key is not revoked. 
-6.  Obtain the root of the Merklized credential from the `coreClaim`. see [documentation](https://docs.iden3.io/w3c/merklization/)
+6.  Obtain the root of the Merklized credential from the `coreClaim`. See [documentation](https://docs.iden3.io/w3c/merklization/)
 7.  Reconstruct the Merkle tree root of credential using the json ld merklization procedure and compare with an extracted root  the `coreClaim`.
 
 #### Implementations

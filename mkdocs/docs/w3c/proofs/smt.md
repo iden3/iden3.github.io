@@ -1,6 +1,6 @@
 This specification describes the Iden3SparseMerkleTreeProof Signature Suite, created in 2021 for the Verifiable Credentials Data Integrity Proof specification.
-The Signature Suite is designed to be zk-friendly, allowing the implementation of an additional security layer that can offer enhence security based in merkle tree data structures. 
-This document is a draft specification developed by 0kims association and is provided for public review and feedback. The current version of the document is a work in progress and may be subject to changes or updates based on community input, technical advancements, or further research. The specification has not yet been submitted to, reviewed, or approved by any formal standards organization such as the W3C. However, it is intended to align closely with the existing W3C recommendations, specifications, and best practices related to decentralized identifiers, verifiable credentials, and digital signatures.
+The Signature Suite is designed to be zk-friendly, allowing the implementation of an additional security layer that can offer enhance security based in merkle tree data structures. 
+This document is a draft specification developed by 0kims association and is provided for public review and feedback. The current version of the document is a work in progress and may be subject to changes or updates based on community input, technical advancements, or further research. The specification has not yet been submitted to reviewed, or approved by any formal standards organization such as the W3C. However, it is intended to align closely with the existing W3C recommendations, specifications, and best practices related to decentralized identifiers, verifiable credentials, and digital signatures.
 
 ##Introduction
 ------------
@@ -73,7 +73,7 @@ The hash function in the signature algorithm has been repleaced to [Poseidon](ht
 
 ### Document Merklization Algorithm
 
-More about jsonld merklization can be found [here](../bjj.md#Document Merklization Algorithm).
+More about jsonld merklization can be found [here](./bjj.md#Document Merklization Algorithm).
 
 
 ### Iden3SparseMerkleTreeProof
@@ -111,7 +111,7 @@ The Iden3SparseMerkleTreeProof proof generation process follows a specific algor
 2.  Canonicalize the document using the URDNA2015 algorithm.
 3.  Apply the [Document Merklization Algorithm](https://docs.iden3.io/w3c/merklization/#conclusion) to create a Merkle tree from the canonicalized document.
 4.  Create a core claim representation from W3C credential according to the core protocol. Document Root is written into one of the data slots.
-5.  Add the core claim hash index and hash value  to issuer’s tree state and update the state accordign to the protocol [rules](https://docs.iden3.io/getting-started/mt/)
+5.  Add the core claim hash index and hash value  to issuer’s tree state and update the state according to the protocol [rules](https://docs.iden3.io/getting-started/mt/)
 
 
 #### Proof Verification
@@ -121,7 +121,7 @@ To verify the authenticity and integrity of the credential, the following steps 
 
 1.  Retrieve the issuer's DID document and locate the Iden3StateInfo2023 object [issuer did document example](../#did-document) containing the state root and other relevant information. Check that state value in proof is published onchain or is genesis one.
 2.  Check the validity of mtp proof of  the `coreClaim`, which has been included in the requested state with merkletree proof generation.
-3.  Obtain the root of the Merklized credential from the `coreClaim`. see [documentation](https://docs.iden3.io/w3c/merklization/)
+3.  Obtain the root of the Merklized credential from the `coreClaim`. See [documentation](https://docs.iden3.io/w3c/merklization/)
 4.  Reconstruct the Merkle tree root of credential using the json ld merklization procedure and compare with an extracted root  the `coreClaim`.
 
 #### Implementations
