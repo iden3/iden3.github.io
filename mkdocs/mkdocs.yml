@@ -49,6 +49,7 @@ nav:
           - Offer: "credentials/1.0/offer.md"
           - Status update: "credentials/1.0/status-update.md"
           - Refresh: "credentials/1.0/refresh.md"
+          - Onchain-offer: "credentials/1.0/onchain-offer.md"
     - Authorization:
         - Overview: "authorization/overview.md"
         - Messages:
