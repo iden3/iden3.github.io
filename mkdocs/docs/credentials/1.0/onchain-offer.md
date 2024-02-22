@@ -42,7 +42,7 @@ The onchain offer message comprises information regarding the available verifiab
         ],
         "transaction_data": {
             "contract_address": "0xe826f870852d7eeeb79b2c030298f9b5daa8c8a3",
-            "method_id":"0xb68967e2",
+            "method_id":"0x37c1d9ff",
             "chain_id": 80001,
             "network": "polygon-mumbai"
         }
