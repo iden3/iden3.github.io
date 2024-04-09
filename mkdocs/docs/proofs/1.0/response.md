@@ -14,8 +14,8 @@ Proof response to verification proof in a requester side.
 | scope.id | Unique id to present unique authorization request | uint32  | ✅ |
 | scope.circuitId | Information that circuit was used for generating zk proof | string | ✅ |
 | scope.vp | Information that user want to disclosure | JSON | ❌ |
-| scope.ZKProof.Proof | ZKProof | JSON | ✅ |
-| scope.ZKProof.PubSignals | A list of public inputs was utilized in the generation of the Zero-Knowledge Proof (ZKProof). | list of strings | ✅ |
+| scope.proof | ZKProof | JSON | ✅ |
+| scope.pub_signals | A list of public inputs was utilized in the generation of the Zero-Knowledge Proof (ZKProof). | list of strings | ✅ |
 
 The `scope` field contains a list of zero-knowledge proofs and public inputs for authorization on a resource. More about scope contnet: https://github.com/iden3/go-circuits
 
@@ -31,7 +31,7 @@ The `scope` field contains a list of zero-knowledge proofs and public inputs for
         "scope": [
           {
             "id": 1,
-            "circuit_id": "credentialAtomicQueryMTPV2",
+            "circuitId": "credentialAtomicQueryMTPV2",
             "proof": {
               "pi_a": [
                 "9742806134969392226546322490560630802447930806537100408086160321763928272376",
