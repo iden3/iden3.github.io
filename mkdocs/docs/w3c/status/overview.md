@@ -29,7 +29,7 @@ Example of CS:
 
 ```json
 "credentialStatus": {
-	"id": "https://issuer.com/api/v1/identities/did%3Apolygonid%3Apolygon%3Amumbai%3A2qEjShhoHGFdi88ZPCXcApSesmGzk8aqqf3hymnyiW/claims/revocation/status/1016367164",
+	"id": "<issuer-agent-url>/api/v1/identities/did%3Apolygonid%3Apolygon%3Amumbai%3A2qEjShhoHGFdi88ZPCXcApSesmGzk8aqqf3hymnyiW/claims/revocation/status/1016367164",
 	"revocationNonce": 1016367164,
 	"type": "SparseMerkleTreeProof"
 }, 
@@ -105,7 +105,7 @@ Example of Сredential status:
 
 ```json
 "credentialStatus": {
-	"id": "https://issuer.com/api/v1/agent",
+	"id": "<issuer-agent-url>/api/v1/agent",
   "revocationNonce": 2234893355,
   "type": "Iden3commRevocationStatusV1.0"
 },

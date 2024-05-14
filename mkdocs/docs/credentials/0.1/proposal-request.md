@@ -45,11 +45,11 @@ Request for proposal is created by user and sent to issuer to receive instructio
         "credentials": [
           {
             "type": "LivenessProof",
-            "context": "http://test.com"
+            "context": "context_url"
           },
           {
             "type": "KYC",
-            "context": "http://test.com"
+            "context": "<context_url>"
           }
         ],
         "metadata": {

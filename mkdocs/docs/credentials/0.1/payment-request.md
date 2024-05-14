@@ -5,13 +5,13 @@ Request for payment from user.
 
 ```json
 {
-  "agent": "https://issuer.com",
+  "agent": "<issuer-agent-url>",
   "payments": [
     {
       "credentials": [
         {
           "type": "AML",
-          "context": "http://test.com"
+          "context": "<context-url>"
         }
       ],
       "type":"PaymentRequest",
@@ -56,13 +56,13 @@ Request for payment from user.
       "typ": "application/iden3comm-plain-json",
       "type": "https://iden3-communication.io/credentials/0.1/payment-request",
       "body": {
-         "agent": "https://issuer.com", 
+         "agent": "<issuer-agent-url>", 
          "payments": [
           {
              "credentials": [
               {
                "type": "AML",
-               "context": "http://test.com"
+               "context": "<context_url>"
               }
              ],
              "type":"PaymentRequest",

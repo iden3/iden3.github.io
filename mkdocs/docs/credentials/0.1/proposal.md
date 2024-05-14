@@ -10,15 +10,15 @@ Proposals message represents set of instructions how to obtain a Verifiable Cred
       "credentials": [
         {
           "type": "LivenessProof",
-          "context": "http://test.com"
+          "context": "<context_url>"
         },
         {
           "type": "KYC",
-          "context": "http://test.com"
+          "context": "<context_url>"
         }
       ],
       "type": "WebVerificationForm",
-      "url": "http://issuer-agent.com/verify?anyUniqueIdentifierOfSession=55",
+      "url": "http://<issuer-agent-url>/verify?anyUniqueIdentifierOfSession=55",
       "expiration": "timestamp",
       "description":"you can pass the verification on our KYC provider by following the next link",
     }
@@ -50,15 +50,15 @@ Proposals message represents set of instructions how to obtain a Verifiable Cred
            "credentials": [
                 {
                  "type": "LivenessProof",
-                 "context": "http://test.com"
+                 "context": "<context_url>"
                 },
                 {
                  "type": "KYC",
-                 "context": "http://test.com"
+                 "context": "<context_url>"
                 }
                ],
            "type": "WebVerificationForm",
-           "url": "http://issuer-agent.com/verify?anyUniqueIdentifierOfSession=55",
+           "url": "http://<issuer-agent-url>/verify?anyUniqueIdentifierOfSession=55",
            "expiration": "timestamp",
            "description":"you can pass the verification on our KYC provider by following the next link",
          }
