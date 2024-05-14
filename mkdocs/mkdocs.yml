@@ -1,4 +1,4 @@
-site_name: Iden3comm (powered by DIDComm)
+site_name: Iden3 documentation
 
 site_url: https://iden3.io/
 theme:
@@ -57,7 +57,7 @@ nav:
           - Proposal: "credentials/0.1/proposal.md"
     - Authorization:
         - Overview: "authorization/overview.md"
-        - Messages (1.0):
+        - Messages:
           - Request: "authorization/1.0/request.md"
           - Response: "authorization/1.0/response.md"
     - Proofs:
@@ -71,6 +71,10 @@ nav:
         - Messages (1.0):
           - Request status: "revocation/1.0/request-status.md"
           - Status: "revocation/1.0/status.md"
+    - Report Problem:
+        - Overview: "report-problem/overview.md"
+        - Messages:
+            - Report Problem: "report-problem/2.0/report-problem-message.md"
   - Standard Proposals:
       - JWZ: "proposals/jwz/overview.md"
 
