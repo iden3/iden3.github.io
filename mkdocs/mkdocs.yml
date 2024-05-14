@@ -42,7 +42,7 @@ nav:
   - Protocol:  
     - Credentials:
         - Overview: "credentials/overview.md"
-        - Messages:
+        - Messages (1.0):
           - Issuance Request: "credentials/1.0/issuance-request.md"
           - Issuance Response: "credentials/1.0/issuance-response.md"
           - Fetch Request: "credentials/1.0/fetch-request.md"
@@ -50,20 +50,25 @@ nav:
           - Status update: "credentials/1.0/status-update.md"
           - Refresh: "credentials/1.0/refresh.md"
           - Onchain-offer: "credentials/1.0/onchain-offer.md"
+        - Beta (0.1):
+          - Payment Request: "credentials/0.1/payment-request.md"
+          - Payment : "credentials/0.1/payment.md"
+          - Proposal Request: "credentials/0.1/proposal-request.md"
+          - Proposal: "credentials/0.1/proposal.md"
     - Authorization:
         - Overview: "authorization/overview.md"
-        - Messages:
+        - Messages (1.0):
           - Request: "authorization/1.0/request.md"
           - Response: "authorization/1.0/response.md"
     - Proofs:
         - Overview: "proofs/overview.md"
-        - Messages:
+        - Messages (1.0):
           - Contract invoke request: "proofs/1.0/contract-invoke-request.md"
           - Request: "proofs/1.0/request.md"
           - Response: "proofs/1.0/response.md"
     - Revocation:
         - Overview: "revocation/overview.md"
-        - Messages:
+        - Messages (1.0):
           - Request status: "revocation/1.0/request-status.md"
           - Status: "revocation/1.0/status.md"
   - Standard Proposals:
