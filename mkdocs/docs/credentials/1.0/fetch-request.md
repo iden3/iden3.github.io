@@ -20,7 +20,7 @@ Request for fetch an VC from an issuer.
       "id": "1924af5a-7d63-4850-addf-0177cdc34786",
       "thid": "1924af5a-7d63-4850-addf-0177cdc34786",
       "typ": "application/iden3comm-plain-json",
-      "type": "https://didcomm.org/credentials/1.0/fetch-request",
+      "type": "https://iden3-communication.io/credentials/1.0/fetch-request",
       "body": {
         "id": "af9293c5-3c91-40d7-b810-564ae693a578"
       },

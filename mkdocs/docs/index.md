@@ -6,7 +6,7 @@
 ---
 # Introduction
 
-The Iden3comm protocol defines the rules for communication between agents, wallets. It is built on the DIDComm messaging protocol.
+The Iden3comm protocol defines the rules for communication between agents, wallets. It is built on the `DIDComm messaging protocol.
 
 The Iden3comm protocol specification introduces protocols such as credential, revocation, auth, etc. Currently, Iden3comm does not support any existing DIDComm protocols, such as Discovery Features or Trust Ping. Therefore, there is no need to implement those specific DIDComm protocols. However, if the standard protocols/methods provided are insufficient, it is possible to extend the specification with custom protocols and methods to meet your requirements.
 

@@ -1,4 +1,4 @@
-site_name: Iden3 documentation
+site_name: Iden3comm (powered by DIDComm)
 
 site_url: https://iden3.io/
 theme:
@@ -66,10 +66,13 @@ nav:
         - Messages:
           - Request status: "revocation/1.0/request-status.md"
           - Status: "revocation/1.0/status.md"
+  - Standard Proposals:
+      - JWZ: "proposals/jwz/overview.md"
 
 plugins:
   - search
   - mermaid2
+copyright: powered by DIDComm
 
 extra:
   analytics:
