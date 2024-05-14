@@ -31,13 +31,12 @@ Request for payment from user.
 
 | Field                           | Description                                               | Type                                    | Required |
 |---------------------------------|-----------------------------------------------------------|-----------------------------------------|----------|
-| metadata                        | Type specific metadata regarding current proposal request | object                                  | ❌        |
-| did_doc                         | User did document                                         | JSON                                    | ❌        |
 | agent                           | Issuer URL to send payment response                       | string                                  | ✅ |
 | payments                        | List of  payment requests                                 | list                                    | ✅        |
 | payments[i].type                | Type of payment request                                   | list                                    | ✅        |
 | payments[i].credentials         | List of  credentials that user requests for               | list                                    | ✅        |
-| payments[i].credentials.type    | type of VC                                                | string                                  | ✅        |
+| payments[i].expiration          | expiration of payment                                     | list                                    | ✅        |
+| payments[i].description         | description of payment                                    | list                                    | ✅        |
 | payments[i].credentials.context | JSON-LD of VC                                             | string                                  | ✅        |
 | payments[i].data                | Payment request specific details                          | object                                  | ✅        |
 | payments[i].data.id             | Payment id                                                | string                                  | ✅        |
@@ -66,7 +65,7 @@ Request for payment from user.
               }
              ],
              "type":"PaymentRequest",
-             "data":{
+             "data": {
                  "type":"Iden3PaymentRequestCryptoV1",
                  "amount":10, 
                  "id": "ox",

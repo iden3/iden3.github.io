@@ -39,7 +39,7 @@ Payment response with details.
               {
                "id":"123",
                "type":"Iden3PaymentCryptoV1",
-                "paymentData":{ 
+                "paymentData": { 
                    "txId": "0x123"
                 }
              }
