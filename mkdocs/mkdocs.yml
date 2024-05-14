@@ -66,6 +66,10 @@ nav:
         - Messages:
           - Request status: "revocation/1.0/request-status.md"
           - Status: "revocation/1.0/status.md"
+    - Report Problem:
+        - Overview: "report-problem/overview.md"
+        - Messages:
+            - Report Problem: "report-problem/2.0/report-problem-message.md"
 
 plugins:
   - search

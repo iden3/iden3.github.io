@@ -46,6 +46,7 @@ For other platforms see: https://graphviz.org/download/
 pip3 install mkdocs-mermaid2-plugin
 pip3 install mkdocs-graphviz
 pip3 install mkdocs-video
+pip3 install mkdocs-material
 ```
 
 ### Clone the repository
