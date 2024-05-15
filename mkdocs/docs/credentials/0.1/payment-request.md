@@ -19,7 +19,7 @@ Request for payment from user.
         "type":"Iden3PaymentRequestCryptoV1",
         "amount":10,
         "id": "1", 
-        "chainID": "80002",
+        "chainId": "80002",
         "address": "123" 
       },
       "expiration": "timestamp", // expiration time of payment-request
@@ -69,7 +69,7 @@ Request for payment from user.
                  "type":"Iden3PaymentRequestCryptoV1",
                  "amount":10, 
                  "id": "ox",
-                 "chainID": "80002", 
+                 "chainId": "80002", 
                  "address": "0xpay1"
              },
             "expiration": "timestamp", // expiration time of payment-request
