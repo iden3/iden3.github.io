@@ -22,28 +22,28 @@ Request for payment from user.
         "chainId": "80002",
         "address": "123" 
       },
-      "expiration": "timestamp", // expiration time of payment-request
+      "expiration": <timestamp>, // expiration time of payment-request
       "description":"you can pass the verification on our KYC provider by following the next link",
     }
   ]
 }
 ```
 
-| Field                           | Description                                               | Type                                    | Required |
-|---------------------------------|-----------------------------------------------------------|-----------------------------------------|----------|
-| agent                           | Issuer URL to send payment response                       | string                                  | ✅ |
-| payments                        | List of  payment requests                                 | list                                    | ✅        |
-| payments[i].type                | Type of payment request                                   | list                                    | ✅        |
-| payments[i].credentials         | List of  credentials that user requests for               | list                                    | ✅        |
-| payments[i].expiration          | expiration of payment                                     | list                                    | ✅        |
-| payments[i].description         | description of payment                                    | list                                    | ✅        |
-| payments[i].credentials.context | JSON-LD of VC                                             | string                                  | ✅        |
-| payments[i].data                | Payment request specific details                          | object                                  | ✅        |
-| payments[i].data.id             | Payment id                                                | string                                  | ✅        |
-| payments[i].data.type           | Payment Type                                              | string                                  | ✅        |
-| payments[i].data.chainId        | Payment id                                                | string                                  | ✅        |
+| Field                           | Description                                               | Type    | Required |
+|---------------------------------|-----------------------------------------------------------|---------|----------|
+| agent                           | Issuer URL to send payment response                       | string  | ✅ |
+| payments                        | List of  payment requests                                 | list    | ✅        |
+| payments[i].type                | Type of payment request                                   | list    | ✅        |
+| payments[i].credentials         | List of  credentials that user requests for               | list    | ✅        |
+| payments[i].expiration          | expiration of payment                                     | integer | ✅        |
+| payments[i].description         | description of payment                                    | list    | ✅        |
+| payments[i].credentials.context | JSON-LD of VC                                             | string  | ✅        |
+| payments[i].data                | Payment request specific details                          | object  | ✅        |
+| payments[i].data.id             | Payment id                                                | string  | ✅        |
+| payments[i].data.type           | Payment Type                                              | string  | ✅        |
+| payments[i].data.chainId        | Payment id                                                | string  | ✅        |
 | payments[i].data.address        | smart-contract address or reciever address                | string  | ✅        |
-| payments[i].data.amount         | Payment amount                                            | integer                                 | ✅        |
+| payments[i].data.amount         | Payment amount                                            | integer | ✅        |
 
 
 - **Example of credential payment request:**
@@ -72,7 +72,7 @@ Request for payment from user.
                  "chainId": "80002", 
                  "address": "0xpay1"
              },
-            "expiration": "timestamp", // expiration time of payment-request
+            "expiration": <timestamp> // expiration time of payment-request
             "description":"you can pass the verification on our KYC provider by following the next link",
             }
           ]
