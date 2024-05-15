@@ -17,7 +17,7 @@ Request for payment from user.
       "type":"PaymentRequest",
       "data":{
         "type":"Iden3PaymentRequestCryptoV1",
-        "amount":10,
+        "amount": "10",
         "id": "1", 
         "chainId": "80002",
         "address": "123" 
@@ -33,17 +33,17 @@ Request for payment from user.
 |---------------------------------|-----------------------------------------------------------|---------|----------|
 | agent                           | Issuer URL to send payment response                       | string  | ✅ |
 | payments                        | List of  payment requests                                 | list    | ✅        |
-| payments[i].type                | Type of payment request                                   | list    | ✅        |
+| payments[i].type                | Type of payment request                                   | string  | ✅        |
 | payments[i].credentials         | List of  credentials that user requests for               | list    | ✅        |
 | payments[i].expiration          | expiration of payment                                     | integer | ✅        |
-| payments[i].description         | description of payment                                    | list    | ✅        |
+| payments[i].description         | description of payment                                    | string  | ✅        |
 | payments[i].credentials.context | JSON-LD of VC                                             | string  | ✅        |
 | payments[i].data                | Payment request specific details                          | object  | ✅        |
 | payments[i].data.id             | Payment id                                                | string  | ✅        |
 | payments[i].data.type           | Payment Type                                              | string  | ✅        |
 | payments[i].data.chainId        | Payment id                                                | string  | ✅        |
 | payments[i].data.address        | smart-contract address or reciever address                | string  | ✅        |
-| payments[i].data.amount         | Payment amount                                            | integer | ✅        |
+| payments[i].data.amount         | Payment amount                                            | string  | ✅        |
 
 
 - **Example of credential payment request:**
@@ -67,7 +67,7 @@ Request for payment from user.
              "type":"PaymentRequest",
              "data": {
                  "type":"Iden3PaymentRequestCryptoV1",
-                 "amount":10, 
+                 "amount":"10", 
                  "id": "ox",
                  "chainId": "80002", 
                  "address": "0xpay1"
