@@ -9,18 +9,21 @@ The offer message comprises information regarding the available verifiable crede
 	"credentials": [
 		{
 			"id": "<vc_uuid>",
-			"description": "<vc_description>"
+			"description": "<vc_description>",
+            "status": "pending | completed | rejected"
 		}
 	]
 }
 ```
 
-| Field | Description | Type | Required |
-| --- | --- | --- | --- |
-| url | Issuer URL for fetch credential | string | ✅ |
-| credentials | List of available credentials on issuer for fetch | list | ✅ |
-| credentials.id | ID of VC | string | ✅ |
-| credentials.description | Additional description of VC | string | ❌ |
+| Field                   | Description                                                              | Type | Required |
+|-------------------------|--------------------------------------------------------------------------| --- | --- |
+| url                     | Issuer URL for fetch credential                                          | string | ✅ |
+| credentials             | List of available credentials on issuer for fetch                        | list | ✅ |
+| credentials.id          | ID of VC                                                                 | string | ✅ |
+| credentials.description | Additional description of VC                                             | string | ❌ |
+| credentials.status      | Status of the offer for VC. If omitted should be considered as completed | string | ❌ |
+
 
 - **Example of credential offer:**
     
