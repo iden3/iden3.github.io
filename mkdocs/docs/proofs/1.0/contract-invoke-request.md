@@ -56,7 +56,7 @@ This request allow users to verify zk proof on chain.
         ],
     		"transaction_data": {
     			"contract_address": "0xe826f870852d7eeeb79b2c030298f9b5daa8c8a3",
-    			"method_id":"0xb68967e2",
+    			"method_id":"b68967e2",
     			"chain_id": 80001,
     			"network": "polygon-mumbai"
     		}
