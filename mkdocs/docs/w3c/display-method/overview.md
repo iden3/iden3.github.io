@@ -12,7 +12,7 @@ In protocol level, the display method is integrated into the W3C verifiable cred
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/core/jsonld/displayMethod.jsonld"
+    "https://schema.iden3.io/core/jsonld/displayMethod.jsonld"
     ...
   ],
   ...
