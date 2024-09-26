@@ -6,7 +6,6 @@ This request allow users to verify zk proof on chain.
 ```json
 {
 	"reason": "<reason_for_the_request>",
-	"message": "<authorization_request_payload>",
 	"did_doc": "<did_doc>",
 	"scope": "[<list_of_asked_information_from_user>]",
 	"transaction_data": "{<information_about_smart_contract>}"
@@ -16,7 +15,6 @@ This request allow users to verify zk proof on chain.
 | Field | Description | Type | Required |
 | --- | --- | --- | --- |
 | reason | Reason for the request | string | ❌ |
-| message | Message payload | string | ❌ |
 | did_doc | Resource did doc | JSON | ❌ |
 | scope.id | Unique request id | uint64 | ✅ |
 | scope.circuitId | Information that circuit should use user for generating zk proof | string | ✅ |
