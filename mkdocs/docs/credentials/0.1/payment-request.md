@@ -76,7 +76,8 @@ Type field specification:
 
 
 For now only support proof type is [EIP 712 signature suite](https://w3c-ccg.github.io/ethereum-eip712-signature-2021-spec/). <br />
-EIP712 domains are defined [here](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentRailsRequestV1.json), where `verifyingContract` is address of contract that accepts payments, name is `MCPayment` and version is ` 1.0.0`.
+EIP712 domains are defined [here](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentRailsRequestV1.json), where `verifyingContract` is address of contract that accepts payments, name is `MCPayment` and version is ` 1.0.0`.  <br />
+
 ```json{
   "EIP712Domain": [
     {
@@ -125,7 +126,7 @@ EIP712 domains are defined [here](https://github.com/iden3/claim-schema-vocab/bl
 
 - **Example of credential payment request with Iden3PaymentRequestCryptoV1 payment data type:**
 
-    ```json
+```json
     {
       "id": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
       "thid": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
@@ -157,8 +158,7 @@ EIP712 domains are defined [here](https://github.com/iden3/claim-schema-vocab/bl
       "to": "did:polygonid:polygon:mumbai:2qJUZDSCFtpR8QvHyBC4eFm6ab9sJo5rqPbcaeyGC4",
       "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2"
     }
-
-    ```
+```
 
 - **Example of credential payment request with Iden3PaymentRailsRequestV1 payment data type:**
 
