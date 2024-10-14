@@ -47,32 +47,32 @@ Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/pa
 _Iden3PaymentRequestCryptoV1_ is a simple representation of payment request for only one chain.
 Type field specification: 
 
-| Field          | Description                                | Type                          | Required                               |
-|----------------|--------------------------------------------|-------------------------------|----------------------------------------|
-| id             | Payment id                                 | string                        | ✅                                      |
-| type           | Payment Type                               | string                        | ✅                                      |
-| @context       | context for ld type                        | string                        | ❌ (historical backward compatibility)  |
-| chainId        | Payment id                                 | string                        | ✅                                      |
-| address        | smart-contract address that collects funds | string                        | ✅                                      |
-| amount         | Payment amount                             | string                        | ✅                                      |
-| currency       | chosen currency                            | string (non negative integer) | ✅                                      |
-| expirationDate | expiration of specific payment request     | string (unix timestamp)       | ❌ (historical backward compatibility)  |
+| Field          | Description                                | Type                           | Required                               |
+|----------------|--------------------------------------------|--------------------------------|----------------------------------------|
+| id             | Payment id                                 | string                         | ✅                                      |
+| type           | Payment Type                               | "Iden3PaymentRequestCryptoV1"  | ✅                                      |
+| @context       | context for ld type                        | string                         | ❌ (historical backward compatibility)  |
+| chainId        | Payment id                                 | string                         | ✅                                      |
+| address        | smart-contract address that collects funds | string                         | ✅                                      |
+| amount         | Payment amount                             | string                         | ✅                                      |
+| currency       | chosen currency                            | string (non negative integer)  | ✅                                      |
+| expirationDate | expiration of specific payment request     | string (unix timestamp)        | ❌ (historical backward compatibility)  |
 
 
 _Iden3PaymentRailsRequestV1_ is a representation of payment data that can be used for setting request to multiple chains.
 Type field specification:
 
-| Field          | Description                            | Type                            | Required |
-|----------------|----------------------------------------|---------------------------------|----------|
-| nonce          | Payment unique nonce for the issuer    | string  (non negative integer)  | ✅        |
-| type           | Payment Type                           | string                          | ✅        |
-| @context       | context for ld type                    | string                          | ✅        |
-| recipient      | withdrawal address of the issuer       | string                          | ✅        |
-| amount         | Payment amount                         | string (non negative integer)   | ✅        |
-| expirationDate | expiration of specific payment request | string (unix timestamp)         | ✅        |
-| proof          | w3c security proof                     | object[] or object              | ✅        |
-| metadata       | any additional request metadata        | string (hex)                    | ✅        |
-| currency       | chosen currency                        | string (ETHWEI / ETH / ETHGWEI) | ✅        |
+| Field          | Description                            | Type                              | Required |
+|----------------|----------------------------------------|-----------------------------------|----------|
+| nonce          | Payment unique nonce for the issuer    | string  (non negative integer)    | ✅        |
+| type           | Payment Type                           | "Iden3PaymentRailsRequestV1"      | ✅        |
+| @context       | context for ld type                    | string                            | ✅        |
+| recipient      | withdrawal address of the issuer       | string                            | ✅        |
+| amount         | Payment amount                         | string (non negative integer)     | ✅        |
+| expirationDate | expiration of specific payment request | string (unix timestamp)           | ✅        |
+| proof          | w3c security proof                     | object[] or object                | ✅        |
+| metadata       | any additional request metadata        | string (hex)                      | ✅        |
+| currency       | chosen currency                        | string (ETHWEI / ETH / ETHGWEI)   | ✅        |
 
 
 For now only support proof type is [EIP 712 signature suite](https://w3c-ccg.github.io/ethereum-eip712-signature-2021-spec/). <br />
