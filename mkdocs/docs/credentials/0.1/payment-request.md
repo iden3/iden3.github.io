@@ -28,7 +28,7 @@ General request format for payment from user.
 Payment Request itself defines fields: _agent_, _payments_,   _description_, _type_, _credentials_ and _data_. </br>
 Payment Data itself is also typed. 
 The possible types for data are: _Iden3PaymentRequestCryptoV1_ and _Iden3PaymentRailsRequestV1_; </br>
-Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/payment.jsonld]( **https://schema.iden3.io/core/jsonld/payment.jsonld)
+Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/payment.jsonld](https://schema.iden3.io/core/jsonld/payment.jsonld)
 
 
 

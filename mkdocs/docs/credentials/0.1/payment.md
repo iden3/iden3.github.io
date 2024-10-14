@@ -18,7 +18,7 @@ General payment message from user.
 Payment message itself defines fields: _payments_ </br>
 Payment object itself is also typed.
 The possible types for payment object are: _Iden3PaymentCryptoV1_ and _Iden3PaymentRailsV1_; </br>
-Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/payment.jsonld]( **https://schema.iden3.io/core/jsonld/payment.jsonld)
+Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/payment.jsonld](https://schema.iden3.io/core/jsonld/payment.jsonld)
 
 
 
