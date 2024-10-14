@@ -92,8 +92,8 @@ Type field specification:
       "body": {
          "payments": [
               {
-               "id":"123",
-               "type":"Iden3PaymentRailsRequestV1",
+               "nonce":"123",
+               "type":"Iden3PaymentRailsV1",
                "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
                 "paymentData": { 
                    "txId": "0x123",
