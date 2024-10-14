@@ -81,7 +81,7 @@ Type field specification:
 
 
 
-- **Example of credential payment response with Iden3PaymentCryptoV1 payment type:**
+- **Example of credential payment response with Iden3PaymentRailsV1 payment type:**
 
     ```json
     {
