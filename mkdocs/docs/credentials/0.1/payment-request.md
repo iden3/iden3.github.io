@@ -15,6 +15,7 @@ General request format for payment from user.
         }
       ],
       "data":[{
+        "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
         "type":"Iden3PaymentRequestCryptoV1 | Iden3PaymentRailsRequestV1",
         ...
       }],
@@ -24,9 +25,8 @@ General request format for payment from user.
 }
 ```
 
-Payment Request itself defines fields: _description_, _type_, _credentials_ and _data_. </br>
-_PaymentRequest_ is a type that represents current structure of payment object. </br>
-Data itself is also typed. 
+Payment Request itself defines fields: _agent_, _payments_,   _description_, _type_, _credentials_ and _data_. </br>
+Payment Data itself is also typed. 
 The possible types for data are: _Iden3PaymentRequestCryptoV1_ and _Iden3PaymentRailsRequestV1_; </br>
 Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/payment.jsonld]( **https://schema.iden3.io/core/jsonld/payment.jsonld)
 
@@ -47,15 +47,16 @@ Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/pa
 _Iden3PaymentRequestCryptoV1_ is a simple representation of payment request for only one chain.
 Type field specification: 
 
-| Field          | Description                                | Type                          | Required |
-|----------------|--------------------------------------------|-------------------------------|----------|
-| id             | Payment id                                 | string                        | ✅        |
-| type           | Payment Type                               | string                        | ✅        |
-| chainId        | Payment id                                 | string                        | ✅        |
-| address        | smart-contract address that collects funds | string                        | ✅        |
-| amount         | Payment amount                             | string                        | ✅        |
-| currency       | chosen currency                            | string (non negative integer) | ✅        |
-| expirationDate | expiration of specific payment request     | string (unix timestamp)       | ❌        |
+| Field          | Description                                | Type                          | Required                               |
+|----------------|--------------------------------------------|-------------------------------|----------------------------------------|
+| id             | Payment id                                 | string                        | ✅                                      |
+| type           | Payment Type                               | string                        | ✅                                      |
+| @context       | context for ld type                        | string                        | ❌ (historical backward compatibility)  |
+| chainId        | Payment id                                 | string                        | ✅                                      |
+| address        | smart-contract address that collects funds | string                        | ✅                                      |
+| amount         | Payment amount                             | string                        | ✅                                      |
+| currency       | chosen currency                            | string (non negative integer) | ✅                                      |
+| expirationDate | expiration of specific payment request     | string (unix timestamp)       | ❌ (historical backward compatibility)  |
 
 
 _Iden3PaymentRailsRequestV1_ is a representation of payment data that can be used for setting request to multiple chains.
@@ -65,6 +66,7 @@ Type field specification:
 |----------------|----------------------------------------|---------------------------------|----------|
 | nonce          | Payment unique nonce for the issuer    | string  (non negative integer)  | ✅        |
 | type           | Payment Type                           | string                          | ✅        |
+| @context       | context for ld type                    | string                          | ✅        |
 | recipient      | withdrawal address of the issuer       | string                          | ✅        |
 | amount         | Payment amount                         | string (non negative integer)   | ✅        |
 | expirationDate | expiration of specific payment request | string (unix timestamp)         | ✅        |
