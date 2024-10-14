@@ -24,7 +24,7 @@ jobs:
 
       # Installs mkdocs
       - name: install mkdocs
-        run: pip install mkdocs
+        run: pip install mkdocs --break-system-packages
 
       # Installs material theme
       - name: install material theme
