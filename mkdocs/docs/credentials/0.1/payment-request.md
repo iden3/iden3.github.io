@@ -78,53 +78,54 @@ Type field specification:
 For now only support proof type is [EIP 712 signature suite](https://w3c-ccg.github.io/ethereum-eip712-signature-2021-spec/). <br />
 EIP712 domains are defined [here](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentRailsRequestV1.json), where `verifyingContract` is address of contract that accepts payments, name is `MCPayment` and version is ` 1.0.0`.  <br />
 
-```json{
-  "EIP712Domain": [
+```json
     {
-      "name": "name",
-      "type": "string"
-    },
-    {
-      "name": "version",
-      "type": "string"
-    },
-    {
-      "name": "chainId",
-      "type": "uint256"
-    },
-    {
-      "name":  "verifyingContract",
-      "type:": "address"
+      "EIP712Domain": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "type": "string"
+        },
+        {
+          "name": "chainId",
+          "type": "uint256"
+        },
+        {
+          "name":  "verifyingContract",
+          "type:": "address"
+        }
+      ],
+      "Iden3PaymentRailsRequestV1": [
+        {
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "expirationDate",
+          "type": "uint256"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "name": "metadata",
+          "type": "bytes"
+        }
+      ]
     }
-  ],
-  "Iden3PaymentRailsRequestV1": [
-    {
-      "name": "recipient",
-      "type": "address"
-    },
-    {
-      "name": "amount",
-      "type": "uint256"
-    },
-    {
-      "name": "expirationDate",
-      "type": "uint256"
-    },
-    {
-      "name": "nonce",
-      "type": "uint256"
-    },
-    {
-      "name": "metadata",
-      "type": "bytes"
-    }
-  ]
-}
 ```
 
 
 
-- **Example of credential payment request with Iden3PaymentRequestCryptoV1 payment data type:**
+- **    Example of credential payment request with Iden3PaymentRequestCryptoV1 payment data type:**
 
 ```json
     {
