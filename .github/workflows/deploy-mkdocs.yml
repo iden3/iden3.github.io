@@ -28,7 +28,7 @@ jobs:
 
       # Installs material theme
       - name: install material theme
-        run: pip install mkdocs-material
+        run: pip install mkdocs-material --break-system-packages
 
       # Installs material mermaid2 plugin
       - name: install mermaid2 plugin
