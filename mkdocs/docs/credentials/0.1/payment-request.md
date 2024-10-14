@@ -223,7 +223,7 @@ EIP712 domains are defined [here](https://github.com/iden3/claim-schema-vocab/bl
 ```
 
 
-- **Example of credential payment request with mutliple Iden3PaymentRequestCryptoV1 payment data type:**
+- **Example of credential payment request with multiple Iden3PaymentRailsRequestV1 payment data type:**
 
 ```json
 {
