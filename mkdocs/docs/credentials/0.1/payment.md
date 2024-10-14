@@ -32,12 +32,12 @@ Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/pa
 _Iden3PaymentCryptoV1_ is a simple representation of payment request for only one chain.
 Type field specification:
 
-| Field            | Description          | Type      | Required |
-|------------------|----------------------|-----------|----------|
-| id               | Payment id           | string    | ✅        |
-| @context         | type  ld context url | object    | ✅        |
-| paymentData      | Payment Type         | object    | ✅        |
-| paymentData.txId | Transaction hash     | string    | ✅        |
+| Field            | Description          | Type   | Required                              |
+|------------------|----------------------|--------|---------------------------------------|
+| id               | Payment id           | string | ✅                                     |
+| @context         | type  ld context url | string | ❌ (historical backward compatibility) |
+| paymentData      | Payment Type         | object | ✅                                     |
+| paymentData.txId | Transaction hash     | string | ✅                                     |
 
 
 _Iden3PaymentRailsRequestV1_ is a representation of payment data that can be used for setting request to multiple chains.
@@ -46,7 +46,7 @@ Type field specification:
 | Field               | Description                             | Type                           | Required |
 |---------------------|-----------------------------------------|--------------------------------|----------|
 | nonce               | Payment unique nonce                    | string  (non negative integer) | ✅        |
-| @context            | type  ld context url                    | object                         | ✅        |
+| @context            | type  ld context url                    | string                         | ✅        |
 | paymentData         | Payment Type                            | object                         | ✅        |
 | paymentData.txId    | Transaction hash                        | string                         | ✅        |
 | paymentData.chainId | chain id in which payment has been done | string                         | ✅        |
