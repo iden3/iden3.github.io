@@ -18,7 +18,7 @@ Proposals message represents set of instructions how to obtain a Verifiable Cred
         }
       ],
       "type": "WebVerificationForm",
-      "url": "http://<issuer-agent-url>/verify?anyUniqueIdentifierOfSession=55",
+      "url": "https://<issuer-agent-url>/verify?anyUniqueIdentifierOfSession=55",
       "expiration": "timestamp",
       "description":"you can pass the verification on our KYC provider by following the next link",
     }
@@ -26,14 +26,16 @@ Proposals message represents set of instructions how to obtain a Verifiable Cred
 }
 ```
 
-| Field                    | Description                                   | Type   | Required |
-|--------------------------|-----------------------------------------------|--------| --- |
-| url                      | Issuer URL for fetch credential               | string | ✅ |
-| proposals                | List of  proposals that issuer offers to user | list   | ✅        |
-| proposals[i].credentials | List of  credentials that user requests for   | list   | ✅        |
-| proposals[i]credentials.type        | type of VC                                    | string | ✅        |
-| proposals[i]credentials.context     | JSON-LD of VC                                 | string | ✅        |
-| proposals[i].type | type of proposal object                       | string | ✅        |
+| Field                      | Description                                   | Type   | Required |
+|----------------------------|-----------------------------------------------|--------|----------|
+| proposals                  | List of proposals that issuer offers to user   | list   |    ✅    |
+| proposals[i].url           | URL to HTML verification form                  | string |    ✅    |
+| proposals[i].credentials   | List of credentials that user requests for     | list   |    ✅    |
+| proposals[i].credentials[j].type   | Type of VC                                   | string |    ✅    |
+| proposals[i].credentials[j].context| JSON-LD of VC                                | string |    ✅    |
+| proposals[i].type          | Type of proposal object                        | string |    ✅    |
+| proposals[i].expiration    | Expiration timestamp                          | timestamp as string | ❌ |	
+| proposals[i].description   | Description of the proposal                    | string | ❌ |	
 
 
 - **Example of credential proposal:**
@@ -58,7 +60,7 @@ Proposals message represents set of instructions how to obtain a Verifiable Cred
                 }
                ],
            "type": "WebVerificationForm",
-           "url": "http://<issuer-agent-url>/verify?anyUniqueIdentifierOfSession=55",
+           "url": "https://<issuer-agent-url>/verify?anyUniqueIdentifierOfSession=55",
            "expiration": "timestamp",
            "description":"you can pass the verification on our KYC provider by following the next link",
          }

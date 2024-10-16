@@ -4,34 +4,33 @@ type: `/credentials/0.1/proposal-request`
 Request for proposal is created by user and sent to issuer to receive instructions how to obtain a Verifiable Credential of certain type
 ```json
 {
-	"url": "<issuer_url>",
-	"credentials": [
-		{
-			"type": "<vc_type>",
-			"context": "<vc_ld_context>"
-		}
-	],
-    "metadata": {
-      "type": "TransactionInfo",
-      "data": "json1"
-    },
-    "did_doc": {
-      "@context": [
-        "..."
-      ],
-     "id": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2",
-     "services": []
+  "credentials": [
+    {
+      "type": "<vc_type>",
+      "context": "<vc_ld_context>"
     }
+  ],
+  "metadata": {
+    "type": "TransactionInfo",
+    "data": "json1"
+  },
+  "did_doc": {
+    "@context": [
+      "..."
+    ],
+    "id": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2",
+    "services": []
+  }
 }
 ```
 
-| Field               | Description                                               | Type   | Required |
-|---------------------|-----------------------------------------------------------|--------|----------|
-| metadata            | Type specific metadata regarding current proposal request | object | ❌        |
-| did_doc             | User did document                                         | JSON   | ❌        |
-| credentials         | List of  credentials that user requests for               | list   | ✅        |
-| credentials.type    | type of VC                                                | string | ✅        |
-| credentials.context | JSON-LD of VC                                             | string | ✅        |
+| Field                  | Description                                               | Type   | Required  |
+|------------------------|-----------------------------------------------------------|--------|-----------|
+| metadata               | Type specific metadata regarding current proposal request | object | ❌        |
+| did_doc                | User did document                                         | JSON   | ❌        |
+| credentials            | List of  credentials that user requests for               | list   | ✅        |
+| credentials[i].type    | type of VC                                                | string | ✅        |
+| credentials[i].context | JSON-LD of VC                                             | string | ✅        |
 
 - **Example of credential proposal request:**
 
