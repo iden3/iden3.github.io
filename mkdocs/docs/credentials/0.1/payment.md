@@ -8,7 +8,7 @@ General payment message from user.
   "payments": [
     {
       "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
-      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1",
+      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1 | Iden3PaymentRailsERC20V1",
       ...
     }
   ]
@@ -29,7 +29,7 @@ Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/pa
 
 
 
-_Iden3PaymentCryptoV1_ is a simple representation of payment request for only one chain.
+_Iden3PaymentCryptoV1_ is a simple representation of payment response for only one chain.
 Type field specification:
 
 | Field            | Description          | Type                   | Required                               |
@@ -41,13 +41,13 @@ Type field specification:
 | paymentData.txId | Transaction hash     | string                 | ✅                                      |
 
 
-_Iden3PaymentRailsRequestV1_ is a representation of payment data that can be used for setting request to multiple chains.
+_Iden3PaymentRailsV1_ is a representation of payment data that is result of sending native payment.
 Type field specification:
 
 | Field               | Description                             | Type                           | Required |
 |---------------------|-----------------------------------------|--------------------------------|----------|
 | nonce               | Payment unique nonce                    | string  (non negative integer) | ✅        |
-| type                | Payment Type                            | "Iden3PaymentRailsRequestV1"   | ✅        |
+| type                | Payment Type                            | "Iden3PaymentRailsV1"          | ✅        |
 | @context            | type  ld context url                    | string                         | ✅        |
 | paymentData         | Payment Type                            | object                         | ✅        |
 | paymentData.txId    | Transaction hash                        | string                         | ✅        |
@@ -55,8 +55,24 @@ Type field specification:
 
 
 
-- **Example of credential payment response with Iden3PaymentCryptoV1 payment type:**
+_Iden3PaymentRailsERC20V1_ is a representation of payment data that is result of sending payment using erc20 token.
+Type field specification:
 
+| Field                    | Description                             | Type                           | Required |
+|--------------------------|-----------------------------------------|--------------------------------|----------|
+| nonce                    | Payment unique nonce                    | string  (non negative integer) | ✅        |
+| type                     | Payment Type                            | "Iden3PaymentRailsERC20V1"     | ✅        |
+| @context                 | type  ld context url                    | string                         | ✅        |
+| paymentData              | Payment Type                            | object                         | ✅        |
+| paymentData.txId         | Transaction hash                        | string                         | ✅        |
+| paymentData.chainId      | chain id in which payment has been done | string                         | ✅        |
+| paymentData.tokenAddress | address of token contract               | string                         | ✅        |
+
+
+
+**Examples of credential payment responses different payment types:**
+
+??? crypto
     ```json
     {
       "id": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
@@ -82,8 +98,7 @@ Type field specification:
     ```
 
 
-
-- **Example of credential payment response with Iden3PaymentRailsV1 payment type:**
+??? native
 
     ```json
     {
@@ -100,6 +115,34 @@ Type field specification:
                 "paymentData": { 
                    "txId": "0x123",
                    "chainId": "123"
+                }
+             }
+          ]
+      },
+      "to": "did:polygonid:polygon:mumbai:2qJUZDSCFtpR8QvHyBC4eFm6ab9sJo5rqPbcaeyGC4",
+      "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2"
+    }
+
+    ```
+
+??? erc20
+
+    ```json
+    {
+      "id": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
+      "thid": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
+      "typ": "application/iden3comm-plain-json",
+      "type": "https://iden3-communication.io/credentials/0.1/payment",
+      "body": {
+         "payments": [
+              {
+               "nonce":"123",
+               "type":"Iden3PaymentRailsERC20V1",
+               "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
+                "paymentData": { 
+                   "txId": "0x123",
+                   "chainId": "123",
+                   "tokenAddress": "0x123" 
                 }
              }
           ]
