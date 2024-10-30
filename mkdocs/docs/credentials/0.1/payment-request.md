@@ -126,7 +126,7 @@ EIP712 domains are defined [here](https://github.com/iden3/claim-schema-vocab/bl
 
 _Iden3PaymentRailsERC20RequestV1_ is a representation of payment data that can be used for setting request to multiple chains to pay only in ERC20 tokens.
 It has the same ideology with _Iden3PaymentRailsRequestV1_, but also it defines two additional fields: `tokenAddress` and `features`.
-Token address can be the address of any ERC20 token. Current recommended flow for client is to call function 'approve' on token contract and then _payERC20_ on payment contract, so it will send funds to recipient address. Features field can contain a list of EIPs that contract support. Now, on the client level we only supported feature is Permit [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612). In this case iw will be two calls to signer client but only one transaction to invoke the `payERC20Permit` function. 
+Token address can be the address of any ERC20 token. Current recommended flow for client is to call function 'approve' on token contract and then _payERC20_ on payment contract, so it will send funds to recipient address. Features field can contain a list of EIPs that contract support. Now, on the client level only supported feature is Permit [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612). In this case iw will be two calls to signer client but only one transaction to invoke the `payERC20Permit` function. 
 
 Type field specification:
 
@@ -168,7 +168,7 @@ EIP712 domains for proof creation are defined [here](https://github.com/iden3/cl
               "type:": "address"
             }
           ],
-          "Iden3PaymentRailsRequestV1": [ 
+          "Iden3PaymentRailsRequestERC20V1": [ 
             {
               "name": "tokenAddress",
               "type": "address"
