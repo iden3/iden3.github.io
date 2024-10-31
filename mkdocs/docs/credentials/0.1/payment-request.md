@@ -133,7 +133,7 @@ Type field specification:
 | Field          | Description                                                          | Type                            | Required |
 |----------------|----------------------------------------------------------------------|---------------------------------|----------|
 | nonce          | Payment unique nonce for the issuer                                  | string  (non negative integer)  | ✅        |
-| type           | Payment Type                                                         | "Iden3PaymentRailsRequestV1"    | ✅        |
+| type           | Payment Type                                                         | "Iden3PaymentRailsERC20RequestV1"    | ✅        |
 | @context       | context for ld type                                                  | string                          | ✅        |
 | recipient      | withdrawal address of the issuer                                     | string                          | ✅        |
 | tokenAddress   | address of the token contract                                        | string                          | ✅        |
