@@ -52,7 +52,7 @@ Type field specification:
 | id             | Payment id                                 | string                         | ✅                                      |
 | type           | Payment Type                               | "Iden3PaymentRequestCryptoV1"  | ✅                                      |
 | @context       | context for ld type                        | string                         | ❌ (historical backward compatibility)  |
-| chainId        | Payment id                                 | string                         | ✅                                      |
+| chainId        | chain id                                   | string                         | ✅                                      |
 | address        | smart-contract address that collects funds | string                         | ✅                                      |
 | amount         | Payment amount                             | string                         | ✅                                      |
 | currency       | chosen currency                            | string (non negative integer)  | ✅                                      |
