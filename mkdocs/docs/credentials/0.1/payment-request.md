@@ -56,7 +56,7 @@ Type field specification:
 | address        | smart-contract address that collects funds | string                         | ✅                                      |
 | amount         | Payment amount                             | string                         | ✅                                      |
 | currency       | chosen currency                            | string (non negative integer)  | ✅                                      |
-| expirationDate | expiration of specific payment request     | string (unix timestamp)        | ❌ (historical backward compatibility)  |
+| expirationDate | expiration of specific payment request     | string (ISO format)            | ❌ (historical backward compatibility)  |
 
 
 _Iden3PaymentRailsRequestV1_ is a representation of payment data that can be used for setting request to multiple chains to pay only in native currency.
@@ -69,7 +69,7 @@ Type field specification:
 | @context       | context for ld type                    | string                            | ✅        |
 | recipient      | withdrawal address of the issuer       | string                            | ✅        |
 | amount         | Payment amount                         | string (non negative integer)     | ✅        |
-| expirationDate | expiration of specific payment request | string (unix timestamp)           | ✅        |
+| expirationDate | expiration of specific payment request | string (ISO format)               | ✅        |
 | proof          | w3c security proof                     | object[] or object                | ✅        |
 | metadata       | any additional request metadata        | string (hex)                      | ✅        |
 | currency       | chosen currency                        | string (ETHWEI / ETH / ETHGWEI)   | ✅        |
@@ -139,7 +139,7 @@ Type field specification:
 | tokenAddress   | address of the token contract                                        | string                          | ✅        |
 | features       | list of features supported by token contract( now only ["EIP-2612"]) | string[]                        | ❌        |
 | amount         | Payment amount                                                       | string (non negative integer)   | ✅        |
-| expirationDate | expiration of specific payment request                               | string (unix timestamp)         | ✅        |
+| expirationDate | expiration of specific payment request                               | string (ISO format)            | ✅        |
 | proof          | w3c security proof                                                   | object[] or object              | ✅        |
 | metadata       | any additional request metadata                                      | string (hex)                    | ✅        |
 | currency       | chosen currency                                                      | string (ETHWEI / ETH / ETHGWEI) | ✅        |
