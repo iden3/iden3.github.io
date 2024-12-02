@@ -139,7 +139,7 @@ Type field specification:
 | tokenAddress   | address of the token contract                                        | string                          | ✅        |
 | features       | list of features supported by token contract( now only ["EIP-2612"]) | string[]                        | ❌        |
 | amount         | Payment amount                                                       | string (non negative integer)   | ✅        |
-| expirationDate | expiration of specific payment request                               | string (ISO format)            | ✅        |
+| expirationDate | expiration of specific payment request                               | string (ISO format)             | ✅        |
 | proof          | w3c security proof                                                   | object[] or object              | ✅        |
 | metadata       | any additional request metadata                                      | string (hex)                    | ✅        |
 | currency       | chosen currency                                                      | string (ETHWEI / ETH / ETHGWEI) | ✅        |
