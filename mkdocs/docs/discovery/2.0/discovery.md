@@ -43,7 +43,7 @@ Example of response
 
 ```json
 {
-     "id": "6f269888-0f93-4012-9f9d-e1da9896f262",
+    "id": "6f269888-0f93-4012-9f9d-e1da9896f262",
     "thid": "6f269888-0f93-4012-9f9d-e1da9896f261",
     "type": "https://didcomm.org/discover-features/2.0/disclose",
     "body":{
