@@ -39,7 +39,8 @@ nav:
     - Proofs:
         - BJJSignature2021: "w3c/proofs/bjj.md"
         - Iden3SparseMerkleTreeProof: "w3c/proofs/smt.md"
-  - Protocol:  
+  - Protocol:
+    - Media-types: "media-types/overview.md"
     - Credentials:
         - Overview: "credentials/overview.md"
         - Messages (1.0):
@@ -75,6 +76,10 @@ nav:
         - Overview: "report-problem/overview.md"
         - Messages:
             - Report Problem: "report-problem/2.0/report-problem-message.md"
+    - Discovery:
+        - Overview: "discovery/overview.md"
+        - Messages:
+            - Discovery Queries: "discovery/2.0/discovery.md"
   - Standard Proposals:
       - JWZ: "proposals/jwz/overview.md"
 
