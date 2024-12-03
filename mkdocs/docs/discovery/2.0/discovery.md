@@ -7,7 +7,7 @@ Message to discover supproted features by agent. This message follows the DIDCom
 ```json
 {
   "type": "https://didcomm.org/discover-features/2.0/queries",
-  "id": "yWd8wfYzhmuXX3hmLNaV5bVbAjbWaU",
+  "id": "6f269888-0f93-4012-9f9d-e1da9896f261",
   "body": {
     "queries": [
       { "feature-type": "accept" }
@@ -43,8 +43,9 @@ Example of response
 
 ```json
 {
+     "id": "6f269888-0f93-4012-9f9d-e1da9896f262",
+    "thid": "6f269888-0f93-4012-9f9d-e1da9896f261",
     "type": "https://didcomm.org/discover-features/2.0/disclose",
-    "thid": "yWd8wfYzhmuXX3hmLNaV5bVbAjbWaU",
     "body":{
         "disclosures": [
             {
