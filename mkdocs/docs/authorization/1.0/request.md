@@ -9,36 +9,38 @@ A resource initiates a request to a user. The user is required to generate a zer
 	"reason": "<reason_for_the_request>",
 	"message": "<authorization_request_payload>",
 	"did_doc": "<did_doc>",
-	"scope": "[<list_of_requested_proofs_from_user>]"
+	"scope": "[<list_of_requested_proofs_from_user>]",
+    "accept":  [
+      "iden3comm/v1;env=application/iden3-zkp-json;circuitId=authV2,authV3;alg=groth16",
+      "iden3comm/v1;env=application/iden3comm-signed-json;alg=ES256K-R",
+      "iden3comm/v1;env=application/iden3-zkp-json;circuitId=authV4;alg=plonk"
+    ]
 }
 ```
 
-| Field | Description | Type | Required |
-| --- | --- | --- | --- |
-| callbackUrl | User should use this url for send authorization response | string | ✅ |
-| reason | Reason for the request | string | ❌ |
-| message | Message payload | string | ❌ |
-| did_doc | Resource did doc | JSON | ❌ |
-| scope.id | Unique request id | uint64 | ✅ |
-| scope.circuitId | Information that circuit should use user for generating zk proof | string | ✅ |
-| scope.optional | indicates that proof is optional| boolean | ❌ |
-| scope.query.skipClaimRevocationCheck | Indicates if revocation check can be omitted during zkp generation | boolean | ❌ |
-| scope.query.groupId | group id to create the same link nonce for linked proofs and use the same query | number | ❌ |
-| scope.query.proofType | Proof type that must persist in the W3C credential for zkp proof | string | ❌ |
-| scope.query | Information about what information the user must prove with ZKPproof | map | ✅ |
-| scope.query.allowedIssuers | Credentials only from these issuers will be used for zero-knowledge proof generation | array | ✅ |
-| scope.query.type | Credential type | string | ✅ |
-| scope.query.context | JSON LD url of credential type context | string | ✅ |
-| scope.query.credentialSubject | Credential subject of W3C credential | map | ✅ |
-| scope.query.credentialSubject.{field} | Credential subject field of W3C credential | map | ✅ |
-| scope.query.credentialSubject.{field}.{operator} | Feild operator for zkp and comparison value | object | ✅ |
-| scope.params | circuit specific params| map) | ❌|
-| scope.params.nullifierSessionId | nullifier session id to create a nullifier  for V3 circuit| string (bigInt) | ❌|
+| Field                                            | Description                                                                                                       | Type            | Required |
+|--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-----------------|----------|
+| callbackUrl                                      | User should use this url for send authorization response                                                          | string          | ✅        |
+| reason                                           | Reason for the request                                                                                            | string          | ❌        |
+| message                                          | Message payload                                                                                                   | string          | ❌        |
+| did_doc                                          | Resource did doc                                                                                                  | JSON            | ❌        |
+| accept                                           | Specifies profile that creator of the requests accepts as a response. More [here](../../media-types/overview.md). | string[]        | ❌        |
+| scope.id                                         | Unique request id                                                                                                 | uint64          | ✅        |
+| scope.circuitId                                  | Information that circuit should use user for generating zk proof                                                  | string          | ✅        |
+| scope.optional                                   | indicates that proof is optional                                                                                  | boolean         | ❌        |
+| scope.query.skipClaimRevocationCheck             | Indicates if revocation check can be omitted during zkp generation                                                | boolean         | ❌        |
+| scope.query.groupId                              | group id to create the same link nonce for linked proofs and use the same query                                   | number          | ❌        |
+| scope.query.proofType                            | Proof type that must persist in the W3C credential for zkp proof                                                  | string          | ❌        |
+| scope.query                                      | Information about what information the user must prove with ZKPproof                                              | map             | ✅        |
+| scope.query.allowedIssuers                       | Credentials only from these issuers will be used for zero-knowledge proof generation                              | array           | ✅        |
+| scope.query.type                                 | Credential type                                                                                                   | string          | ✅        |
+| scope.query.context                              | JSON LD url of credential type context                                                                            | string          | ✅        |
+| scope.query.credentialSubject                    | Credential subject of W3C credential                                                                              | map             | ✅        |
+| scope.query.credentialSubject.{field}            | Credential subject field of W3C credential                                                                        | map             | ✅        |
+| scope.query.credentialSubject.{field}.{operator} | Feild operator for zkp and comparison value                                                                       | object          | ✅        |
+| scope.params                                     | circuit specific params                                                                                           | map)            | ❌        |
+| scope.params.nullifierSessionId                  | nullifier session id to create a nullifier  for V3 circuit                                                        | string (bigInt) | ❌        |
 
-
-
-`scope.query` - can be empty object.
-`scope.params` - can be empty object.
 
 
 - **Example of authorization request:**
@@ -200,5 +202,42 @@ A resource initiates a request to a user. The user is required to generate a zer
             }
           ]
         }
+    }
+    ```
+
+- **Example of authorization request with accept header:**
+
+    ```json
+    {
+      "id": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
+      "typ": "application/iden3comm-plain-json",
+      "type": "https://iden3-communication.io/authorization/1.0/request",
+      "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
+      "from": "did:polygonid:polygon:amoy:2qaPod1Qxo9UKTzR7K3Yo63gNRFHBm98bh1k1SEY6x",
+      "body": {
+        "callbackUrl": "https://test.com/callback",
+        "reason": "age verification",
+        "message": "test message",
+        "accept": [
+           "iden3comm/v1;env=application/iden3-zkp-json;circuitId=authV2;alg=groth16",
+           "iden3comm/v1;env=application/iden3comm-signed-json;alg=ES256K-R"
+        ],
+        "scope": [
+          {
+            "id": 1,
+            "circuitId": "credentialAtomicQuerySigV2",
+            "query": {
+              "allowedIssuers": ["*"],
+              "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v101.json-ld",
+              "type": "KYCEmployee",
+              "credentialSubject": {
+                "hireDate": {
+                  "$eq": "1996-04-24"
+                }
+              }
+            }
+          }
+        ]
+      }
     }
     ```
