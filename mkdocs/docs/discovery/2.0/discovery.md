@@ -2,7 +2,7 @@
 
 type: `https://didcomm.org/discover-features/2.0/queries`
 
-Message to discover supproted features by agent. This message follows the DIDComm protocol. 
+Message to discover supported features by agent. This message follows the DIDComm protocol. 
 
 ```json
 {
