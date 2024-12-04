@@ -20,7 +20,7 @@ Each media type shows how envelope of the message is created and present in the 
 In our protocol corresponding packers are implemented in [golang](https://github.com/iden3/iden3comm/tree/main/packers) and [typescript](https://github.com/0xPolygonID/js-sdk/tree/main/src/iden3comm/packers).
 
 
-To understand which envelope to use sender of the can specify `accept` header, so responder can use one of supported profiles to authenticate.
+To determine which envelope to use, the sender can specify the `accept` header, allowing the responder to choose one of the supported profiles for authentication.
 Profile is a combination of media type and specific parameters for this media type.
 
 
