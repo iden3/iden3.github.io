@@ -68,11 +68,10 @@ Type field specification:
 | type           | Payment Type                           | "Iden3PaymentRailsRequestV1"      | ✅        |
 | @context       | context for ld type                    | string                            | ✅        |
 | recipient      | withdrawal address of the issuer       | string                            | ✅        |
-| amount         | Payment amount                         | string (non negative integer)     | ✅        |
+| amount         |Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens).| string (non negative integer)| string (non negative integer)     | ✅        |
 | expirationDate | expiration of specific payment request | string (ISO format)               | ✅        |
 | proof          | w3c security proof                     | object[] or object                | ✅        |
 | metadata       | any additional request metadata        | string (hex)                      | ✅        |
-| currency       | chosen currency                        | string (ETHWEI / ETH / ETHGWEI)   | ✅        |
 
 
 For now only support proof type is [EIP 712 signature suite](https://w3c-ccg.github.io/ethereum-eip712-signature-2021-spec/). <br />
@@ -138,11 +137,10 @@ Type field specification:
 | recipient      | withdrawal address of the issuer                                     | string                          | ✅        |
 | tokenAddress   | address of the token contract                                        | string                          | ✅        |
 | features       | list of features supported by token contract( now only ["EIP-2612"]) | string[]                        | ❌        |
-| amount         | Payment amount                                                       | string (non negative integer)   | ✅        |
+| amount         |Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens).| string (non negative integer)   | ✅        |
 | expirationDate | expiration of specific payment request                               | string (ISO format)             | ✅        |
 | proof          | w3c security proof                                                   | object[] or object              | ✅        |
 | metadata       | any additional request metadata                                      | string (hex)                    | ✅        |
-| currency       | chosen currency                                                      | string (ETHWEI / ETH / ETHGWEI) | ✅        |
 
 
 EIP712 domains for proof creation are defined [here](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentRailsERC20RequestV1.json), where `verifyingContract` is address of contract that accepts payments, name is `MCPayment` and version is ` 1.0.0`.  <br />
