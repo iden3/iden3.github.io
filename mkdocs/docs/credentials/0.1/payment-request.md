@@ -68,7 +68,7 @@ Type field specification:
 | type           | Payment Type                           | "Iden3PaymentRailsRequestV1"      | ✅        |
 | @context       | context for ld type                    | string                            | ✅        |
 | recipient      | withdrawal address of the issuer       | string                            | ✅        |
-| amount         |Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens).| string (non negative integer)| string (non negative integer)     | ✅        |
+| amount         |Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens).| string (non negative integer)                                    | ✅        |
 | expirationDate | expiration of specific payment request | string (ISO format)               | ✅        |
 | proof          | w3c security proof                     | object[] or object                | ✅        |
 | metadata       | any additional request metadata        | string (hex)                      | ✅        |
