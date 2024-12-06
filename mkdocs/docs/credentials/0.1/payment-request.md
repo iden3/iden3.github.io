@@ -68,11 +68,10 @@ Type field specification:
 | type           | Payment Type                           | "Iden3PaymentRailsRequestV1"      | ✅        |
 | @context       | context for ld type                    | string                            | ✅        |
 | recipient      | withdrawal address of the issuer       | string                            | ✅        |
-| amount         | Payment amount                         | string (non negative integer)     | ✅        |
+| amount         |Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens).| string (non negative integer)                                    | ✅        |
 | expirationDate | expiration of specific payment request | string (ISO format)               | ✅        |
 | proof          | w3c security proof                     | object[] or object                | ✅        |
 | metadata       | any additional request metadata        | string (hex)                      | ✅        |
-| currency       | chosen currency                        | string (ETHWEI / ETH / ETHGWEI)   | ✅        |
 
 
 For now only support proof type is [EIP 712 signature suite](https://w3c-ccg.github.io/ethereum-eip712-signature-2021-spec/). <br />
@@ -138,11 +137,10 @@ Type field specification:
 | recipient      | withdrawal address of the issuer                                     | string                          | ✅        |
 | tokenAddress   | address of the token contract                                        | string                          | ✅        |
 | features       | list of features supported by token contract( now only ["EIP-2612"]) | string[]                        | ❌        |
-| amount         | Payment amount                                                       | string (non negative integer)   | ✅        |
+| amount         |Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens).| string (non negative integer)   | ✅        |
 | expirationDate | expiration of specific payment request                               | string (ISO format)             | ✅        |
 | proof          | w3c security proof                                                   | object[] or object              | ✅        |
 | metadata       | any additional request metadata                                      | string (hex)                    | ✅        |
-| currency       | chosen currency                                                      | string (ETHWEI / ETH / ETHGWEI) | ✅        |
 
 
 EIP712 domains for proof creation are defined [here](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentRailsERC20RequestV1.json), where `verifyingContract` is address of contract that accepts payments, name is `MCPayment` and version is ` 1.0.0`.  <br />
@@ -260,7 +258,6 @@ EIP712 domains for proof creation are defined [here](https://github.com/iden3/cl
                 "type": "Iden3PaymentRailsRequestV1",
                 "recipient": "0xaddress",
                 "amount": "100",
-                "currency": "ETHWEI",
                 "expirationDate": "ISO string",
                 "nonce": "25",
                 "metadata": "0x",
@@ -318,7 +315,6 @@ EIP712 domains for proof creation are defined [here](https://github.com/iden3/cl
                 "tokenAddress": "0x2FE40749812FAC39a0F380649eF59E01bccf3a1A",
                 "recipient": "0xE9D7fCDf32dF4772A7EF7C24c76aB40E4A42274a",
                 "amount": "40",
-                "currency": "ERC20Token",
                 "expirationDate": "2024-10-28T16:02:36.816Z",
                 "nonce": "3008",
                 "metadata": "0x",
@@ -380,7 +376,6 @@ EIP712 domains for proof creation are defined [here](https://github.com/iden3/cl
                 "features": ["EIP-2612"],
                 "recipient": "0xE9D7fCDf32dF4772A7EF7C24c76aB40E4A42274a",
                 "amount": "40",
-                "currency": "ERC20Token",
                 "expirationDate": "2024-10-28T16:02:36.816Z",
                 "nonce": "3008",
                 "metadata": "0x",
@@ -445,7 +440,6 @@ EIP712 domains for proof creation are defined [here](https://github.com/iden3/cl
                 "type": "Iden3PaymentRailsRequestV1",
                 "recipient": "0xaddress",
                 "amount": "100",
-                "currency": "ETHWEI",
                 "expirationDate": "ISO string",
                 "nonce": "25",
                 "metadata": "0x",
@@ -482,7 +476,6 @@ EIP712 domains for proof creation are defined [here](https://github.com/iden3/cl
                 ],
                 "recipient": "0xE9D7fCDf32dF4772A7EF7C24c76aB40E4A42274a",
                 "amount": "40",
-                "currency": "ERC20Token",
                 "expirationDate": "2024-10-28T16:02:36.816Z",
                 "nonce": "3008",
                 "metadata": "0x",
@@ -514,7 +507,6 @@ EIP712 domains for proof creation are defined [here](https://github.com/iden3/cl
                 "type": "Iden3PaymentRailsRequestV1",
                 "recipient": "0xaddress2",
                 "amount": "200",
-                "currency": "ETHWEI",
                 "expirationDate": "ISO string",
                 "nonce": "25",
                 "metadata": "0x",
