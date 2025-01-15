@@ -39,7 +39,7 @@ In case proof response has been sent, then txHash property MUST be included to s
       "from": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp",
       "body": {
     	  "transaction_data": {
-    			"contract_address": "0xe826f870852d7eeeb79b2c030298f9b5daa8c8a3",
+    			"contract_address": "0x13d67dc5f3ef3f5327b60b824d66f27c9b03316862ec27a330ccab5ea3b28cc1",
     			"method_id":"b68967e2",
     			"chain_id": 80002,
     			"network": "polygon-amoy"
