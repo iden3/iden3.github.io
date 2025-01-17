@@ -10,10 +10,6 @@ Request for proposal is created by user and sent to issuer to receive instructio
       "context": "<vc_ld_context>"
     }
   ],
-  "metadata": {
-    "type": "TransactionInfo",
-    "data": "json1"
-  },
   "did_doc": {
     "@context": [
       "..."
@@ -26,7 +22,6 @@ Request for proposal is created by user and sent to issuer to receive instructio
 
 | Field                  | Description                                               | Type   | Required  |
 |------------------------|-----------------------------------------------------------|--------|-----------|
-| metadata               | Type specific metadata regarding current proposal request | object | ❌        |
 | did_doc                | User did document                                         | JSON   | ❌        |
 | credentials            | List of  credentials that user requests for               | list   | ✅        |
 | credentials[i].type    | type of VC                                                | string | ✅        |
@@ -51,10 +46,6 @@ Request for proposal is created by user and sent to issuer to receive instructio
             "context": "<context_url>"
           }
         ],
-        "metadata": {
-          "type": "TransactionInfo",
-          "data": "json1"
-        },
         "did_doc": {
           "@context": [
             "..."
