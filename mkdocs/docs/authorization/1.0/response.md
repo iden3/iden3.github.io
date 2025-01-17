@@ -15,7 +15,7 @@ Authorization response to verification proof in a resource.
 |-------------------------|-----------------------------------------------------------------------------------------------|------------------|----------|
 | did_doc                 | User`s DID documen                                                                            | JSON             | ❌        |
 | message                 | Payload for an authorization request                                                          | string           | ❌        |
-| scope                   | List of objects with zkpoorf and public inputs                                                | *list of objects | ✅        |
+| scope                   | List of objects with zkproo f and public inputs                                               | *list of objects | ✅        |
 | scope.id                | Unique id to present unique authorization request                                             | uint32           | ✅        |
 | scope.circuitId         | Information that circuit was used for generating zk proof                                     | string           | ✅        |
 | scope.vp                | Information that user wants to disclosure                                                     | JSON             | ❌        |
