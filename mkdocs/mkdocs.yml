@@ -65,8 +65,7 @@ nav:
         - Overview: "proofs/overview.md"
         - Messages (1.0):
           - Contract invoke request: "proofs/1.0/contract-invoke-request.md"
-          - Request: "proofs/1.0/request.md"
-          - Response: "proofs/1.0/response.md"
+          - Contract invoke response: "proofs/1.0/contract-invoke-response.md"
     - Revocation:
         - Overview: "revocation/overview.md"
         - Messages (1.0):
