@@ -56,7 +56,7 @@ Type field specification:
 | address        | smart-contract address that collects funds | string                         | ✅                                      |
 | amount         | Payment amount                             | string                         | ✅                                      |
 | currency       | chosen currency                            | string (non negative integer)  | ✅                                      |
-| expirationDate | expiration of specific payment request     | string (ISO format)            | ❌ (historical backward compatibility)  |
+| expiration     | expiration of specific payment request     | string (ISO format)            | ❌ (historical backward compatibility)  |
 
 
 _Iden3PaymentRailsRequestV1_ is a representation of payment data that can be used for setting request to multiple chains to pay only in native currency.
