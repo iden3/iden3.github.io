@@ -215,7 +215,7 @@ EIP712 domains for payment permit proof are defined [Iden3PaymentPermitV1](https
                     "types": "https://schema.iden3.io/core/json/Iden3PaymentPermitERC20V1.json",
                     "primaryType": "Iden3PaymentPermitERC20V1",
                     "domain": {
-                      "name": "MCPayment",
+                      "name": "SponsorPayment",
                       "version": "1.0.0",
                       "chainId": "80002",
                       "verifyingContract": "0x6f742EBA99C3043663f995a7f566e9F012C07925"
