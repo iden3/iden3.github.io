@@ -9,7 +9,7 @@ General payment message from user.
   "payments": [
     {
       "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
-      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1 | Iden3PaymentRailsERC20V1",
+      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1 | Iden3PaymentRailsERC20V1 | Iden3PaymentPermitV1",
       ...
     }
   ]
@@ -186,7 +186,7 @@ Type field specification:
         "payments": [
           {
             "nonce": "3008",
-            "type": "Iden3PaymentRailsERC20V1",
+            "type": "Iden3PaymentPermitV1",
             "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
             "paymentData": {
               "credentials": [
