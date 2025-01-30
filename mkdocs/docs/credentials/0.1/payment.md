@@ -196,7 +196,7 @@ EIP712 domains for payment permit proof are defined [Iden3PaymentPermitERC20V1](
 
     ```
 
-??? payment permit
+??? payment permit erc20
 
 
     ```json
@@ -210,7 +210,7 @@ EIP712 domains for payment permit proof are defined [Iden3PaymentPermitERC20V1](
         "payments": [
           {
             "nonce": "3008",
-            "type": "Iden3PaymentPermitV1",
+            "type": "Iden3PaymentPermitERC20V1",
             "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
             "paymentData": {
               "credentials": [
