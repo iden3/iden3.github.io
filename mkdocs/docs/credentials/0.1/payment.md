@@ -9,7 +9,7 @@ General payment message from user.
   "payments": [
     {
       "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
-      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1 | Iden3PaymentRailsERC20V1 | Iden3PaymentPermitV1",
+      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1 | Iden3PaymentRailsERC20V1 | Iden3PaymentPermitV1 | Iden3PaymentPermitERC20V1",
       ...
     }
   ]
@@ -89,7 +89,28 @@ Type field specification:
 | paymentData.proof                  | w3c security proof                                                                                                           | object[] or object             | ✅        |
 | paymentData.metadata               | any additional payment permit metadata                                                                                       | string (hex)                   | ✅        |
 
-EIP712 domains for payment permit proof are defined [Iden3PaymentPermitV1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitV1.json), [Iden3PaymentPermitERC20V1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitERC20V1.json),, where `verifyingContract` is address of contract that accepts permits, name is `SponsorPayment` and version is ` 1.0.0`.  <br />
+EIP712 domains for payment permit proof are defined [Iden3PaymentPermitV1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitV1.json), where `verifyingContract` is address of contract that accepts permits, name is `SponsorPayment` and version is ` 1.0.0`.  <br />
+
+_Iden3PaymentPermitERC20V1_ is a representation of payment permit in erc 20 token that is meant to be sent by verifier to issuer through the user as an attachment to authorization request.
+Although it can be sent as a separate message with a specifying of paymentReference.
+Type field specification:
+
+| Field                              | Description                                                                                                                  | Type                           | Required |
+|------------------------------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------|----------|
+| type                               | Payment Type                                                                                                                 | "Iden3PaymentPermitV1"         | ✅        |
+| @context                           | ld context of payment type                                                                                                   | string                         | ✅        |
+| paymentData.credentials            | credentials for which payment has been made                                                                                  | object                         | ✅        |
+| paymentData.credentials[i].type    | type of prepaid credentials                                                                                                  | string                         | ✅        |
+| paymentData.credentials[i].context | ld context of prepaid credential                                                                                             | string                         | ✅        |
+| paymentData.nonce                  | Payment unique nonce for the issuer                                                                                          | string  (non negative integer) | ✅        |
+| paymentData.recipient              | withdrawal address of the issuer                                                                                             | string                         | ✅        |
+| paymentData.amount                 | Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens). | string (non negative integer)  | ✅        |
+| paymentData.expirationDate         | expiration of specific payment permit                                                                                        | string (ISO format)            | ✅        |
+| paymentData.proof                  | w3c security proof                                                                                                           | object[] or object             | ✅        |
+| paymentData.metadata               | any additional payment permit metadata                                                                                       | string (hex)                   | ✅        |
+
+
+EIP712 domains for payment permit proof are defined [Iden3PaymentPermitERC20V1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitERC20V1.json), where `verifyingContract` is address of contract that accepts permits, name is `SponsorPayment` and version is ` 1.0.0`.  <br />
 
 
 **Examples of credential payment responses different payment types:**
