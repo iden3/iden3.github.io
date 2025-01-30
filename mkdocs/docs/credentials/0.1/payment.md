@@ -89,6 +89,9 @@ Type field specification:
 | paymentData.proof                  | w3c security proof                                                                                                           | object[] or object             | ✅        |
 | paymentData.metadata               | any additional payment permit metadata                                                                                       | string (hex)                   | ✅        |
 
+EIP712 domains for payment permit proof are defined [Iden3PaymentPermitV1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitV1.json), [Iden3PaymentPermitERC20V1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitERC20V1.json),, where `verifyingContract` is address of contract that accepts permits, name is `SponsorPayment` and version is ` 1.0.0`.  <br />
+
+
 **Examples of credential payment responses different payment types:**
 
 ??? crypto
