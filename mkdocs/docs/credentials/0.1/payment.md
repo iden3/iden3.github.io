@@ -86,6 +86,7 @@ Type field specification:
 | paymentData.amount                 | Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens). | string (non negative integer)  | ✅        |
 | paymentData.expirationDate         | expiration of specific payment permit                                                                                        | string (ISO format)            | ✅        |
 | paymentData.proof                  | w3c security proof                                                                                                           | object[] or object             | ✅        |
+| paymentData.paymentReference       | payment subject if message is sent directly                                                                                  | string                         | ❌        |
 | paymentData.metadata               | any additional payment permit metadata                                                                                       | string (hex)                   | ✅        |
 
 EIP712 domains for payment permit proof are defined [Iden3PaymentPermitV1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitV1.json), where `verifyingContract` is address of contract that accepts permits, name is `SponsorPayment` and version is ` 1.0.0`.  <br />
@@ -108,6 +109,8 @@ Type field specification:
 | paymentData.proof                  | w3c security proof                                                                                                           | object[] or object             | ✅        |
 | paymentData.metadata               | any additional payment permit metadata                                                                                       | string (hex)                   | ✅        |
 | paymentData.tokenAddress           | address of the token contract                                                                                                | string                         | ✅        |
+| paymentData.paymentReference       | payment subject if message is sent directly                                                                                  | string                         | ❌        |
+
 
 
 EIP712 domains for payment permit proof are defined [Iden3PaymentPermitERC20V1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitERC20V1.json), where `verifyingContract` is address of contract that accepts permits, name is `SponsorPayment` and version is ` 1.0.0`.  <br />
