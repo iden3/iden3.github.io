@@ -82,7 +82,7 @@ All verifiable credentials issued with the Iden3 Sparse Merkle Tree Signature Su
 The Iden3SparseMerkleTreeProof contains the `issuerData`, `coreClaim`, and the `mtp` (the merkle tree proof of inclusion of the core claim to the issuer claim tree root) of the relevant credential in the issuer's state tree. The following example demonstrates a Iden3SparseMerkleTree proof:
 
             {
-                "type": "Iden3SparseMerkleProof",
+                "type": "Iden3SparseMerkleTreeProof",
                 "issuerData": {
                     "id": "did:iden3:polygon:mumbai:wz7EXpsG9jdQC4edi3kyXC5SroZfqbcPKTYaJc5t6",
                     ...
