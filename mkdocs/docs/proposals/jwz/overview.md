@@ -7,7 +7,7 @@ JSON Web Zero-knowledge (JWZ) is an open standard for representing messages prov
 
 This specification of the JSON Web Zero-knowledge standard that relay on a draft of the JWM standard and JWT (RFC7519) standards.
 
-While having a lot in common, JWZ  has different intents from JWT and JWM. A JWM is about a sender creating a message composed of attributes, where the message is destined for a recipient or recipients. Whereas a JWT is about an issuer expressing claims about a subject to an audience. See the section in Section 2.1 of [[JWM](https://tools.ietf.org/id/draft-looker-jwm-01.html#attributes-thread-id)]. JWZ is about proving the message that can be represented as JWT claims and JWM attributes set.
+While having a lot in common, JWZ  has different intents from JWT and JWM. A JWM is about a sender creating a message composed of attributes, where the message is destined for a recipient or recipients. Whereas a JWT is about an issuer expressing claims about a subject to an audience. See the section in Section 2.1 of [[JWM](https://datatracker.ietf.org/doc/html/draft-looker-jwm-01#section-2.1)]. JWZ is about proving the message that can be represented as JWT claims and JWM attributes set.
 
 While a JWM leverages JSON Web Signature (JWS) and or JSON Web Encryption (JWE) to achieve digital signing, integrity protection, and confidentiality JWZ utilizes zero-knowledge technologies.
 
