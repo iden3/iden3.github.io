@@ -213,7 +213,7 @@ Type field specification:
 For now only support proof type is [SolanaEd25519Signature2025](https://schema.iden3.io/core/jsonld/solanaEd25519.jsonld). <br />
 
 
-_Iden3PaymentRailsSolanaSPLRequestV1_ is a representation of payment data that can be used for setting request to multiple chains to pay only in SPL tokens.
+_Iden3PaymentRailsSolanaSPLRequestV1_ is a representation of payment data that can be used for setting request to Solana chain to pay only in SPL tokens.
 It has the same ideology with _Iden3PaymentRailsSolanaRequestV1_, but also it defines two additional fields: `tokenAddress` and `features`.
 Token address can be the address of any SPL token. Currently, no feature is supported at the client level.
 
@@ -231,9 +231,6 @@ Type field specification:
 | expirationDate | expiration of specific payment request                               | string (ISO format)             | ✅        |
 | proof          | w3c security proof                                                   | object[] or object              | ✅        |
 | metadata       | any additional request metadata                                      | string (hex)                    | ✅        |
-
-
-EIP712 domains for proof creation are defined [here](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentRailsERC20RequestV1.json), where `verifyingContract` is address of contract that accepts payments, name is `MCPayment` and version is ` 1.0.0`.  <br />
 
 For now only support proof type is [SolanaEd25519Signature2025](https://schema.iden3.io/core/jsonld/solanaEd25519.jsonld). <br />
 
