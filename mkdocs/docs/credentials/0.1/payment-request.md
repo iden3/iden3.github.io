@@ -16,7 +16,7 @@ General request format for payment from user.
       ],
       "data":[{
         "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
-        "type":"Iden3PaymentRequestCryptoV1 | Iden3PaymentRailsRequestV1 | Iden3PaymentRailsERC20RequestV1",
+        "type":"Iden3PaymentRequestCryptoV1 | Iden3PaymentRailsRequestV1 | Iden3PaymentRailsERC20RequestV1 | Iden3PaymentRailsSolanaRequestV1 | Iden3PaymentRailsSolanaSPLRequestV1",
         ...
       }],
       "description":"you can pass the verification on our KYC provider by following the next link",
@@ -204,7 +204,7 @@ Type field specification:
 | type           | Payment Type                           | "Iden3PaymentRailsSolanaRequestV1"| ✅        |
 | @context       | context for ld type                    | string                            | ✅        |
 | recipient      | withdrawal address of the issuer       | string                            | ✅        |
-| amount         | amounts in lamports.                   | string (non negative integer)     | ✅        |
+| amount         | amounts in lamports                    | string (non negative integer)     | ✅        |
 | expirationDate | expiration of specific payment request | string (ISO format)               | ✅        |
 | proof          | w3c security proof                     | object[] or object                | ✅        |
 | metadata       | any additional request metadata        | string (hex)                      | ✅        |
@@ -227,7 +227,7 @@ Type field specification:
 | recipient      | withdrawal address of the issuer                                     | string                          | ✅        |
 | tokenAddress   | address of the token contract                                        | string                          | ✅        |
 | features       | list of features supported by token contract                         | string[]                        | ❌        |
-| amount         | smallest decimal for SPL tokens.                                      |  string (non negative integer)   | ✅        |
+| amount         | smallest decimal for SPL tokens                                      |  string (non negative integer)   | ✅        |
 | expirationDate | expiration of specific payment request                               | string (ISO format)             | ✅        |
 | proof          | w3c security proof                                                   | object[] or object              | ✅        |
 | metadata       | any additional request metadata                                      | string (hex)                    | ✅        |
@@ -452,7 +452,7 @@ For now only support proof type is [SolanaEd25519Signature2025](https://schema.i
     }
     ```
 
-??? solana native 
+??? solana-native 
     ```json
     {
 		"id": "84523aa3-1b1b-4cde-9b18-6662d796a020",
@@ -507,7 +507,7 @@ For now only support proof type is [SolanaEd25519Signature2025](https://schema.i
 	}
     ```
 
-??? solana SPL 
+??? solana-SPL 
     ```json
     {
 		"id": "70574bc1-2472-4fa0-b7b1-b79a84376fab",

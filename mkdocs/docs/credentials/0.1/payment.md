@@ -9,7 +9,7 @@ General payment message from user.
   "payments": [
     {
       "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
-      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1 | Iden3PaymentRailsERC20V1 | Iden3PaymentRailsSolanaV1 | Iden3PaymentRailsSolanaSPLV1,
+      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1 | Iden3PaymentRailsERC20V1 | Iden3PaymentRailsSolanaV1 | Iden3PaymentRailsSolanaSPLV1",
       ...
     }
   ]
@@ -91,12 +91,12 @@ Type field specification:
 | Field                    | Description                             | Type                           | Required |
 |--------------------------|-----------------------------------------|--------------------------------|----------|
 | nonce                    | Payment unique nonce                    | string  (non negative integer) | ✅        |
-| type                     | Payment Type                            | "Iden3PaymentRailsERC20V1"     | ✅        |
+| type                     | Payment Type                            | "Iden3PaymentRailsSolanaSPLV1"     | ✅        |
 | @context                 | type  ld context url                    | string                         | ✅        |
 | paymentData              | Payment Type                            | object                         | ✅        |
 | paymentData.txId         | Transaction hash                        | string                         | ✅        |
 | paymentData.chainId      | chain id in which payment has been done | string                         | ✅        |
-| paymentData.tokenAddress | address of SPL   contract               | string                         | ✅        |
+| paymentData.tokenAddress | address of SPL contract                 | string                         | ✅        |
 
 
 **Examples of credential payment responses different payment types:**
@@ -182,7 +182,7 @@ Type field specification:
 
     ```
 
-??? Solana native
+??? Solana-native
 
     ```json
     {
@@ -210,7 +210,7 @@ Type field specification:
 
     ```
 
-??? Solana SPL
+??? Solana-SPL
 
     ```json
     {
