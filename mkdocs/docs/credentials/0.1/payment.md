@@ -9,7 +9,7 @@ General payment message from user.
   "payments": [
     {
       "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
-      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1 | Iden3PaymentRailsERC20V1 | Iden3PaymentPermitV1 | Iden3PaymentPermitERC20V1",
+      "type": "Iden3PaymentCryptoV1 | Iden3PaymentRailsV1 | Iden3PaymentRailsERC20V1 | Iden3PaymentRailsSolanaV1 | Iden3PaymentRailsSolanaSPLV1,
       ...
     }
   ]
@@ -18,7 +18,7 @@ General payment message from user.
 
 Payment message itself defines fields: _payments_ </br>
 Payment object itself is also typed.
-The possible types for payment object are: _Iden3PaymentCryptoV1_ , _Iden3PaymentRailsV1_ , _Iden3PaymentRailsERC20V1_ , _Iden3PaymentPermitV1_ , _Iden3PaymentPermitERC20V1_. </br>
+The possible types for payment object are: _Iden3PaymentCryptoV1_ , _Iden3PaymentRailsV1_ , _Iden3PaymentRailsERC20V1_ , _Iden3PaymentRailsSolanaV1_ , _Iden3PaymentRailsSolanaSPLV1_ . </br>
 Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/payment.jsonld](https://schema.iden3.io/core/jsonld/payment.jsonld)
 
 
@@ -70,50 +70,33 @@ Type field specification:
 | paymentData.chainId      | chain id in which payment has been done | string                         | ✅        |
 | paymentData.tokenAddress | address of token contract               | string                         | ✅        |
 
-_Iden3PaymentPermitV1_ is a representation of payment permit that is meant to be sent by verifier to issuer through the user as an attachment to authorization request.
-Although it can be sent as a separate message with a specifying of paymentReference.
+
+_Iden3PaymentRailsSolanaV1_ is a representation of payment data that is result of sending native payment on Solana chain.
 Type field specification:
 
-| Field                              | Description                                                                                                                  | Type                           | Required |
-|------------------------------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------|----------|
-| type                               | Payment Type                                                                                                                 | "Iden3PaymentPermitV1"         | ✅        |
-| @context                           | ld context of payment type                                                                                                   | string                         | ✅        |
-| paymentData.credentials            | credentials for which payment has been made                                                                                  | object                         | ✅        |
-| paymentData.credentials[i].type    | type of prepaid credentials                                                                                                  | string                         | ✅        |
-| paymentData.credentials[i].context | ld context of prepaid credential                                                                                             | string                         | ✅        |
-| paymentData.nonce                  | Payment unique nonce for the issuer                                                                                          | string  (non negative integer) | ✅        |
-| paymentData.recipient              | withdrawal address of the issuer                                                                                             | string                         | ✅        |
-| paymentData.amount                 | Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens). | string (non negative integer)  | ✅        |
-| paymentData.expirationDate         | expiration of specific payment permit                                                                                        | string (ISO format)            | ✅        |
-| paymentData.proof                  | w3c security proof                                                                                                           | object[] or object             | ✅        |
-| paymentData.paymentReference       | payment subject if message is sent directly                                                                                  | string                         | ❌        |
-| paymentData.metadata               | any additional payment permit metadata                                                                                       | string (hex)                   | ✅        |
+| Field               | Description                             | Type                           | Required |
+|---------------------|-----------------------------------------|--------------------------------|----------|
+| nonce               | Payment unique nonce                    | string  (non negative integer) | ✅        |
+| type                | Payment Type                            | "Iden3PaymentRailsSolanaV1"          | ✅        |
+| @context            | type  ld context url                    | string                         | ✅        |
+| paymentData         | Payment Type                            | object                         | ✅        |
+| paymentData.txId    | Transaction hash                        | string                         | ✅        |
+| paymentData.chainId | chain id in which payment has been done | string                         | ✅        |
 
-EIP712 domains for payment permit proof are defined [Iden3PaymentPermitV1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitV1.json), where `verifyingContract` is address of contract that accepts permits, name is `SponsorPayment` and version is ` 1.0.0`.  <br />
 
-_Iden3PaymentPermitERC20V1_ is a representation of payment permit in erc 20 token that is meant to be sent by verifier to issuer through the user as an attachment to authorization request.
-Although it can be sent as a separate message with a specifying of paymentReference.
+
+_Iden3PaymentRailsSolanaSPLV1_ is a representation of payment data that is result of sending payment using SPL token.
 Type field specification:
 
-| Field                              | Description                                                                                                                  | Type                           | Required |
-|------------------------------------|------------------------------------------------------------------------------------------------------------------------------|--------------------------------|----------|
-| type                               | Payment Type                                                                                                                 | "Iden3PaymentPermitV1"         | ✅        |
-| @context                           | ld context of payment type                                                                                                   | string                         | ✅        |
-| paymentData.credentials            | credentials for which payment has been made                                                                                  | object                         | ✅        |
-| paymentData.credentials[i].type    | type of prepaid credentials                                                                                                  | string                         | ✅        |
-| paymentData.credentials[i].context | ld context of prepaid credential                                                                                             | string                         | ✅        |
-| paymentData.nonce                  | Payment unique nonce for the issuer                                                                                          | string  (non negative integer) | ✅        |
-| paymentData.recipient              | withdrawal address of the issuer                                                                                             | string                         | ✅        |
-| paymentData.amount                 | Specify amounts in the smallest unit of the currency or token (e.g., WEI for ETH or the smallest decimal for ERC-20 tokens). | string (non negative integer)  | ✅        |
-| paymentData.expirationDate         | expiration of specific payment permit                                                                                        | string (ISO format)            | ✅        |
-| paymentData.proof                  | w3c security proof                                                                                                           | object[] or object             | ✅        |
-| paymentData.metadata               | any additional payment permit metadata                                                                                       | string (hex)                   | ✅        |
-| paymentData.tokenAddress           | address of the token contract                                                                                                | string                         | ✅        |
-| paymentData.paymentReference       | payment subject if message is sent directly                                                                                  | string                         | ❌        |
-
-
-
-EIP712 domains for payment permit proof are defined [Iden3PaymentPermitERC20V1](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentPermitERC20V1.json), where `verifyingContract` is address of contract that accepts permits, name is `SponsorPayment` and version is ` 1.0.0`.  <br />
+| Field                    | Description                             | Type                           | Required |
+|--------------------------|-----------------------------------------|--------------------------------|----------|
+| nonce                    | Payment unique nonce                    | string  (non negative integer) | ✅        |
+| type                     | Payment Type                            | "Iden3PaymentRailsERC20V1"     | ✅        |
+| @context                 | type  ld context url                    | string                         | ✅        |
+| paymentData              | Payment Type                            | object                         | ✅        |
+| paymentData.txId         | Transaction hash                        | string                         | ✅        |
+| paymentData.chainId      | chain id in which payment has been done | string                         | ✅        |
+| paymentData.tokenAddress | address of SPL   contract               | string                         | ✅        |
 
 
 **Examples of credential payment responses different payment types:**
@@ -199,60 +182,59 @@ EIP712 domains for payment permit proof are defined [Iden3PaymentPermitERC20V1](
 
     ```
 
-??? payment permit erc20
-
+??? Solana native
 
     ```json
     {
-      "id": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
-      "thid": "36f9e851-d713-4b50-8f8d-8a9382f138ca",
+      "id": "881549e2-6630-470c-8a55-06d434b3ed38",
+      "thid": "881549e2-6630-470c-8a55-06d434b3ed38",
+      "from": "did:iden3:polygon:amoy:x7Z95VkUuyo6mqraJw2VGwCfqTzdqhM1RVjRHzcpK",
+      "to": "did:iden3:polygon:amoy:x6x5sor7zpyZX9yNpm8h1rPBDSN9idaEhDj1Qm8Q9",
       "typ": "application/iden3comm-plain-json",
       "type": "https://iden3-communication.io/credentials/0.1/payment",
       "body": {
-        "goal_code": "iden3comm.credentials.v1-1.proposal-request",
         "payments": [
-          {
-            "nonce": "3008",
-            "type": "Iden3PaymentPermitERC20V1",
-            "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld",
-            "paymentData": {
-              "credentials": [
-                {
-                  "type": "LivenessProof",
-                  "context": "http://example.com"
-                }
-              ],
-              "tokenAddress": "0x2FE40749812FAC39a0F380649eF59E01bccf3a1A",
-              "recipient": "0xE9D7fCDf32dF4772A7EF7C24c76aB40E4A42274a",
-              "amount": "40",
-              "expirationDate": "2024-10-28T16:02:36.816Z",
-              "metadata": "0x",
-              "paymentReference": "did:iden3:polygon:amoy:xACpATtbyUyWBAnhaqrmEVhE84k14ACBHcNQnjAQK",
-              "proof": [
-                {
-                  "type": "EthereumEip712Signature2021",
-                  "proofPurpose": "assertionMethod",
-                  "proofValue": "0xc3d9d6fa9aa7af03863943f7568ce61303e84221e3e29277309fd42581742024402802816cca5542620c19895331f4bdc1ea6fed0d0c6a1cf8656556d3acfde61b",
-                  "verificationMethod": "did:pkh:eip155:80002:0xE9D7fCDf32dF4772A7EF7C24c76aB40E4A42274a#blockchainAccountId",
-                  "created": "2024-10-28T15:02:36.946Z",
-                  "eip712": {
-                    "types": "https://schema.iden3.io/core/json/Iden3PaymentPermitERC20V1.json",
-                    "primaryType": "Iden3PaymentPermitERC20V1",
-                    "domain": {
-                      "name": "SponsorPayment",
-                      "version": "1.0.0",
-                      "chainId": "80002",
-                      "verifyingContract": "0x6f742EBA99C3043663f995a7f566e9F012C07925"
-                    }
-                  }
-                }
-              ]
-            }
+        {
+          "nonce": "6",
+          "type": "Iden3PaymentRailsSolanaV1",
+          "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld#Iden3PaymentRailsSolanaV1",
+          "paymentData": {
+          "txId": "3fVGavvAduvdLruYEq3QKEtCkKQ5smWVyELXen4qw15YHDEM8XZc9wmW6mtzXkmGC8rD8d7cDjVapfUSu5VtXzf9",
+          "chainId": "103"
           }
+        }
         ]
       },
-      "to": "did:polygonid:polygon:mumbai:2qJUZDSCFtpR8QvHyBC4eFm6ab9sJo5rqPbcaeyGC4",
-      "from": "did:iden3:polygon:mumbai:x3HstHLj2rTp6HHXk2WczYP7w3rpCsRbwCMeaQ2H2"
-    }
+      "created_time": 1754572018
+	  }	 
+
     ```
 
+??? Solana SPL
+
+    ```json
+    {
+      "id": "dd25cf2f-bdfd-48fa-b02d-ca5872f30300",
+      "thid": "dd25cf2f-bdfd-48fa-b02d-ca5872f30300",
+      "from": "did:iden3:polygon:amoy:x7Z95VkUuyo6mqraJw2VGwCfqTzdqhM1RVjRHzcpK",
+      "to": "did:iden3:polygon:amoy:x6x5sor7zpyZX9yNpm8h1rPBDSN9idaEhDj1Qm8Q9",
+      "typ": "application/iden3comm-plain-json",
+      "type": "https://iden3-communication.io/credentials/0.1/payment",
+      "body": {
+        "payments": [
+        {
+          "nonce": "10008",
+          "type": "Iden3PaymentRailsSolanaSPLV1",
+          "@context": "https://schema.iden3.io/core/jsonld/payment.jsonld#Iden3PaymentRailsSolanaSPLV1",
+          "paymentData": {
+          "txId": "3hefbgPeWZLK1d9C9gY4Dbj5GoYpGY7Khyo6yewQa2wbdAgKMTpKB6HAKyQTxQWeKEANwi3618peYk5cCxBGF2nQ",
+          "chainId": "103",
+          "tokenAddress": "4MjRhSkDaXmgdAL9d9UM7kmgJrWYGJH66oocUN2f3VUp"
+          }
+        }
+        ]
+      },
+      "created_time": 1754575183
+	  } 
+
+    ```

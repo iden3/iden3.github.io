@@ -27,7 +27,7 @@ General request format for payment from user.
 
 Payment Request itself defines fields: _agent_, _payments_,   _description_, _type_, _credentials_ and _data_. </br>
 Payment Data itself is also typed. 
-The possible types for data are: _Iden3PaymentRequestCryptoV1_, _Iden3PaymentRailsRequestV1_, _Iden3PaymentRailsERC20RequestV1_; </br>
+The possible types for data are: _Iden3PaymentRequestCryptoV1_, _Iden3PaymentRailsRequestV1_, _Iden3PaymentRailsERC20RequestV1_, _Iden3PaymentRailsSolanaRequestV1_, _Iden3PaymentRailsSolanaSPLRequestV1_; </br>
 Corresponding ld context for such types: [https://schema.iden3.io/core/jsonld/payment.jsonld](https://schema.iden3.io/core/jsonld/payment.jsonld)
 
 
@@ -194,6 +194,48 @@ EIP712 domains for proof creation are defined [here](https://github.com/iden3/cl
           ]
         }
     ```
+  
+_Iden3PaymentRailsSolanaRequestV1_ is a representation of payment data that can be used for setting request to Solana chain to pay only in native currency.
+Type field specification:
+
+| Field          | Description                            | Type                              | Required |
+|----------------|----------------------------------------|-----------------------------------|----------|
+| nonce          | Payment unique nonce for the issuer    | string  (non negative integer)    | ✅        |
+| type           | Payment Type                           | "Iden3PaymentRailsSolanaRequestV1"| ✅        |
+| @context       | context for ld type                    | string                            | ✅        |
+| recipient      | withdrawal address of the issuer       | string                            | ✅        |
+| amount         | amounts in lamports.                   | string (non negative integer)     | ✅        |
+| expirationDate | expiration of specific payment request | string (ISO format)               | ✅        |
+| proof          | w3c security proof                     | object[] or object                | ✅        |
+| metadata       | any additional request metadata        | string (hex)                      | ✅        |
+
+
+For now only support proof type is [SolanaEd25519Signature2025](https://schema.iden3.io/core/jsonld/solanaEd25519.jsonld). <br />
+
+
+_Iden3PaymentRailsSolanaSPLRequestV1_ is a representation of payment data that can be used for setting request to multiple chains to pay only in SPL tokens.
+It has the same ideology with _Iden3PaymentRailsSolanaRequestV1_, but also it defines two additional fields: `tokenAddress` and `features`.
+Token address can be the address of any SPL token. Currently, no feature is supported at the client level.
+
+Type field specification:
+
+| Field          | Description                                                          | Type                            | Required |
+|----------------|----------------------------------------------------------------------|---------------------------------|----------|
+| nonce          | Payment unique nonce for the issuer                                  | string  (non negative integer)  | ✅        |
+| type           | Payment Type                                                         | "Iden3PaymentRailsSolanaSPLRequestV1"    | ✅        |
+| @context       | context for ld type                                                  | string                          | ✅        |
+| recipient      | withdrawal address of the issuer                                     | string                          | ✅        |
+| tokenAddress   | address of the token contract                                        | string                          | ✅        |
+| features       | list of features supported by token contract                         | string[]                        | ❌        |
+| amount         | smallest decimal for SPL tokens.                                      |  string (non negative integer)   | ✅        |
+| expirationDate | expiration of specific payment request                               | string (ISO format)             | ✅        |
+| proof          | w3c security proof                                                   | object[] or object              | ✅        |
+| metadata       | any additional request metadata                                      | string (hex)                    | ✅        |
+
+
+EIP712 domains for proof creation are defined [here](https://github.com/iden3/claim-schema-vocab/blob/main/core/json/Iden3PaymentRailsERC20RequestV1.json), where `verifyingContract` is address of contract that accepts payments, name is `MCPayment` and version is ` 1.0.0`.  <br />
+
+For now only support proof type is [SolanaEd25519Signature2025](https://schema.iden3.io/core/jsonld/solanaEd25519.jsonld). <br />
 
 **Examples of Iden3PaymentRequest with different data**
 
@@ -350,6 +392,117 @@ EIP712 domains for proof creation are defined [here](https://github.com/iden3/cl
         ]
       }
     }
+    ```
+
+??? solana native 
+    ```json
+    {
+		"id": "84523aa3-1b1b-4cde-9b18-6662d796a020",
+		"thid": "84523aa3-1b1b-4cde-9b18-6662d796a020",
+		"from": "did:iden3:polygon:amoy:x6x5sor7zpyZX9yNpm8h1rPBDSN9idaEhDj1Qm8Q9",
+		"to": "did:iden3:polygon:amoy:x7Z95VkUuyo6mqraJw2VGwCfqTzdqhM1RVjRHzcpK",
+		"typ": "application/iden3comm-plain-json",
+		"type": "https://iden3-communication.io/credentials/0.1/payment-request",
+		"body": {
+		  "agent": "https://agent-url.com",
+		  "payments": [
+			{
+			  "data": [
+				{
+				  "type": "Iden3PaymentRailsSolanaRequestV1",
+				  "@context": [
+					"https://schema.iden3.io/core/jsonld/payment.jsonld#Iden3PaymentRailsSolanaRequestV1",
+					"https://schema.iden3.io/core/jsonld/solanaEd25519.jsonld"
+				  ],
+				  "recipient": "HcCoHQFPjU2brBFW1hAZvEtZx7nSrYCBJVq4vKsjo6jf",
+				  "amount": "44000000",
+				  "expirationDate": "2025-08-12T14:03:26.728Z",
+				  "nonce": "31231231233",
+				  "metadata": "0x",
+				  "proof": [
+					{
+					  "type": "SolanaEd25519Signature2025",
+					  "proofPurpose": "assertionMethod",
+					  "proofValue": "024e6579f78669c7d456ea4b286d5c33ee85b2def2ee77a9287e1c79f0b757422df86ae5df5b9d892c9a97484fa9587349cd13ca9c8ff39f8a6e6042ca7e6107",
+					  "created": "2025-08-12T13:03:26.762Z",
+					  "verificationMethod": "did:pkh:solana:103:CTZbbbcSpZy4pxpFwhQGdf8u3hxPWKRh5ywRHuNzn2Aa",
+					  "domain": {
+						"version": "SolanaEd25519NativeV1",
+						"chainId": "103",
+						"verifyingContract": "Hys6CpX8McHbPBaPKbRYGVdXVxor1M5pSZUDMMwakGmM"
+					  }
+					}
+				  ]
+				}
+			  ],
+			  "credentials": [
+				{
+				  "type": "AML",
+				  "context": "http://test.com"
+				}
+			  ],
+			  "description": "Iden3PaymentRailsRequestSolanaV1 payment-request"
+			}
+		  ]
+		},
+		"created_time": 1755003806
+	}
+    ```
+
+??? solana SPL 
+    ```json
+    {
+		"id": "70574bc1-2472-4fa0-b7b1-b79a84376fab",
+		"thid": "70574bc1-2472-4fa0-b7b1-b79a84376fab",
+		"from": "did:iden3:polygon:amoy:x6x5sor7zpyZX9yNpm8h1rPBDSN9idaEhDj1Qm8Q9",
+		"to": "did:iden3:polygon:amoy:x7Z95VkUuyo6mqraJw2VGwCfqTzdqhM1RVjRHzcpK",
+		"typ": "application/iden3comm-plain-json",
+		"type": "https://iden3-communication.io/credentials/0.1/payment-request",
+		"body": {
+		  "agent": "https://agent-url.com",
+		  "payments": [
+			{
+			  "data": [
+				{
+				  "type": "Iden3PaymentRailsSolanaSPLRequestV1",
+				  "@context": [
+					"https://schema.iden3.io/core/jsonld/payment.jsonld#Iden3PaymentRailsSolanaSPLRequestV1",
+					"https://schema.iden3.io/core/jsonld/solanaEd25519.jsonld"
+				  ],
+				  "recipient": "HcCoHQFPjU2brBFW1hAZvEtZx7nSrYCBJVq4vKsjo6jf",
+				  "amount": "500000000",
+				  "expirationDate": "2025-08-12T14:14:54.421Z",
+				  "nonce": "11212312003",
+				  "metadata": "0x",
+				  "proof": [
+					{
+					  "type": "SolanaEd25519Signature2025",
+					  "proofPurpose": "assertionMethod",
+					  "proofValue": "378f2941ef5f87b85445b803405620f8e300a05b627e07f51edbf886610cddc4f1dbdbaf6fa1693d975953d1783cbf5dbe0f9e0b5708978eef1fec1e7964a90a",
+					  "created": "2025-08-12T13:14:54.453Z",
+					  "verificationMethod": "did:pkh:solana:103:CTZbbbcSpZy4pxpFwhQGdf8u3hxPWKRh5ywRHuNzn2Aa",
+					  "domain": {
+						"version": "SolanaEd25519SPLV1",
+						"chainId": "103",
+						"verifyingContract": "Hys6CpX8McHbPBaPKbRYGVdXVxor1M5pSZUDMMwakGmM"
+					  }
+					}
+				  ],
+				  "tokenAddress": "4MjRhSkDaXmgdAL9d9UM7kmgJrWYGJH66oocUN2f3VUp"
+				}
+			  ],
+			  "credentials": [
+				{
+				  "type": "AML",
+				  "context": "http://test.com"
+				}
+			  ],
+			  "description": "Iden3PaymentRailsRequestSolanaSPLV1 payment-request integration test"
+			}
+		  ]
+		},
+		"created_time": 1755004494
+	  }	
     ```
 
 ??? eip-2612
