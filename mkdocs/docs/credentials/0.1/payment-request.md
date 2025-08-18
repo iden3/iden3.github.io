@@ -391,6 +391,67 @@ For now only support proof type is [SolanaEd25519Signature2025](https://schema.i
     }
     ```
 
+??? eip-2612
+    ```json
+    {
+      "id": "54782ed3-8d83-427b-856d-eac57a9aa94a",
+      "thid": "54782ed3-8d83-427b-856d-eac57a9aa94a",
+      "from": "did:iden3:polygon:amoy:xCRp75DgAdS63W65fmXHz6p9DwdonuRU9e46DifhX",
+      "to": "did:iden3:polygon:amoy:x7Z95VkUuyo6mqraJw2VGwCfqTzdqhM1RVjRHzcpK",
+      "typ": "application/iden3comm-plain-json",
+      "type": "https://iden3-communication.io/credentials/0.1/payment-request",
+      "body": {
+        "agent": "agent.example.com",
+        "payments": [
+          {
+            "data": [
+              {
+                "type": "Iden3PaymentRailsERC20RequestV1",
+                "@context": [
+                  "https://schema.iden3.io/core/jsonld/payment.jsonld#Iden3PaymentRailsERC20RequestV1",
+                  "https://w3id.org/security/suites/eip712sig-2021/v1"
+                ],
+                "tokenAddress": "0x2FE40749812FAC39a0F380649eF59E01bccf3a1A",
+                "features": ["EIP-2612"],
+                "recipient": "0xE9D7fCDf32dF4772A7EF7C24c76aB40E4A42274a",
+                "amount": "40",
+                "expirationDate": "2024-10-28T16:02:36.816Z",
+                "nonce": "3008",
+                "metadata": "0x",
+                "proof": [
+                  {
+                    "type": "EthereumEip712Signature2021",
+                    "proofPurpose": "assertionMethod",
+                    "proofValue": "0xc3d9d6fa9aa7af03863943f7568ce61303e84221e3e29277309fd42581742024402802816cca5542620c19895331f4bdc1ea6fed0d0c6a1cf8656556d3acfde61b",
+                    "verificationMethod": "did:pkh:eip155:80002:0xE9D7fCDf32dF4772A7EF7C24c76aB40E4A42274a#blockchainAccountId",
+                    "created": "2024-10-28T15:02:36.946Z",
+                    "eip712": {
+                      "types": "https://schema.iden3.io/core/json/Iden3PaymentRailsRequestV1.json",
+                      "primaryType": "Iden3PaymentRailsRequestV1",
+                      "domain": {
+                        "name": "MCPayment",
+                        "version": "1.0.0",
+                        "chainId": "80002",
+                        "verifyingContract": "0x6f742EBA99C3043663f995a7f566e9F012C07925"
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "credentials": [
+              {
+                "type": "AML",
+                "context": "http://test.com"
+              }
+            ],
+            "description": "Iden3PaymentRailsRequestV1 payment-request integration test"
+          }
+        ]
+      }
+    }
+    ```
+
 ??? solana native 
     ```json
     {
@@ -502,66 +563,7 @@ For now only support proof type is [SolanaEd25519Signature2025](https://schema.i
 	  }	
     ```
 
-??? eip-2612
-    ```json
-    {
-      "id": "54782ed3-8d83-427b-856d-eac57a9aa94a",
-      "thid": "54782ed3-8d83-427b-856d-eac57a9aa94a",
-      "from": "did:iden3:polygon:amoy:xCRp75DgAdS63W65fmXHz6p9DwdonuRU9e46DifhX",
-      "to": "did:iden3:polygon:amoy:x7Z95VkUuyo6mqraJw2VGwCfqTzdqhM1RVjRHzcpK",
-      "typ": "application/iden3comm-plain-json",
-      "type": "https://iden3-communication.io/credentials/0.1/payment-request",
-      "body": {
-        "agent": "agent.example.com",
-        "payments": [
-          {
-            "data": [
-              {
-                "type": "Iden3PaymentRailsERC20RequestV1",
-                "@context": [
-                  "https://schema.iden3.io/core/jsonld/payment.jsonld#Iden3PaymentRailsERC20RequestV1",
-                  "https://w3id.org/security/suites/eip712sig-2021/v1"
-                ],
-                "tokenAddress": "0x2FE40749812FAC39a0F380649eF59E01bccf3a1A",
-                "features": ["EIP-2612"],
-                "recipient": "0xE9D7fCDf32dF4772A7EF7C24c76aB40E4A42274a",
-                "amount": "40",
-                "expirationDate": "2024-10-28T16:02:36.816Z",
-                "nonce": "3008",
-                "metadata": "0x",
-                "proof": [
-                  {
-                    "type": "EthereumEip712Signature2021",
-                    "proofPurpose": "assertionMethod",
-                    "proofValue": "0xc3d9d6fa9aa7af03863943f7568ce61303e84221e3e29277309fd42581742024402802816cca5542620c19895331f4bdc1ea6fed0d0c6a1cf8656556d3acfde61b",
-                    "verificationMethod": "did:pkh:eip155:80002:0xE9D7fCDf32dF4772A7EF7C24c76aB40E4A42274a#blockchainAccountId",
-                    "created": "2024-10-28T15:02:36.946Z",
-                    "eip712": {
-                      "types": "https://schema.iden3.io/core/json/Iden3PaymentRailsRequestV1.json",
-                      "primaryType": "Iden3PaymentRailsRequestV1",
-                      "domain": {
-                        "name": "MCPayment",
-                        "version": "1.0.0",
-                        "chainId": "80002",
-                        "verifyingContract": "0x6f742EBA99C3043663f995a7f566e9F012C07925"
-                      }
-                    }
-                  }
-                ]
-              }
-            ],
-            "credentials": [
-              {
-                "type": "AML",
-                "context": "http://test.com"
-              }
-            ],
-            "description": "Iden3PaymentRailsRequestV1 payment-request integration test"
-          }
-        ]
-      }
-    }
-    ```
+
 
 ??? multiple 
     
@@ -679,6 +681,32 @@ For now only support proof type is [SolanaEd25519Signature2025](https://schema.i
                       }
                     }
                   }
+                ]
+              },
+              {
+                "type": "Iden3PaymentRailsSolanaRequestV1",
+                "@context": [
+                "https://schema.iden3.io/core/jsonld/payment.jsonld#Iden3PaymentRailsSolanaRequestV1",
+                "https://schema.iden3.io/core/jsonld/solanaEd25519.jsonld"
+                ],
+                "recipient": "HcCoHQFPjU2brBFW1hAZvEtZx7nSrYCBJVq4vKsjo6jf",
+                "amount": "44000000",
+                "expirationDate": "2025-08-12T14:03:26.728Z",
+                "nonce": "31231231233",
+                "metadata": "0x",
+                "proof": [
+                {
+                  "type": "SolanaEd25519Signature2025",
+                  "proofPurpose": "assertionMethod",
+                  "proofValue": "024e6579f78669c7d456ea4b286d5c33ee85b2def2ee77a9287e1c79f0b757422df86ae5df5b9d892c9a97484fa9587349cd13ca9c8ff39f8a6e6042ca7e6107",
+                  "created": "2025-08-12T13:03:26.762Z",
+                  "verificationMethod": "did:pkh:solana:103:CTZbbbcSpZy4pxpFwhQGdf8u3hxPWKRh5ywRHuNzn2Aa",
+                  "domain": {
+                  "version": "SolanaEd25519NativeV1",
+                  "chainId": "103",
+                  "verifyingContract": "Hys6CpX8McHbPBaPKbRYGVdXVxor1M5pSZUDMMwakGmM"
+                  }
+                }
                 ]
               }
             ],
