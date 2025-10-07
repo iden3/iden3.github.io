@@ -79,6 +79,17 @@ nav:
         - Overview: "discovery/overview.md"
         - Messages:
             - Discovery Queries: "discovery/2.0/discovery.md"
+    - Resource Management:
+        - Overview: "resource-management/overview.md"
+        - Messages:
+            - Permissions Request: "resource-management/0.1/permissions-request.md"
+            - Request: "resource-management/0.1/request.md"
+            - Permissions Update Request: "resource-management/0.1/permissions-update-request.md"
+            - Permissions Update: "resource-management/0.1/permissions-update.md"
+            - Permissions Requests List Fetch: "resource-management/0.1/permissions-requests-list-fetch.md"
+            - Permissions List Fetch: "resource-management/0.1/permissions-list-fetch.md"
+            - Permissions List: "resource-management/0.1/permissions-list.md"
+            - Delivery: "resource-management/0.1/delivery.md"
   - Standard Proposals:
       - JWZ: "proposals/jwz/overview.md"
 

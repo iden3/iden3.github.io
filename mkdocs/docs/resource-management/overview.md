@@ -1,0 +1,1 @@
+This protocol provides the ability to manage permissions for various types of resources and can be extended to support CRUD operations for the resources themselves.
