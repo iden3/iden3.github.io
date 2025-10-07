@@ -1,5 +1,5 @@
 
-type `resource-management/0.1/permissions-request`
+type `/resource-management/0.1/permissions-request`
 
 A requester (e.g., a user or a resource) initiates a permissions request or provides a status for a request to access or manage a specific resource.
 This message allows requesting permission from the resource owner (or another authorized entity) to access or share the resource, such as a profile or configuration. It can also include attachments containing additional information about the requester (e.g., encrypted authorization response).

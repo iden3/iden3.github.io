@@ -1,5 +1,5 @@
 
-type `resource-management/0.1/permissions-update-request`
+type `/resource-management/0.1/permissions-update-request`
 
 An agent (e.g., a service or resource controller) sends this message to a client or resource owner to update permission records associated with a specific resource.
 It communicates the current state of access permissions and may include new entries to add or existing entries to remove.

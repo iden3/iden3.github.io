@@ -1,5 +1,5 @@
 
-type `resource-management/0.1/permissions-update`
+type `/resource-management/0.1/permissions-update`
 
 A resource owner (e.g., a client or user) sends this message in response to a [/resource-management/0.1/permissions-update-request](./permissions-update-request.md).
 It confirms which DIDs are granted or rejected for access to a specific resource.

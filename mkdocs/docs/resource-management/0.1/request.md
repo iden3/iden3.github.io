@@ -1,5 +1,5 @@
 
-type `resource-management/0.1/request`
+type `/resource-management/0.1/request`
 
 A requester (e.g., a user or a resource) sends a message to return or communicate the status of a previously initiated [permissions request](./permissions-request.md). 
 This message does not start a new permission flow but instead communicates via [delivery message](./delivery.md) the current state of an existing request (e.g., pending, approved, or rejected).
