@@ -12,7 +12,7 @@ It is useful for reviewing and managing pending, approved, or rejected permissio
 
 | Field  | Description                                                                                              | Type   | Required |
 | ------ | -------------------------------------------------------------------------------------------------------- | ------ | -------- |
-| **id** | Unique identifier of the resource for which the requester wants to fetch their sent permission requests. | string | ✅        |
+| **id** | Unique identifier of the resource for which the requester wants to fetch permission requests they have received from other parties. | string | ✅        |
 
 
 - **Example of permissions-list-fetch:**
