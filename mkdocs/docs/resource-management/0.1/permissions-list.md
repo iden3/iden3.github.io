@@ -4,7 +4,7 @@ type `/resource-management/0.1/permissions-list`
 A requester (typically a user or agent) receives this message to communicate the current permission state for a specific resource.
 
 It provides lists of users (by their DIDs) who have been granted, rejected, or whose requests are still pending.
-This message is commonly used as a response to [/resource-management/0.1/permissions-requests-list-fetch](./permissions-requests-list-fetch.md).  or [/resource-management/0.1/permissions-list-fetch](./permissions-list-fetch.md)
+This message is commonly used as a response to [/resource-management/0.1/permissions-requests-list-fetch](./permissions-requests-list-fetch.md), or [/resource-management/0.1/permissions-list-fetch](./permissions-list-fetch.md)
 
 ```json
 {
