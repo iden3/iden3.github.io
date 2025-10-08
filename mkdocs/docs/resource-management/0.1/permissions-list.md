@@ -9,19 +9,25 @@ This message is commonly used as a response to [/resource-management/0.1/permiss
 ```json
 {
   "id": "<resource_id>",
-  "granted": ["<list_of_dids_with_granted_access>"],
-  "pending": ["<list_of_dids_with_pending_requests>"],
-  "rejected": ["<list_of_dids_with_rejected_requests>"]
+  "granted": [{"did": "<did>", "timestamp": <unix_timestamp>}],
+  "pending": [{"did": "<did>", "timestamp": <unix_timestamp>}],
+  "rejected": [{"did": "<did>", "timestamp": <unix_timestamp>}]
 }
 ```
 
 
-| Field        | Description                                                                 | Type     | Required |
-| ------------ | --------------------------------------------------------------------------- | -------- | -------- |
-| **id**       | Unique identifier of the resource whose permission state is being reported. | string   | ✅        |
-| **granted**  | List of DIDs that have been granted access to the resource.                 | string[] | ❌        |
-| **pending**  | List of DIDs whose permission requests are awaiting approval.               | string[] | ❌        |
-| **rejected** | List of DIDs whose permission requests were explicitly rejected.            | string[] | ❌        |
+| Field        | Description                                                                                                                                                              | Type     | Required |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
+| **id**       | Unique identifier of the resource whose permission state is being reported.                                                                                              | string   | ✅        |
+| **granted**  | List of objects representing users who have been granted access to the resource. Each entry includes the user’s DID and the timestamp when access was granted.           | object[] | ❌        |
+| **pending**  | List of objects representing users whose permission requests are awaiting approval. Each entry includes the user’s DID and the timestamp when the request was received.  | object[] | ❌        |
+| **rejected** | List of objects representing users whose permission requests were explicitly rejected. Each entry includes the user’s DID and the timestamp when the rejection occurred. | object[] | ❌        |
+
+
+| Field         | Description                                                                      | Type   | Required |
+| ------------- | -------------------------------------------------------------------------------- | ------ | -------- |
+| **did**       | Decentralized Identifier (DID) of the user.                                      | string | ✅        |
+| **timestamp** | Unix timestamp (in seconds) representing when the permission state was recorded. | number | ❌        |
 
 
 - **Example of permissions-list:**
@@ -35,16 +41,25 @@ This message is commonly used as a response to [/resource-management/0.1/permiss
     "from": "did:iden3:polygon:amoy:zkroom",
     "to": "did:iden3:polygon:amoy:alice",
     "body": {
-            "id": "1",
-            "granted": [
-            "did:iden3:polygon:amoy:bob"
-            ],
-            "pending": [
-            "did:iden3:polygon:amoy:emma"
-            ],
-            "rejected": [
-            "did:iden3:polygon:amoy:john"
-            ]
+      "id": "1",
+      "granted": [
+        {
+          "did": "did:iden3:polygon:amoy:bob",
+          "timestamp": 1738860452
         }
+      ],
+      "pending": [
+        {
+          "did": "did:iden3:polygon:amoy:emma",
+          "timestamp": 1738860400
+        }
+      ],
+      "rejected": [
+        {
+          "did": "did:iden3:polygon:amoy:john",
+          "timestamp": 1738859900
+        }
+      ]
     }
+   }
     ```
