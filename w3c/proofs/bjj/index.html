@@ -1,0 +1,2817 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://iden3.io/w3c/proofs/bjj/">
+      
+      
+        <link rel="prev" href="../../display-method/overview/">
+      
+      
+        <link rel="next" href="../smt/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>BJJSignature2021 - Iden3 documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5TKTB44');</script>
+<!-- End Google Tag Manager -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Iden3 documentation" class="md-header__button md-logo" aria-label="Iden3 documentation" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Iden3 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BJJSignature2021
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../refresh-service/overview/" class="md-tabs__link">
+          
+  
+  
+  W3C credential
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../media-types/overview/" class="md-tabs__link">
+          
+  
+  
+  Protocol
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../proposals/jwz/overview/" class="md-tabs__link">
+          
+  
+  
+  Standard Proposals
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Iden3 documentation" class="md-nav__button md-logo" aria-label="Iden3 documentation" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    Iden3 documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    W3C credential
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            W3C credential
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../refresh-service/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Refresh service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../status/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Credential Statuses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../display-method/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Display method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Proofs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proofs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    BJJSignature2021
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    BJJSignature2021
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suite-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suite Definition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Suite Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modification-to-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modification to Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-merklization-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Merklization Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Document Merklization Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#field-proof-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field proof example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bjjsignature2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      BJJSignature2021
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BJJSignature2021">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof Verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolved-did-document-of-issuer" class="md-nav__link">
+    <span class="md-ellipsis">
+      resolved did document of issuer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iden3SparseMerkleTreeProof
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Protocol
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Protocol
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../media-types/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Media-types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Credentials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Credentials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages (1.0)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages (1.0)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/issuance-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Issuance Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/issuance-response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Issuance Response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/fetch-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fetch Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/offer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Offer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/status-update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Status update
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/refresh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Refresh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/onchain-offer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onchain-offer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Beta (0.1)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Beta (0.1)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/payment-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Payment Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/payment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Payment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/proposal-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proposal Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/proposal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proposal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/encrypted-issuance-response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encrypted issuance response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Authorization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authorization/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authorization/1.0/request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authorization/1.0/response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Proofs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proofs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proofs/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages (1.0)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages (1.0)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proofs/1.0/contract-invoke-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contract invoke request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proofs/1.0/contract-invoke-response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contract invoke response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Revocation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Revocation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../revocation/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_2" id="__nav_3_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages (1.0)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages (1.0)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../revocation/1.0/request-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Request status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../revocation/1.0/status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Report Problem
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Report Problem
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../report-problem/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6_2" id="__nav_3_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../report-problem/2.0/report-problem-message/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Discovery
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Discovery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../discovery/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../discovery/2.0/discovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Discovery Queries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Resource Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Resource Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8_2" id="__nav_3_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-update-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Update Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Update
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-requests-list-fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Requests List Fetch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-list-fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions List Fetch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/delivery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delivery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Standard Proposals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Standard Proposals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proposals/jwz/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWZ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suite-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suite Definition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Suite Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modification-to-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modification to Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-merklization-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Merklization Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Document Merklization Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#field-proof-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field proof example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bjjsignature2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      BJJSignature2021
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BJJSignature2021">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proof-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof Verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolved-did-document-of-issuer" class="md-nav__link">
+    <span class="md-ellipsis">
+      resolved did document of issuer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TKTB44"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+                  
+
+
+
+  <h1>BJJSignature2021</h1>
+
+<p>This specification describes the BabyJubjub 2021 Signature Suite, created in 2021 for the Verifiable Credentials Data Integrity Proof specification. The Signature Suite is designed to be zk-friendly, allowing the implementation of an additional security layer that can offer enhance privacy through zero-knowledge signature proofs.</p>
+<p>This document is a draft specification developed by 0kims association and is provided for public review and feedback. The current version of the document is a work in progress and may be subject to changes or updates based on community input, technical advancements, or further research. The specification has not yet been submitted to, reviewed or approved by any formal standards organization such as the W3C. However, it is intended to align closely with the existing W3C recommendations, specifications, and best practices related to decentralized identifiers, verifiable credentials, and digital signatures.</p>
+<h2 id="introduction">Introduction</h2>
+<hr />
+<p>This specification presents the BabyJubjub 2021 Signature Suite. The suite employs EdDSA on the BabyJubJub curve as the signature algorithm, providing an efficient structure for signing and verifying credentials while being zk-friendly. Although the signature suite itself does not actively involve zero-knowledge proofs, its design is conducive to privacy-preserving computations and can be easily integrated with zkSNARKs and other zero-knowledge proof systems. This document details the components, structure, and implementation guidance for the BabyJubjub 2021 Signature Suite, catering to developers, implementers, and users.</p>
+<h2 id="terminology">Terminology</h2>
+<hr />
+<p>The following terms are used to describe concepts involved in the generation and verification of the Linked Data Proof signature suite.</p>
+<details class="terms">
+<summary>Terms</summary>
+<p><strong>signature suite</strong></p>
+<p>A specified set of cryptographic primitives typically consisting of a canonicalization algorithm, a message digest algorithm, and a signature algorithm that are bundled together by cryptographers for developers for the purposes of safety and convenience.</p>
+<p><strong>canonicalization algorithm</strong></p>
+<p>An algorithm that takes an input document that has more than one possible representation and always transforms it into a canonical form. This process is sometimes also called normalization.</p>
+<p><strong>message digest algorithm</strong></p>
+<p>An algorithm that takes a message, preferably in some canonical form and produces a cryptographic output called a digest that is often many orders of magnitude smaller than the input message. These algorithms are often 1) very fast, 2) non-reversible, 3) cause the output to change significantly when even one bit of the input message changes, and 4) make it infeasible to find two different inputs for the same output.</p>
+<p><strong>canonical form</strong></p>
+<p>The output of applying a canonicalization algorithm to an input document.</p>
+<p><strong>signature algorithm</strong></p>
+<p>An algorithm that takes an input message and produces an output value where the receiver of the message can mathematically verify that the message has not been modified in transit and came from someone possessing a particular secret.</p>
+<p><strong>linked data document</strong></p>
+<p>A document comprised of linked data.</p>
+<p><strong>linked data proof</strong></p>
+<p>A <a href="https://www.w3.org/TR/vc-data-integrity/#proofs">proof</a> which is a set of attributes that represent a linked data digital proof and the parameters required to verify it as defined by RDF-N-Quads.</p>
+<p><strong>linked data proof document</strong></p>
+<p>A linked data document featuring one or more linked data proofs.</p>
+<p><strong>BJJSignature2021</strong></p>
+<p>The <code>type</code> of the linked data proof for the signature suite BabyJubjub 2021.</p>
+<p><strong>Iden3StateInfo2023</strong></p>
+<p>The <code>type</code> representing state information, a method for maintaining the issuer's state information and validating proofs against this data to ensure secure and efficient identity management within decentralized systems.**</p>
+</details>
+<h2 id="suite-definition">Suite Definition</h2>
+<p>The BabyJubjub 2021 signature suite MUST be used in conjunction with the signing and verification algorithms in the Linked Data Signatures <a href="https://w3c.github.io/vc-data-integrity/">specification</a>. The suite consists of the following algorithms:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>canonicalizationAlgorithm</td>
+<td>https://w3id.org/security#URDNA2015</td>
+<td><a href="https://www.w3.org/TR/rdf-canon/">RDF Dataset Normalization 1.0</a></td>
+</tr>
+<tr>
+<td>digestAlgorithm</td>
+<td>Poseidon</td>
+<td><a href="https://eprint.iacr.org/2019/458.pdf">POSEIDON: A New Hash Function for Zero-Knowledge Proof Systems</a></td>
+</tr>
+<tr>
+<td>signatureAlgorithm</td>
+<td>EdDSA-BabyJubJub</td>
+<td><a href="https://iden3-docs.readthedocs.io/en/latest/_downloads/a04267077fb3fdbf2b608e014706e004/Ed-DSA.pdf">EdDSA For Baby Jubjub Elliptic Curve with MiMC-7 Hash</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="modification-to-algorithms">Modification to Algorithms</h3>
+<p>The hash function in the signature algorithm has been repleaced to <a href="https://eprint.iacr.org/2019/458.pdf">Poseidon</a> hash function.</p>
+<h3 id="document-merklization-algorithm">Document Merklization Algorithm</h3>
+<p>The signature suite incorporates a Document Merklization algorithm to provide enhanced zero-knowledge compatibility support. This feature enables efficient querying of individual entries within JSON-LD documents in the context of zk-SNARK proofs. By constructing a Sparse Merkle Tree from the document, the algorithm supports selective disclosure of Verifiable Credential (VC) entries, efficiently prove membership, non-membership, and other predicate satisfactions related to the JSON-LD document, while maintaining the privacy and integrity of the data.</p>
+<p>Prior to applying the Merklization algorithm, the document must be in its expanded and canonicalized form.</p>
+<p>The Merklization algorithm works as follow:</p>
+<ol>
+<li>Obtain a list of RDF Quads from the canonicalized document.</li>
+<li>For each Quad, construct a key-value pair where the key represents the complete type path, and the value corresponds to the entry's value.</li>
+<li>Insert each key-value pair into the Merkle Tree, with the key serving as the path in the tree and the leaf's value being the hash of the pair's value, computed using the designated message digest algorithm.</li>
+<li>For each key-value pair, first hash the key using the designated message digest algorithm, and use the hashed key as the path in the Merkle Tree. Then, hash the value using the same message digest algorithm, and set the resulting hash as the value of the corresponding leaf node in the tree.</li>
+</ol>
+<p>Supported ld data types for merklization:</p>
+<details class="datatypes">
+<summary>Datatypes</summary>
+<ol>
+<li>xsd:integer ( from prime / 2 to prime / 2)</li>
+<li>xsd:positiveInteger ( from 1 to prime)</li>
+<li>xsd:string ( sponge hash of string bytes)</li>
+<li>xsd:double ( Canonical representation IEEE is hashed as string )</li>
+<li>xsd:nonNegativeInteger ( from 0 to prime)</li>
+<li>xsd:negativeInteger  (from -prime to -1)</li>
+<li>xsd:datetime (nanoseconds of unix timestamp, date after 1970-01-01 is supported )</li>
+<li>xsd:boolean (Poseidon hash of 1 or 0) </li>
+</ol>
+<p>prime number is specific to each hash algorithm, for current Poseidon it is <code>21888242871839275222246405745257275088548364400416034343698204186575808495617</code></p>
+</details>
+<p>More about jsonld merklization can be found <a href="https://docs.iden3.io/w3c/merklization/#conclusion">here</a>. </p>
+<h4 id="field-proof-example">Field proof example</h4>
+<p>To better comprehend how the signature suite enables field proof, let us examine the underlying mechanism. 
+In this process, a credential undergoes Merklization, during which each entry of the document is stored in a leaf.
+Subsequently, the merkle root of jsonld document as a part of core claim representation is signed by the issuer. 
+To facilitate the proof check, the prover can share the following information with the verifier:</p>
+<ol>
+<li>The core claim representation of the verifiable credential.</li>
+<li>The issuer's signature on the of core claim representation.</li>
+<li>The relevant authentication paths for the proving the validity of the issuer key.</li>
+</ol>
+<p>By providing this information, the prover demonstrates the possession of a valid credential containing specific entries without revealing the entire credential content. Consequently, this enables the prover to confirm the issuance of a credential of a particular type that contains specific values while preserving the confidentiality of other credential details. This approach aligns with W3C's official specifications and ensures data privacy during the verification process.</p>
+<h3 id="bjjsignature2021">BJJSignature2021</h3>
+<p>All verifiable credentials issued with the BabyJubjub 2021 signature suite must include a proof object with "BJJSignature2021" as the proof type. The BJJSignature2021 proof contains the issuer's data, the core claim, and a signature created using the issuer's private key. The following example demonstrates a BJJSignature2021 proof:</p>
+<pre><code>    {
+        "type": "BJJSignature2021",
+        "issuerData": {
+            "id": "did:polygonid:polygon:mumbai:2qHHBynUfh5UU7VimmwCT7MUtBhEcxXLm8ucEpkNMA",
+            "state": {
+                "claimsTreeRoot": "c40193ee97ce84705e63b7989fc303dde5a0f1e5648568cfafea37393728aa15",
+                "value": "1a76fb92056a01afa69f8d1181b25079be70024e81fb48c3c25fdc5d8887a326"
+            },
+            "authCoreClaim": "cca3371a6cb1b715004407e325bd993c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d9780102f9811e3efdade2afc5af9b5385a8f889a6b56ba8508c9896daf8040700623c34180136b3316f5012721f456ac2560e35acf53b32bf8b4de595f2b1170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "mtp": {
+                "existence": true,
+                "siblings": []
+            },
+            "credentialStatus": {
+                "id": "http://example.com/v1/did%3Apolygonid%3Apolygon%3Amumbai%3A2qHHBynUfh5UU7VimmwCT7MUtBhEcxXLm8ucEpkNMA/claims/revocation/status/0",
+                "revocationNonce": 0,
+                "type": "SparseMerkleTreeProof"
+            }
+        },
+        "coreClaim": "19ad4768b6f32694530c34cc187260702a0000000000000000000000000000000212b146402879cb0c89aee16ee6f3433f440c552c0559f0e50ee57f223c0c0002124436c8baf3d426bb6a9b32870cbc090174521431f29f3d2280a7aeca302f0000000000000000000000000000000000000000000000000000000000000000dfd04e04000000005f9b83650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "signature": "cc917d9f4cf89b57b23228dbdced7a052619457f29123b09e2bd9d4bef9cf70e5bda110c9baa3756cf6ad6e76030c9b802e55c617be35aafdd3e261e12c08f00"
+    }
+</code></pre>
+<p>Where: </p>
+<ul>
+<li><code>coreClaim</code> is a signed hex of core claim representation of W3C credential.</li>
+<li><code>signature</code> is a hex value of BJJ compressed signature produced by the issuer public key.</li>
+<li>The issuer stores their public key in the state tree. In proof it is represented as an <code>authCoreClaim</code> hex in the <code>issuerData</code> property. <code>mtp</code> property contains merkle tree proof of inclusion to the issuer claims tree.</li>
+<li><code>issuerData</code> contains information about how to check the credential status of the issuer key. More details regarding <code>credentialStatus</code> can be found <a href="../../status/overview/">here</a>.</li>
+<li><code>state</code> object represents the roots of issuer's trees  at the time of auth key has been issued.</li>
+</ul>
+<p>The proof contains the signature of the coreClaim which is a serialization of the whole VC document except for the proof. The signature is created using the issuer's private key.</p>
+<h4 id="proof-generation">Proof Generation</h4>
+<p>The BJJSignature2021 proof generation process follows a specific algorithm to ensure the integrity and authenticity of JSON-LD documents. The steps of the algorithm are as follows:</p>
+<ol>
+<li>Expand the JSON-LD document using the <a href="https://www.w3.org/TR/json-ld11-api/#expansion">JSON-LD 1.1 Processing Algorithms.</a></li>
+<li>Canonicalize the document using the URDNA2015 algorithm.</li>
+<li>Apply the <a href="https://docs.iden3.io/w3c/merklization/#conclusion">Document Merklization Algorithm</a> to create a Merkle tree from the canonicalized document.</li>
+<li>Create a core claim representation from W3C credential according to the core protocol. Document Root is written into one of the data slots.</li>
+<li>Sign the hex of core claim using the associated private key.</li>
+</ol>
+<p>To see an example of Iden3StateInfo2023 object in a DID document, please refer to the <a href="#did-document">example</a> provided in the Examples section of this document.</p>
+<h4 id="proof-verification">Proof Verification</h4>
+<p>During the verification of the verifiable credential, the verifier must check not only the signature of credential but also that the public key used to sign the document. </p>
+<p>To verify the authenticity and integrity of signature, the following steps should be performed:</p>
+<ol>
+<li>Retrieve the issuer's DID document and locate the Iden3StateInfo2023 object <a href="#did-document">issuer did document example</a> containing the state root and other relevant information. Check that state value in proof is published onchain or is genesis one.</li>
+<li>Verify that the issuer's public key, which signed the document, has been included in requested state with merkletree proof generation</li>
+<li>Obtain the core claim of the Merkleized credential, the issuer's signature on it from proof object.</li>
+<li>Validate the issuer's signature on the VC root using the issuer's public key.</li>
+<li>Validate that issuer's public key is not revoked. </li>
+<li>Obtain the root of the Merklized credential from the <code>coreClaim</code>. See <a href="https://docs.iden3.io/w3c/merklization/">documentation</a></li>
+<li>Reconstruct the Merkle tree root of credential using the json ld merklization procedure and compare with an extracted root  the <code>coreClaim</code>.</li>
+</ol>
+<h4 id="implementations">Implementations</h4>
+<p><a href="https://github.com/iden3/go-schema-processor/blob/4490032d21c0a3faf5c546666058cd90d1a3f81b/verifiable/credential.go#L39">Golang</a>
+<a href="https://github.com/0xPolygonID/js-sdk/blob/ff5663b8c974268cb8d2dc683993610292babc0a/src/verifiable/credential.ts#L152">JS</a></p>
+<h6 id="resolved-did-document-of-issuer">resolved did document of issuer</h6>
+<details class="example">
+<summary>Example</summary>
+<pre><code>{
+    "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://schema.iden3.io/core/jsonld/auth.jsonld"
+    ],
+    "id": "did:polygonid:polygon:mumbai:2qFGtDk2SyTLJgUx576mn2peqeFtWmhsSvWLoAnom4",
+    "verificationMethod": [
+        {
+            "id": "did:polygonid:polygon:mumbai:2qFGtDk2SyTLJgUx576mn2peqeFtWmhsSvWLoAnom4#stateInfo",
+            "type": "Iden3StateInfo2023",
+            "controller": "did:polygonid:polygon:mumbai:2qFGtDk2SyTLJgUx576mn2peqeFtWmhsSvWLoAnom4",
+            "stateContractAddress": "80001:0x134B1BE34911E39A8397ec6289782989729807a4",
+            "published": true,
+            "info": {
+                "id": "did:polygonid:polygon:mumbai:2qFGtDk2SyTLJgUx576mn2peqeFtWmhsSvWLoAnom4",
+                "state": "78d9e333fbede1722f53a6a059cba0b36c0ee62f60871f0d1761eda0aeb5b928",
+                "replacedByState": "0000000000000000000000000000000000000000000000000000000000000000",
+                "createdAtTimestamp": "1707399475",
+                "replacedAtTimestamp": "0",
+                "createdAtBlock": "45691433",
+                "replacedAtBlock": "0"
+            },
+            "global": {
+                "root": "61c52f21698f424e473113723729e28c9c895360b78c930a97875da04ef4242f",
+                "replacedByRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+                "createdAtTimestamp": "1707418701",
+                "replacedAtTimestamp": "0",
+                "createdAtBlock": "45700072",
+                "replacedAtBlock": "0"
+            }
+        }
+    ]
+}
+</code></pre>
+</details>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      powered by DIDComm
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

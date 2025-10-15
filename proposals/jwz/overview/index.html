@@ -1,0 +1,2697 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://iden3.io/proposals/jwz/overview/">
+      
+      
+        <link rel="prev" href="../../../resource-management/0.1/delivery/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>JWZ - Iden3 documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5TKTB44');</script>
+<!-- End Google Tag Manager -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#json-web-zero-knowledge" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Iden3 documentation" class="md-header__button md-logo" aria-label="Iden3 documentation" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Iden3 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JWZ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../w3c/refresh-service/overview/" class="md-tabs__link">
+          
+  
+  
+  W3C credential
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../media-types/overview/" class="md-tabs__link">
+          
+  
+  
+  Protocol
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Standard Proposals
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Iden3 documentation" class="md-nav__button md-logo" aria-label="Iden3 documentation" data-md-component="logo">
+      
+  <img src="../../../logo-white.svg" alt="logo">
+
+    </a>
+    Iden3 documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    W3C credential
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            W3C credential
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../w3c/refresh-service/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Refresh service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../w3c/status/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Credential Statuses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../w3c/display-method/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Display method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Proofs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proofs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../w3c/proofs/bjj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BJJSignature2021
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../w3c/proofs/smt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iden3SparseMerkleTreeProof
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Protocol
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Protocol
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../media-types/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Media-types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Credentials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Credentials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages (1.0)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages (1.0)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/issuance-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Issuance Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/issuance-response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Issuance Response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/fetch-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fetch Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/offer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Offer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/status-update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Status update
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/refresh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Refresh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/1.0/onchain-offer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onchain-offer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Beta (0.1)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Beta (0.1)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/payment-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Payment Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/payment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Payment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/proposal-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proposal Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/proposal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proposal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../credentials/0.1/encrypted-issuance-response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encrypted issuance response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Authorization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authorization/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authorization/1.0/request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authorization/1.0/response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Proofs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proofs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proofs/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages (1.0)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages (1.0)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proofs/1.0/contract-invoke-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contract invoke request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proofs/1.0/contract-invoke-response/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contract invoke response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Revocation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Revocation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../revocation/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_2" id="__nav_3_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages (1.0)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages (1.0)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../revocation/1.0/request-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Request status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../revocation/1.0/status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Report Problem
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Report Problem
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../report-problem/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6_2" id="__nav_3_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../report-problem/2.0/report-problem-message/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Discovery
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Discovery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../discovery/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../discovery/2.0/discovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Discovery Queries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Resource Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Resource Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8_2" id="__nav_3_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-update-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Update Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Update
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-requests-list-fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Requests List Fetch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-list-fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions List Fetch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/permissions-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource-management/0.1/delivery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delivery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Standard Proposals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Standard Proposals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    JWZ
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TKTB44"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+                  
+
+
+
+<h1 id="json-web-zero-knowledge">JSON Web Zero-knowledge</h1>
+<h1 id="summary">Summary</h1>
+<p>JSON Web Zero-knowledge (JWZ) is an open standard for representing messages proven by zero-knowledge technology.</p>
+<p>This specification of the JSON Web Zero-knowledge standard that relay on a draft of the JWM standard and JWT (RFC7519) standards.</p>
+<p>While having a lot in common, JWZ  has different intents from JWT and JWM. A JWM is about a sender creating a message composed of attributes, where the message is destined for a recipient or recipients. Whereas a JWT is about an issuer expressing claims about a subject to an audience. See the section in Section 2.1 of [<a href="https://datatracker.ietf.org/doc/html/draft-looker-jwm-01#section-2.1">JWM</a>]. JWZ is about proving the message that can be represented as JWT claims and JWM attributes set.</p>
+<p>While a JWM leverages JSON Web Signature (JWS) and or JSON Web Encryption (JWE) to achieve digital signing, integrity protection, and confidentiality JWZ utilizes zero-knowledge technologies.</p>
+<p>Its main goal is to provide a new way of interaction between users by providing data integrity of the message, anonymity of sender public keys, and providing helpful metadata among the message.</p>
+<h1 id="definition">Definition</h1>
+<p>JWZ consists of three parts separated by dots (.), which are:</p>
+<ul>
+<li>Header</li>
+<li>Payload message</li>
+<li>
+<p>Zero-knowledge proof</p>
+</li>
+<li>
+<p>Example of compacted jwz token:</p>
+<p><div class="highlight"><pre><span></span><code>eyJhbGciOiJncm90aDE2IiwiY2lyY3VpdElkIjoiYXV0aFYyIiwiY3JpdCI6WyJjaXJjdWl0SWQiXSwidHlwIjoiYXBwbGljYXRpb24vaWRlbjMtemtwLWpzb24ifQ.eyJpZCI6ImM3NTUzZWFhLWFlY2QtNGRjNi1iMDU3LWExY2IyOWNhZGJmYiIsInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zLXprcC1qc29uIiwidHlwZSI6Imh0dHBzOi8vaWRlbjMtY29tbXVuaWNhdGlvbi5pby9hdXRob3JpemF0aW9uLzEuMC9yZXNwb25zZSIsInRoaWQiOiI0MGNjMDllYS04NWRhLTQ4Y2UtOTE4OC1jNDQwZDM1MWVlNTMiLCJib2R5Ijp7ImRpZF9kb2MiOnsiY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvZGlkL3YxIl0sImlkIjoiZGlkOnBvbHlnb25pZDpwb2x5Z29uOmFtb3k6MnFhUG9kMVF4bzlVS1R6UjdLM1lvNjNnTlJGSEJtOThiaDFrMVNFWTZ4Iiwic2VydmljZSI6W3siaWQiOiJkaWQ6cG9seWdvbmlkOnBvbHlnb246YW1veToycWFQb2QxUXhvOVVLVHpSN0szWW82M2dOUkZIQm05OGJoMWsxU0VZNngjcHVzaCIsInR5cGUiOiJwdXNoLW5vdGlmaWNhdGlvbiIsInNlcnZpY2VFbmRwb2ludCI6Imh0dHBzOi8vcHVzaC1zdGFnaW5nLnBvbHlnb25pZC5jb20vYXBpL3YxIiwibWV0YWRhdGEiOnsiZGV2aWNlcyI6W3siY2lwaGVydGV4dCI6InZWTGpGWFRGVldEbE5DUStFV0dhNlRiRFNEUWx5UDVrSXpwSWFNc0d3UlRWRy93YmExN2ExZnNNWFRtQjhFbnZpWThKUmZWQjF6MDN2dyszVzhicFJnWEdNeXJONXpOekdOSVh0WjNTUVdmb3VUVkZhV2NFWTVSWW1PV05JcW5SeDdTU0lDQUsxZTlSbzdEVTNOdHJJUldJWkFqWVBmaG5zOVNiU2pGYnpmWmhvckJuSHFzK3dlRWxSRUQrZUc4alpOc0NIYWRzY3Ewcm4zSGFIZkJrTi9NYnc3allSaW9vY2xmREorSDIwaUZKODVWWVRJSTdhb3RaMWxkS3hTbDhvb2NwTXJVeTJRaktENVRXVTliZ0tZOE15YWhpQjJUN0p5Qk1zWDgxQzlZbW1sbTJFTHl2aWh0cmMwTDhKQlJFOUhMdERLWnpwK2pwbDdMK205WE1ka3AxejVMKzVYNG9lTmdHOXBCODFzTVJhTzROM1RTVU1XY0dmejhQdDRHZktDUFdFaThmUWdmeGU1UUFoQUcra3ZVSzRDbVBsdk9hUExURTVJM3JpWnRZcklJdDh0eDVLNnkrUmJyaThXV1h0M2h3dU10MjVuZk9qdnpNcjVxSE5TRTZSc2xPczdpNGNpMHhlLy9mbEdSck1qZEJ0bEhEZExwT3ptdTZlSlA5WHJtVzcwL2haVFBveXhRc1BFTUFrNVl0L1hMSm9VYmJQcXVtYmZ3MURhbFRHaFdla3A3Ri9mUDZ6Kzd1Tyt2b2piUzZnemVDUEhyUHkrTkJydHJsSmRnQi8zVEEyclJ1KytlaFpWMDh0WndWK01qNGRkVjZmcnd3UnVKQTNXWm83RWhRV2ppNEJYeTNudzE0bVNZTEVwb01qWTdwZnJSNHMrTW9qakoxRE9vPSIsImFsZyI6IlJTQS1PQUVQLTUxMiJ9XX19XX0sIm1lc3NhZ2UiOm51bGwsInNjb3BlIjpbeyJwcm9vZiI6eyJwaV9hIjpbIjE1MzYwNzE5OTc0MzY0NzMzNzIzNTMyMjI2NTM1MTAyNjY1NzQ1NjEyMDY4Nzg4NzczMjk2MzYxMDc0NjM1MzA2NTc1NDUyMTM3ODA1IiwiMTU2Mzg5MzI4MDc2Nzc5NjA5NzAzMTgzNDI0NTE0NTkwNDcxMzI4ODI0NjgyNTQ4NTU2MTU0NzUwNDcwNjg2MjQxMzY3ODU2ODUyODQiLCIxIl0sInBpX2IiOltbIjEyMjQzODg4NjM2MTY1MzQzMDA0NjM1NjE3ODA0MDY5NTk1ODI1MjExMDUyMTgwOTY3MDcwNDc1MDY3NzE4OTc3MjUyMzE5NTEwNDE2IiwiNDU0OTU0MDc2OTQ3NzExMDA2MzY0MDk1OTIyNTExMTQ0MjQ5NDg3MTQ5OTE2Njc3NDE5Mzg0NzkxNjg4MjAxNzUwMDI1ODg4NTIxOSJdLFsiMjIwMDQ0ODAxNTAwOTcwNzg0NjM0NTMxODI5NzUzODE3ODkyMTY3ODEzODUzNzI2MjA0MjY0MjIzNjY0NjEzNzQ5ODQ3MjQyMjEyMCIsIjcyNTg5ODk5MTUwMzg2MzE3Mzk1NzIwNjkyMzU0Mjg2ODcyMjQwNzkwODMwMzk5NTQzMTgxNzk0NzkyNzc3MDYzNDg4MjAzMTI3NTYiXSxbIjEiLCIwIl1dLCJwaV9jIjpbIjQ5NTU3NTc3MDEzNjI3MzMyMDgzNjY1MDQ2NTU5NDI2NzI5NDc5NDI4NjYxNjEyNTQ5NzgwMjE5OTA5NjM5Nzc4MzQ4MDU0MDU5NzEiLCIxOTQ3OTA5MzE1MzYxNTIxNDI5MTAyMjM4NTk2Mjg0MjQ3NDcwOTEzNTg5NDcxMDU3NjA1NDE1MjI0MTUzMzU4NzQyNDEwNDYwOTkzMiIsIjEiXSwicHJvdG9jb2wiOiJncm90aDE2IiwiY3VydmUiOiJibjEyOCJ9LCJwdWJfc2lnbmFscyI6WyIxIiwiMjQyNDI2NDIxMjgzNjA2MTMyNTQ4NDQwMDM1NTk3Nzg0NDAwNzU5NDEyMjU0MTY4ODUxMDMwMzYwMDAxNTExNDQ0MTk2OTMzMTQiLCIxNzAxNjE3MjUyODk5MDc2MzkzNzE0MjQyODE5MjU0MzY4Mzg0NTYzNzYzNjY4NTE5OTA0ODIyOTY4MTc2MDI5MjYxMTYwMTA2MDQ0OSIsIjAiLCIwIiwiMCIsIjEiLCIxIiwiMjU4MjczNDkwNzI2MDkzMTY5NDczOTY5Nzk4Mjg1MTg3ODk3MDA5MTIzNTE2MjM1MDYwODA0ODkzODk4OTQwNzUyNjg2NjYxMTQiLCIxIiwiMTA4NTM1NzM1ODU2MDA2NjcwODQ0ODQ2MjQ2NTkwNjg5MzQ3Mzg0ODAwOTkxMjgyNzIwMjg2MjA0MjI3NjQzODg1OTU1MTgzNzA3MzAiLCIxNzEyMzI3NTM1IiwiMTA2MjI4MTM4NTc4MTc3MzcxNTU2NDEyNzM0NzQwMjU5NDA1MDczIiwiODI2MjE1ODQ1MTY0NTQ2NjExNjgyNTYwMTg4OTUwMzAxMTkwODYwMTE1NTE3NTI3Mzk2ODY4NjkwMDk2MjI1MTk0MzQ5NjIyNzAzOSIsIjAiLCIxIiwiMSIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjEiLCIyNTgyNzM0OTA3MjYwOTMxNjk0NzM5Njk3OTgyODUxODc4OTcwMDkxMjM1MTYyMzUwNjA4MDQ4OTM4OTg5NDA3NTI2ODY2NjExNCIsIjAiXSwiaWQiOjEsImNpcmN1aXRJZCI6ImNyZWRlbnRpYWxBdG9taWNRdWVyeVYzLWJldGEuMSJ9XX0sImZyb20iOiJkaWQ6cG9seWdvbmlkOnBvbHlnb246YW1veToycWFQb2QxUXhvOVVLVHpSN0szWW82M2dOUkZIQm05OGJoMWsxU0VZNngiLCJ0byI6ImRpZDpwb2x5Z29uaWQ6cG9seWdvbjphbW95OjJxVjlRWGRoWFhtTjVzS2pOMVl1ZU1qeGdSYm5KY0VHSzJrR3B2azNjcSJ9.eyJwcm9vZiI6eyJwaV9hIjpbIjE1MjgzNTY1OTE3NzI5NTE2ODAwMjY5ODM5ODQ3NTk0MDUyOTY5NjIzMDM0NjU2NzM3MzExNjQxNTM2NzM0NzQzOTE4ODYxNTI2MjM4IiwiMTU3OTcyNDMzMzkyNTY3NjUyOTMyNjg2NjE1MDg1Mjg0NTA4MjY4MzIyOTQ2NzUwNDU1ODkzNjcxNjcwMDg1NjU4ODU5MjIyMzc4MCIsIjEiXSwicGlfYiI6W1siMTg3ODU4NjY0MDQ3MjU5MTA3NDc1NTI0MjgyMzU5ODIyNzAzNTQzODgxMjIyODMwNjI4ODg0MDg2ODQ2NTYxMDY1MzYyMTUyODkzOCIsIjMyMTQ0MTcxNTEwMzcxNzg3ODAzMTc1MDQ2NjMwNDI0NjM2MjI3NzczODYzODA0MjY1NjQyMjkxMTkxNjg0MzE2MzkwNzUyNDYwMTciXSxbIjEwNTQ2NDI4NTI2OTQyNTI1NTI2ODA2ODkyMDkyMDcxMTI2MDc5MjY0MjA4MDkyMzQ3NTE3MDQwNDY2MDU5NTczMjc0MTMzMzI1MCIsIjIwNDE1NjQ0MTMxMzczNDE3ODYwOTQ5MTU0NzcxNTAwMzMwMjc0ODYzMTQzMDIzNzI2MzgwNjgyNTQ5MTM4ODY4MjgwNzEyOTc3MzM2Il0sWyIxIiwiMCJdXSwicGlfYyI6WyI2ODUwNjU2MzQ1MzI0NDA5NTAxODE3NzM1NDgzNzcwMTcxMzg5MjAxNzgwODEzNjM1ODQ5MzYzOTk0NjE0MzE3NTQ5OTU2Mzc4MDc5IiwiNDIwNDc3Njc4MzQyNzQxODEzMDg0MjYxOTk1Nzk5NTg5Njk5MTY5NTE5MzkwNDkxNzY0NjU2NzE3NjU4Njk2NDkzMjU0OTkwOTAxMSIsIjEiXSwicHJvdG9jb2wiOiJncm90aDE2IiwiY3VydmUiOiJibjEyOCJ9LCJwdWJfc2lnbmFscyI6WyIyNDI0MjY0MjEyODM2MDYxMzI1NDg0NDAwMzU1OTc3ODQ0MDA3NTk0MTIyNTQxNjg4NTEwMzAzNjAwMDE1MTE0NDQxOTY5MzMxNCIsIjExMjA4NDE2ODYzNjgwNTgxMTk5MDg0ODg4MzI0MzExNTI5MzkwNTg4NDc1MjE3MDQyMjY3OTI3NzkxMjI5MTU1NDQ2MTU1MjMxMTA4IiwiMTc4NDk5ODE3MjA2MzQyMTI4MDI2NjQxODk5Mjk2NzExNDA3NjI1NTc0ODMyMzY3MDgwOTc3MjM4ODQxNzI2NDExMjQ2OTEyMjIyOTgiXX0
+</code></pre></div>
+Link to  <a href="https://jwz.polygonid.me/?token=eyJhbGciOiJncm90aDE2IiwiY2lyY3VpdElkIjoiYXV0aFYyIiwiY3JpdCI6WyJjaXJjdWl0SWQiXSwidHlwIjoiYXBwbGljYXRpb24vaWRlbjMtemtwLWpzb24ifQ.eyJpZCI6ImM3NTUzZWFhLWFlY2QtNGRjNi1iMDU3LWExY2IyOWNhZGJmYiIsInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zLXprcC1qc29uIiwidHlwZSI6Imh0dHBzOi8vaWRlbjMtY29tbXVuaWNhdGlvbi5pby9hdXRob3JpemF0aW9uLzEuMC9yZXNwb25zZSIsInRoaWQiOiI0MGNjMDllYS04NWRhLTQ4Y2UtOTE4OC1jNDQwZDM1MWVlNTMiLCJib2R5Ijp7ImRpZF9kb2MiOnsiY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvZGlkL3YxIl0sImlkIjoiZGlkOnBvbHlnb25pZDpwb2x5Z29uOmFtb3k6MnFhUG9kMVF4bzlVS1R6UjdLM1lvNjNnTlJGSEJtOThiaDFrMVNFWTZ4Iiwic2VydmljZSI6W3siaWQiOiJkaWQ6cG9seWdvbmlkOnBvbHlnb246YW1veToycWFQb2QxUXhvOVVLVHpSN0szWW82M2dOUkZIQm05OGJoMWsxU0VZNngjcHVzaCIsInR5cGUiOiJwdXNoLW5vdGlmaWNhdGlvbiIsInNlcnZpY2VFbmRwb2ludCI6Imh0dHBzOi8vcHVzaC1zdGFnaW5nLnBvbHlnb25pZC5jb20vYXBpL3YxIiwibWV0YWRhdGEiOnsiZGV2aWNlcyI6W3siY2lwaGVydGV4dCI6InZWTGpGWFRGVldEbE5DUStFV0dhNlRiRFNEUWx5UDVrSXpwSWFNc0d3UlRWRy93YmExN2ExZnNNWFRtQjhFbnZpWThKUmZWQjF6MDN2dyszVzhicFJnWEdNeXJONXpOekdOSVh0WjNTUVdmb3VUVkZhV2NFWTVSWW1PV05JcW5SeDdTU0lDQUsxZTlSbzdEVTNOdHJJUldJWkFqWVBmaG5zOVNiU2pGYnpmWmhvckJuSHFzK3dlRWxSRUQrZUc4alpOc0NIYWRzY3Ewcm4zSGFIZkJrTi9NYnc3allSaW9vY2xmREorSDIwaUZKODVWWVRJSTdhb3RaMWxkS3hTbDhvb2NwTXJVeTJRaktENVRXVTliZ0tZOE15YWhpQjJUN0p5Qk1zWDgxQzlZbW1sbTJFTHl2aWh0cmMwTDhKQlJFOUhMdERLWnpwK2pwbDdMK205WE1ka3AxejVMKzVYNG9lTmdHOXBCODFzTVJhTzROM1RTVU1XY0dmejhQdDRHZktDUFdFaThmUWdmeGU1UUFoQUcra3ZVSzRDbVBsdk9hUExURTVJM3JpWnRZcklJdDh0eDVLNnkrUmJyaThXV1h0M2h3dU10MjVuZk9qdnpNcjVxSE5TRTZSc2xPczdpNGNpMHhlLy9mbEdSck1qZEJ0bEhEZExwT3ptdTZlSlA5WHJtVzcwL2haVFBveXhRc1BFTUFrNVl0L1hMSm9VYmJQcXVtYmZ3MURhbFRHaFdla3A3Ri9mUDZ6Kzd1Tyt2b2piUzZnemVDUEhyUHkrTkJydHJsSmRnQi8zVEEyclJ1KytlaFpWMDh0WndWK01qNGRkVjZmcnd3UnVKQTNXWm83RWhRV2ppNEJYeTNudzE0bVNZTEVwb01qWTdwZnJSNHMrTW9qakoxRE9vPSIsImFsZyI6IlJTQS1PQUVQLTUxMiJ9XX19XX0sIm1lc3NhZ2UiOm51bGwsInNjb3BlIjpbeyJwcm9vZiI6eyJwaV9hIjpbIjE1MzYwNzE5OTc0MzY0NzMzNzIzNTMyMjI2NTM1MTAyNjY1NzQ1NjEyMDY4Nzg4NzczMjk2MzYxMDc0NjM1MzA2NTc1NDUyMTM3ODA1IiwiMTU2Mzg5MzI4MDc2Nzc5NjA5NzAzMTgzNDI0NTE0NTkwNDcxMzI4ODI0NjgyNTQ4NTU2MTU0NzUwNDcwNjg2MjQxMzY3ODU2ODUyODQiLCIxIl0sInBpX2IiOltbIjEyMjQzODg4NjM2MTY1MzQzMDA0NjM1NjE3ODA0MDY5NTk1ODI1MjExMDUyMTgwOTY3MDcwNDc1MDY3NzE4OTc3MjUyMzE5NTEwNDE2IiwiNDU0OTU0MDc2OTQ3NzExMDA2MzY0MDk1OTIyNTExMTQ0MjQ5NDg3MTQ5OTE2Njc3NDE5Mzg0NzkxNjg4MjAxNzUwMDI1ODg4NTIxOSJdLFsiMjIwMDQ0ODAxNTAwOTcwNzg0NjM0NTMxODI5NzUzODE3ODkyMTY3ODEzODUzNzI2MjA0MjY0MjIzNjY0NjEzNzQ5ODQ3MjQyMjEyMCIsIjcyNTg5ODk5MTUwMzg2MzE3Mzk1NzIwNjkyMzU0Mjg2ODcyMjQwNzkwODMwMzk5NTQzMTgxNzk0NzkyNzc3MDYzNDg4MjAzMTI3NTYiXSxbIjEiLCIwIl1dLCJwaV9jIjpbIjQ5NTU3NTc3MDEzNjI3MzMyMDgzNjY1MDQ2NTU5NDI2NzI5NDc5NDI4NjYxNjEyNTQ5NzgwMjE5OTA5NjM5Nzc4MzQ4MDU0MDU5NzEiLCIxOTQ3OTA5MzE1MzYxNTIxNDI5MTAyMjM4NTk2Mjg0MjQ3NDcwOTEzNTg5NDcxMDU3NjA1NDE1MjI0MTUzMzU4NzQyNDEwNDYwOTkzMiIsIjEiXSwicHJvdG9jb2wiOiJncm90aDE2IiwiY3VydmUiOiJibjEyOCJ9LCJwdWJfc2lnbmFscyI6WyIxIiwiMjQyNDI2NDIxMjgzNjA2MTMyNTQ4NDQwMDM1NTk3Nzg0NDAwNzU5NDEyMjU0MTY4ODUxMDMwMzYwMDAxNTExNDQ0MTk2OTMzMTQiLCIxNzAxNjE3MjUyODk5MDc2MzkzNzE0MjQyODE5MjU0MzY4Mzg0NTYzNzYzNjY4NTE5OTA0ODIyOTY4MTc2MDI5MjYxMTYwMTA2MDQ0OSIsIjAiLCIwIiwiMCIsIjEiLCIxIiwiMjU4MjczNDkwNzI2MDkzMTY5NDczOTY5Nzk4Mjg1MTg3ODk3MDA5MTIzNTE2MjM1MDYwODA0ODkzODk4OTQwNzUyNjg2NjYxMTQiLCIxIiwiMTA4NTM1NzM1ODU2MDA2NjcwODQ0ODQ2MjQ2NTkwNjg5MzQ3Mzg0ODAwOTkxMjgyNzIwMjg2MjA0MjI3NjQzODg1OTU1MTgzNzA3MzAiLCIxNzEyMzI3NTM1IiwiMTA2MjI4MTM4NTc4MTc3MzcxNTU2NDEyNzM0NzQwMjU5NDA1MDczIiwiODI2MjE1ODQ1MTY0NTQ2NjExNjgyNTYwMTg4OTUwMzAxMTkwODYwMTE1NTE3NTI3Mzk2ODY4NjkwMDk2MjI1MTk0MzQ5NjIyNzAzOSIsIjAiLCIxIiwiMSIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjEiLCIyNTgyNzM0OTA3MjYwOTMxNjk0NzM5Njk3OTgyODUxODc4OTcwMDkxMjM1MTYyMzUwNjA4MDQ4OTM4OTg5NDA3NTI2ODY2NjExNCIsIjAiXSwiaWQiOjEsImNpcmN1aXRJZCI6ImNyZWRlbnRpYWxBdG9taWNRdWVyeVYzLWJldGEuMSJ9XX0sImZyb20iOiJkaWQ6cG9seWdvbmlkOnBvbHlnb246YW1veToycWFQb2QxUXhvOVVLVHpSN0szWW82M2dOUkZIQm05OGJoMWsxU0VZNngiLCJ0byI6ImRpZDpwb2x5Z29uaWQ6cG9seWdvbjphbW95OjJxVjlRWGRoWFhtTjVzS2pOMVl1ZU1qeGdSYm5KY0VHSzJrR3B2azNjcSJ9.eyJwcm9vZiI6eyJwaV9hIjpbIjE1MjgzNTY1OTE3NzI5NTE2ODAwMjY5ODM5ODQ3NTk0MDUyOTY5NjIzMDM0NjU2NzM3MzExNjQxNTM2NzM0NzQzOTE4ODYxNTI2MjM4IiwiMTU3OTcyNDMzMzkyNTY3NjUyOTMyNjg2NjE1MDg1Mjg0NTA4MjY4MzIyOTQ2NzUwNDU1ODkzNjcxNjcwMDg1NjU4ODU5MjIyMzc4MCIsIjEiXSwicGlfYiI6W1siMTg3ODU4NjY0MDQ3MjU5MTA3NDc1NTI0MjgyMzU5ODIyNzAzNTQzODgxMjIyODMwNjI4ODg0MDg2ODQ2NTYxMDY1MzYyMTUyODkzOCIsIjMyMTQ0MTcxNTEwMzcxNzg3ODAzMTc1MDQ2NjMwNDI0NjM2MjI3NzczODYzODA0MjY1NjQyMjkxMTkxNjg0MzE2MzkwNzUyNDYwMTciXSxbIjEwNTQ2NDI4NTI2OTQyNTI1NTI2ODA2ODkyMDkyMDcxMTI2MDc5MjY0MjA4MDkyMzQ3NTE3MDQwNDY2MDU5NTczMjc0MTMzMzI1MCIsIjIwNDE1NjQ0MTMxMzczNDE3ODYwOTQ5MTU0NzcxNTAwMzMwMjc0ODYzMTQzMDIzNzI2MzgwNjgyNTQ5MTM4ODY4MjgwNzEyOTc3MzM2Il0sWyIxIiwiMCJdXSwicGlfYyI6WyI2ODUwNjU2MzQ1MzI0NDA5NTAxODE3NzM1NDgzNzcwMTcxMzg5MjAxNzgwODEzNjM1ODQ5MzYzOTk0NjE0MzE3NTQ5OTU2Mzc4MDc5IiwiNDIwNDc3Njc4MzQyNzQxODEzMDg0MjYxOTk1Nzk5NTg5Njk5MTY5NTE5MzkwNDkxNzY0NjU2NzE3NjU4Njk2NDkzMjU0OTkwOTAxMSIsIjEiXSwicHJvdG9jb2wiOiJncm90aDE2IiwiY3VydmUiOiJibjEyOCJ9LCJwdWJfc2lnbmFscyI6WyIyNDI0MjY0MjEyODM2MDYxMzI1NDg0NDAwMzU1OTc3ODQ0MDA3NTk0MTIyNTQxNjg4NTEwMzAzNjAwMDE1MTE0NDQxOTY5MzMxNCIsIjExMjA4NDE2ODYzNjgwNTgxMTk5MDg0ODg4MzI0MzExNTI5MzkwNTg4NDc1MjE3MDQyMjY3OTI3NzkxMjI5MTU1NDQ2MTU1MjMxMTA4IiwiMTc4NDk5ODE3MjA2MzQyMTI4MDI2NjQxODk5Mjk2NzExNDA3NjI1NTc0ODMyMzY3MDgwOTc3MjM4ODQxNzI2NDExMjQ2OTEyMjIyOTgiXX0">web parser</a>.</p>
+</li>
+</ul>
+<p><strong>The first part</strong> - headers:</p>
+<ul>
+<li>base 64 encoded headers</li>
+</ul>
+<p><code>eyJhbGciOiJncm90aDE2IiwiY2lyY3VpdElkIjoiYXV0aFYyIiwiY3JpdCI6WyJjaXJjdWl0SWQiXSwidHlwIjoiYXBwbGljYXRpb24vaWRlbjMtemtwLWpzb24ifQ</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;alg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;groth16&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;circuitId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;authV2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;crit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;circuitId&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;application/iden3-zkp-json&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>alg</strong> - is a zero-knowledge algorithm that is used for proof generation.</p>
+<p><strong>circuitId</strong> - is a circuit that is used for proof generation. For authentication - auth circuit must be used.</p>
+<p><strong>crit -</strong> describes the list of header keys that the verifier must support.</p>
+<p><strong>typ -</strong> is the media type of the message. In our case, it’s the protocol type of packed message <em>application/iden3-zkp-json</em></p>
+<p><strong>The second part</strong> - message:</p>
+<div class="highlight"><pre><span></span><code>eyJpZCI6ImM3NTUzZWFhLWFlY2QtNGRjNi1iMDU3LWExY2IyOWNhZGJmYiIsInR5cCI6ImFwcGxpY2F0aW9uL2lkZW4zLXprcC1qc29uIiwidHlwZSI6Imh0dHBzOi8vaWRlbjMtY29tbXVuaWNhdGlvbi5pby9hdXRob3JpemF0aW9uLzEuMC9yZXNwb25zZSIsInRoaWQiOiI0MGNjMDllYS04NWRhLTQ4Y2UtOTE4OC1jNDQwZDM1MWVlNTMiLCJib2R5Ijp7ImRpZF9kb2MiOnsiY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvZGlkL3YxIl0sImlkIjoiZGlkOnBvbHlnb25pZDpwb2x5Z29uOmFtb3k6MnFhUG9kMVF4bzlVS1R6UjdLM1lvNjNnTlJGSEJtOThiaDFrMVNFWTZ4Iiwic2VydmljZSI6W3siaWQiOiJkaWQ6cG9seWdvbmlkOnBvbHlnb246YW1veToycWFQb2QxUXhvOVVLVHpSN0szWW82M2dOUkZIQm05OGJoMWsxU0VZNngjcHVzaCIsInR5cGUiOiJwdXNoLW5vdGlmaWNhdGlvbiIsInNlcnZpY2VFbmRwb2ludCI6Imh0dHBzOi8vcHVzaC1zdGFnaW5nLnBvbHlnb25pZC5jb20vYXBpL3YxIiwibWV0YWRhdGEiOnsiZGV2aWNlcyI6W3siY2lwaGVydGV4dCI6InZWTGpGWFRGVldEbE5DUStFV0dhNlRiRFNEUWx5UDVrSXpwSWFNc0d3UlRWRy93YmExN2ExZnNNWFRtQjhFbnZpWThKUmZWQjF6MDN2dyszVzhicFJnWEdNeXJONXpOekdOSVh0WjNTUVdmb3VUVkZhV2NFWTVSWW1PV05JcW5SeDdTU0lDQUsxZTlSbzdEVTNOdHJJUldJWkFqWVBmaG5zOVNiU2pGYnpmWmhvckJuSHFzK3dlRWxSRUQrZUc4alpOc0NIYWRzY3Ewcm4zSGFIZkJrTi9NYnc3allSaW9vY2xmREorSDIwaUZKODVWWVRJSTdhb3RaMWxkS3hTbDhvb2NwTXJVeTJRaktENVRXVTliZ0tZOE15YWhpQjJUN0p5Qk1zWDgxQzlZbW1sbTJFTHl2aWh0cmMwTDhKQlJFOUhMdERLWnpwK2pwbDdMK205WE1ka3AxejVMKzVYNG9lTmdHOXBCODFzTVJhTzROM1RTVU1XY0dmejhQdDRHZktDUFdFaThmUWdmeGU1UUFoQUcra3ZVSzRDbVBsdk9hUExURTVJM3JpWnRZcklJdDh0eDVLNnkrUmJyaThXV1h0M2h3dU10MjVuZk9qdnpNcjVxSE5TRTZSc2xPczdpNGNpMHhlLy9mbEdSck1qZEJ0bEhEZExwT3ptdTZlSlA5WHJtVzcwL2haVFBveXhRc1BFTUFrNVl0L1hMSm9VYmJQcXVtYmZ3MURhbFRHaFdla3A3Ri9mUDZ6Kzd1Tyt2b2piUzZnemVDUEhyUHkrTkJydHJsSmRnQi8zVEEyclJ1KytlaFpWMDh0WndWK01qNGRkVjZmcnd3UnVKQTNXWm83RWhRV2ppNEJYeTNudzE0bVNZTEVwb01qWTdwZnJSNHMrTW9qakoxRE9vPSIsImFsZyI6IlJTQS1PQUVQLTUxMiJ9XX19XX0sIm1lc3NhZ2UiOm51bGwsInNjb3BlIjpbeyJwcm9vZiI6eyJwaV9hIjpbIjE1MzYwNzE5OTc0MzY0NzMzNzIzNTMyMjI2NTM1MTAyNjY1NzQ1NjEyMDY4Nzg4NzczMjk2MzYxMDc0NjM1MzA2NTc1NDUyMTM3ODA1IiwiMTU2Mzg5MzI4MDc2Nzc5NjA5NzAzMTgzNDI0NTE0NTkwNDcxMzI4ODI0NjgyNTQ4NTU2MTU0NzUwNDcwNjg2MjQxMzY3ODU2ODUyODQiLCIxIl0sInBpX2IiOltbIjEyMjQzODg4NjM2MTY1MzQzMDA0NjM1NjE3ODA0MDY5NTk1ODI1MjExMDUyMTgwOTY3MDcwNDc1MDY3NzE4OTc3MjUyMzE5NTEwNDE2IiwiNDU0OTU0MDc2OTQ3NzExMDA2MzY0MDk1OTIyNTExMTQ0MjQ5NDg3MTQ5OTE2Njc3NDE5Mzg0NzkxNjg4MjAxNzUwMDI1ODg4NTIxOSJdLFsiMjIwMDQ0ODAxNTAwOTcwNzg0NjM0NTMxODI5NzUzODE3ODkyMTY3ODEzODUzNzI2MjA0MjY0MjIzNjY0NjEzNzQ5ODQ3MjQyMjEyMCIsIjcyNTg5ODk5MTUwMzg2MzE3Mzk1NzIwNjkyMzU0Mjg2ODcyMjQwNzkwODMwMzk5NTQzMTgxNzk0NzkyNzc3MDYzNDg4MjAzMTI3NTYiXSxbIjEiLCIwIl1dLCJwaV9jIjpbIjQ5NTU3NTc3MDEzNjI3MzMyMDgzNjY1MDQ2NTU5NDI2NzI5NDc5NDI4NjYxNjEyNTQ5NzgwMjE5OTA5NjM5Nzc4MzQ4MDU0MDU5NzEiLCIxOTQ3OTA5MzE1MzYxNTIxNDI5MTAyMjM4NTk2Mjg0MjQ3NDcwOTEzNTg5NDcxMDU3NjA1NDE1MjI0MTUzMzU4NzQyNDEwNDYwOTkzMiIsIjEiXSwicHJvdG9jb2wiOiJncm90aDE2IiwiY3VydmUiOiJibjEyOCJ9LCJwdWJfc2lnbmFscyI6WyIxIiwiMjQyNDI2NDIxMjgzNjA2MTMyNTQ4NDQwMDM1NTk3Nzg0NDAwNzU5NDEyMjU0MTY4ODUxMDMwMzYwMDAxNTExNDQ0MTk2OTMzMTQiLCIxNzAxNjE3MjUyODk5MDc2MzkzNzE0MjQyODE5MjU0MzY4Mzg0NTYzNzYzNjY4NTE5OTA0ODIyOTY4MTc2MDI5MjYxMTYwMTA2MDQ0OSIsIjAiLCIwIiwiMCIsIjEiLCIxIiwiMjU4MjczNDkwNzI2MDkzMTY5NDczOTY5Nzk4Mjg1MTg3ODk3MDA5MTIzNTE2MjM1MDYwODA0ODkzODk4OTQwNzUyNjg2NjYxMTQiLCIxIiwiMTA4NTM1NzM1ODU2MDA2NjcwODQ0ODQ2MjQ2NTkwNjg5MzQ3Mzg0ODAwOTkxMjgyNzIwMjg2MjA0MjI3NjQzODg1OTU1MTgzNzA3MzAiLCIxNzEyMzI3NTM1IiwiMTA2MjI4MTM4NTc4MTc3MzcxNTU2NDEyNzM0NzQwMjU5NDA1MDczIiwiODI2MjE1ODQ1MTY0NTQ2NjExNjgyNTYwMTg4OTUwMzAxMTkwODYwMTE1NTE3NTI3Mzk2ODY4NjkwMDk2MjI1MTk0MzQ5NjIyNzAzOSIsIjAiLCIxIiwiMSIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjAiLCIwIiwiMCIsIjEiLCIyNTgyNzM0OTA3MjYwOTMxNjk0NzM5Njk3OTgyODUxODc4OTcwMDkxMjM1MTYyMzUwNjA4MDQ4OTM4OTg5NDA3NTI2ODY2NjExNCIsIjAiXSwiaWQiOjEsImNpcmN1aXRJZCI6ImNyZWRlbnRpYWxBdG9taWNRdWVyeVYzLWJldGEuMSJ9XX0sImZyb20iOiJkaWQ6cG9seWdvbmlkOnBvbHlnb246YW1veToycWFQb2QxUXhvOVVLVHpSN0szWW82M2dOUkZIQm05OGJoMWsxU0VZNngiLCJ0byI6ImRpZDpwb2x5Z29uaWQ6cG9seWdvbjphbW95OjJxVjlRWGRoWFhtTjVzS2pOMVl1ZU1qeGdSYm5KY0VHSzJrR3B2azNjcSJ9
+</code></pre></div>
+<ul>
+<li>
+<p>In current example is an <a href="https://iden3-communication.io/authorization/1.0/response/">authorization response iden3comm message</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c7553eaa-aecd-4dc6-b057-a1cb29cadbfb&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;typ&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;application/iden3-zkp-json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://iden3-communication.io/authorization/1.0/response&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;thid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;40cc09ea-85da-48ce-9188-c440d351ee53&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;did_doc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;https://www.w3.org/ns/did/v1&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;did:polygonid:polygon:amoy:2qaPod1Qxo9UKTzR7K3Yo63gNRFHBm98bh1k1SEY6x&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;did:polygonid:polygon:amoy:2qaPod1Qxo9UKTzR7K3Yo63gNRFHBm98bh1k1SEY6x#push&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;push-notification&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;serviceEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://push-staging.polygonid.com/api/v1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;ciphertext&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vVLjFXTFVWDlNCQ+EWGa6TbDSDQlyP5kIzpIaMsGwRTVG/wba17a1fsMXTmB8EnviY8JRfVB1z03vw+3W8bpRgXGMyrN5zNzGNIXtZ3SQWfouTVFaWcEY5RYmOWNIqnRx7SSICAK1e9Ro7DU3NtrIRWIZAjYPfhns9SbSjFbzfZhorBnHqs+weElRED+eG8jZNsCHadscq0rn3HaHfBkN/Mbw7jYRiooclfDJ+H20iFJ85VYTII7aotZ1ldKxSl8oocpMrUy2QjKD5TWU9bgKY8MyahiB2T7JyBMsX81C9Ymmlm2ELyvihtrc0L8JBRE9HLtDKZzp+jpl7L+m9XMdkp1z5L+5X4oeNgG9pB81sMRaO4N3TSUMWcGfz8Pt4GfKCPWEi8fQgfxe5QAhAG+kvUK4CmPlvOaPLTE5I3riZtYrIIt8tx5K6y+Rbri8WWXt3hwuMt25nfOjvzMr5qHNSE6RslOs7i4ci0xe//flGRrMjdBtlHDdLpOzmu6eJP9XrmW70/hZTPoyxQsPEMAk5Yt/XLJoUbbPqumbfw1DalTGhWekp7F/fP6z+7uO+vojbS6gzeCPHrPy+NBrtrlJdgB/3TA2rRu++ehZV08tZwV+Mj4ddV6frwwRuJA3WZo7EhQWji4BXy3nw14mSYLEpoMjY7pfrR4s+MojjJ1DOo=&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;alg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RSA-OAEP-512&quot;</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;proof&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;pi_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;15360719974364733723532226535102665745612068788773296361074635306575452137805&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;15638932807677960970318342451459047132882468254855615475047068624136785685284&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;1&quot;</span>
+<span class="w">          </span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;pi_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">              </span><span class="s2">&quot;12243888636165343004635617804069595825211052180967070475067718977252319510416&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;4549540769477110063640959225111442494871499166774193847916882017500258885219&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">              </span><span class="s2">&quot;2200448015009707846345318297538178921678138537262042642236646137498472422120&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;7258989915038631739572069235428687224079083039954318179479277706348820312756&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">              </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;0&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;pi_c&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;4955757701362733208366504655942672947942866161254978021990963977834805405971&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;19479093153615214291022385962842474709135894710576054152241533587424104609932&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;1&quot;</span>
+<span class="w">          </span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;groth16&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;curve&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bn128&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;pub_signals&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;24242642128360613254844003559778440075941225416885103036000151144419693314&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;17016172528990763937142428192543683845637636685199048229681760292611601060449&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;25827349072609316947396979828518789700912351623506080489389894075268666114&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;10853573585600667084484624659068934738480099128272028620422764388595518370730&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;1712327535&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;106228138578177371556412734740259405073&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;8262158451645466116825601889503011908601155175273968686900962251943496227039&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;25827349072609316947396979828518789700912351623506080489389894075268666114&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;0&quot;</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;circuitId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;credentialAtomicQueryV3-beta.1&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;did:polygonid:polygon:amoy:2qaPod1Qxo9UKTzR7K3Yo63gNRFHBm98bh1k1SEY6x&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;did:polygonid:polygon:amoy:2qV9QXdhXXmN5sKjN1YueMjxgRbnJcEGK2kGpvk3cq&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+</ul>
+<p><strong>from</strong>  -  sender identity. To is a verifier identityifer.</p>
+<p><strong>id</strong> - unique message id</p>
+<p><strong>thid -</strong> id of message thread (must be the same as in the request)</p>
+<p><strong>message -</strong> signed message</p>
+<p><strong>scope -</strong> array of generated claim proofs</p>
+<p><strong>The third part</strong> - proof:</p>
+<div class="highlight"><pre><span></span><code>eyJwcm9vZiI6eyJwaV9hIjpbIjE1MjgzNTY1OTE3NzI5NTE2ODAwMjY5ODM5ODQ3NTk0MDUyOTY5NjIzMDM0NjU2NzM3MzExNjQxNTM2NzM0NzQzOTE4ODYxNTI2MjM4IiwiMTU3OTcyNDMzMzkyNTY3NjUyOTMyNjg2NjE1MDg1Mjg0NTA4MjY4MzIyOTQ2NzUwNDU1ODkzNjcxNjcwMDg1NjU4ODU5MjIyMzc4MCIsIjEiXSwicGlfYiI6W1siMTg3ODU4NjY0MDQ3MjU5MTA3NDc1NTI0MjgyMzU5ODIyNzAzNTQzODgxMjIyODMwNjI4ODg0MDg2ODQ2NTYxMDY1MzYyMTUyODkzOCIsIjMyMTQ0MTcxNTEwMzcxNzg3ODAzMTc1MDQ2NjMwNDI0NjM2MjI3NzczODYzODA0MjY1NjQyMjkxMTkxNjg0MzE2MzkwNzUyNDYwMTciXSxbIjEwNTQ2NDI4NTI2OTQyNTI1NTI2ODA2ODkyMDkyMDcxMTI2MDc5MjY0MjA4MDkyMzQ3NTE3MDQwNDY2MDU5NTczMjc0MTMzMzI1MCIsIjIwNDE1NjQ0MTMxMzczNDE3ODYwOTQ5MTU0NzcxNTAwMzMwMjc0ODYzMTQzMDIzNzI2MzgwNjgyNTQ5MTM4ODY4MjgwNzEyOTc3MzM2Il0sWyIxIiwiMCJdXSwicGlfYyI6WyI2ODUwNjU2MzQ1MzI0NDA5NTAxODE3NzM1NDgzNzcwMTcxMzg5MjAxNzgwODEzNjM1ODQ5MzYzOTk0NjE0MzE3NTQ5OTU2Mzc4MDc5IiwiNDIwNDc3Njc4MzQyNzQxODEzMDg0MjYxOTk1Nzk5NTg5Njk5MTY5NTE5MzkwNDkxNzY0NjU2NzE3NjU4Njk2NDkzMjU0OTkwOTAxMSIsIjEiXSwicHJvdG9jb2wiOiJncm90aDE2IiwiY3VydmUiOiJibjEyOCJ9LCJwdWJfc2lnbmFscyI6WyIyNDI0MjY0MjEyODM2MDYxMzI1NDg0NDAwMzU1OTc3ODQ0MDA3NTk0MTIyNTQxNjg4NTEwMzAzNjAwMDE1MTE0NDQxOTY5MzMxNCIsIjExMjA4NDE2ODYzNjgwNTgxMTk5MDg0ODg4MzI0MzExNTI5MzkwNTg4NDc1MjE3MDQyMjY3OTI3NzkxMjI5MTU1NDQ2MTU1MjMxMTA4IiwiMTc4NDk5ODE3MjA2MzQyMTI4MDI2NjQxODk5Mjk2NzExNDA3NjI1NTc0ODMyMzY3MDgwOTc3MjM4ODQxNzI2NDExMjQ2OTEyMjIyOTgiXX0
+</code></pre></div>
+<ul>
+<li>
+<p>In the current example, it’s a proof of authV2  circuit</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;proof&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;pi_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;15283565917729516800269839847594052969623034656737311641536734743918861526238&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;1579724333925676529326866150852845082683229467504558936716700856588592223780&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;1&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;pi_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;1878586640472591074755242823598227035438812228306288840868465610653621528938&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;3214417151037178780317504663042463622777386380426564229119168431639075246017&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;105464285269425255268068920920711260792642080923475170404660595732741333250&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;20415644131373417860949154771500330274863143023726380682549138868280712977336&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;0&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;pi_c&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;6850656345324409501817735483770171389201780813635849363994614317549956378079&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;4204776783427418130842619957995896991695193904917646567176586964932549909011&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;1&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;groth16&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;curve&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bn128&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;pub_signals&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;24242642128360613254844003559778440075941225416885103036000151144419693314&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;11208416863680581199084888324311529390588475217042267927791229155446155231108&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;17849981720634212802664189929671140762557483236708097723884172641124691222298&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+</ul>
+<p><strong>pub_signals</strong>  - UserID (profile or genesis)  Challenge ( payload hash ),  GistRoot</p>
+<p>We create a zero-knowledge proof by proving the specific message using the auth v2 circuit and its inputs.</p>
+<p>To prepare auth circuit inputs user need to prove that BJJ key is not revoked and included in the latest user state, also user needs to sign a challenge with corresponding private key.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">AuthInputs</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nx">GenesisID</span><span class="w">    </span><span class="o">*</span><span class="nx">core</span><span class="p">.</span><span class="nx">ID</span><span class="w"> </span><span class="s">`json:&quot;genesisID&quot;`</span>
+<span class="w">    </span><span class="nx">ProfileNonce</span><span class="w"> </span><span class="o">*</span><span class="nx">big</span><span class="p">.</span><span class="nx">Int</span><span class="w"> </span><span class="s">`json:&quot;profileNonce&quot;`</span>
+
+<span class="w">    </span><span class="nx">AuthClaim</span><span class="w"> </span><span class="o">*</span><span class="nx">core</span><span class="p">.</span><span class="nx">Claim</span><span class="w"> </span><span class="s">`json:&quot;authClaim&quot;`</span>
+
+<span class="w">    </span><span class="nx">AuthClaimIncMtp</span><span class="w">    </span><span class="o">*</span><span class="nx">merkletree</span><span class="p">.</span><span class="nx">Proof</span><span class="w"> </span><span class="s">`json:&quot;authClaimIncMtp&quot;`</span>
+<span class="w">    </span><span class="nx">AuthClaimNonRevMtp</span><span class="w"> </span><span class="o">*</span><span class="nx">merkletree</span><span class="p">.</span><span class="nx">Proof</span><span class="w"> </span><span class="s">`json:&quot;authClaimNonRevMtp&quot;`</span>
+<span class="w">    </span><span class="nx">TreeState</span><span class="w">          </span><span class="nx">TreeState</span><span class="w">         </span><span class="s">`json:&quot;treeState&quot;`</span>
+
+<span class="w">    </span><span class="nx">GISTProof</span><span class="w"> </span><span class="nx">GISTProof</span><span class="w"> </span><span class="s">`json:&quot;gistProof&quot;`</span>
+
+<span class="w">    </span><span class="nx">Signature</span><span class="w"> </span><span class="o">*</span><span class="nx">babyjub</span><span class="p">.</span><span class="nx">Signature</span><span class="w"> </span><span class="s">`json:&quot;signature&quot;`</span>
+<span class="w">    </span><span class="nx">Challenge</span><span class="w"> </span><span class="o">*</span><span class="nx">big</span><span class="p">.</span><span class="nx">Int</span><span class="w">           </span><span class="s">`json:&quot;challenge&quot;`</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>as a Challenge field, we use the message hash,</li>
+<li>Gist Proof represents inclusion of the user non-genesis state to the global identity state or non-inclusion of genesis user state.</li>
+</ul>
+<p>More about how GIST is <a href="https://docs.iden3.io/protocol/spec/#gist-new">here</a>.</p>
+<p>reference implementations:
+go:  <a href="https://github.com/iden3/go-jwz/blob/main/jwz.go">https://github.com/iden3/go-jwz/blob/main/jwz.go</a></p>
+<p>js-jwz :<a href="https://github.com/iden3/js-jwz">https://github.com/iden3/js-jwz</a></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Token represents a JWZ Token.</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">Token</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ZkProof</span><span class="w"> </span><span class="o">*</span><span class="nx">types</span><span class="p">.</span><span class="nx">ZKProof</span><span class="w"> </span><span class="c1">// The third segment of the token.  Populated when you Parse a token</span>
+
+<span class="w">    </span><span class="nx">Alg</span><span class="w">       </span><span class="kt">string</span><span class="w"> </span><span class="c1">// fields that are part of headers</span>
+<span class="w">    </span><span class="nx">CircuitID</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="c1">// id of a circuit that will be used for proving</span>
+
+<span class="w">    </span><span class="nx">Method</span><span class="w"> </span><span class="nx">ProvingMethod</span><span class="w"> </span><span class="c1">// proving method to create a zkp</span>
+
+<span class="w">    </span><span class="nx">raw</span><span class="w"> </span><span class="nx">rawJSONWebZeroknowledge</span><span class="w"> </span><span class="c1">// The raw token.  Populated when you Parse a token</span>
+
+<span class="w">    </span><span class="nx">inputsPreparer</span><span class="w"> </span><span class="nx">ProofInputsPreparerHandlerFunc</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>ZKProof</strong> - object that contains proof and pub signals</p>
+<p><strong>Alg</strong> / <strong>CircuitId</strong> - zkp alg and circuit that is used for proof generation.</p>
+<p><strong>Method</strong>  - Proving method to create a proven token.</p>
+<p><strong>raw</strong> - rawJSONWebZeroknowledge raw representation of the token</p>
+<p><strong>inputsPreparer</strong> - handler that accepts message hash and circuit id and can generate valid circuit inputs</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// rawJSONWebZeroknowledge is a JSON web token with a signature presented by zero-knowledge proof</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">rawJSONWebZeroknowledge</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Payload</span><span class="w">   </span><span class="p">[]</span><span class="kt">byte</span><span class="w">                    </span><span class="s">`json:&quot;payload,omitempty&quot;`</span>
+<span class="w">    </span><span class="nx">Protected</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="w">                    </span><span class="s">`json:&quot;protected,omitempty&quot;`</span>
+<span class="w">    </span><span class="nx">Header</span><span class="w">    </span><span class="kd">map</span><span class="p">[</span><span class="nx">HeaderKey</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span><span class="w"> </span><span class="s">`json:&quot;header,omitempty&quot;`</span>
+<span class="w">    </span><span class="nx">ZKP</span><span class="w">       </span><span class="p">[]</span><span class="kt">byte</span><span class="w">                    </span><span class="s">`json:&quot;zkp,omitempty&quot;`</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Payload</strong> - payload raw bytes (marshaled protocol message or just string)</p>
+<p><strong>Header</strong> - mapping of Header keys and their values</p>
+<p><strong>ZKP</strong>  - raw proof data</p>
+<p><strong>Protected</strong> - protected claims that were included in proof message hash. (in our case - all headers)</p>
+<p>Methods to implement:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">NewWithPayload</span><span class="p">(</span><span class="nx">prover</span><span class="w"> </span><span class="nx">ProvingMethod</span><span class="p">,</span><span class="w"> </span><span class="nx">payload</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">,</span><span class="w"> </span><span class="nx">inputsPreparer</span><span class="w"> </span><span class="nx">ProofInputsPreparerHandlerFunc</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">Token</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>Creates new token, but without proof section.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">token</span><span class="w"> </span><span class="o">*</span><span class="nx">Token</span><span class="p">)</span><span class="w"> </span><span class="nx">Prove</span><span class="p">(</span><span class="nx">provingKey</span><span class="p">,</span><span class="w"> </span><span class="nx">wasm</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>Prove function - accepts proving key and circuit wasm file for proof generation. Serializes headers, computes a message hash and calls <strong>inputsPreparer</strong> to prepare inputs. Then it calls the defined proving method and returns a compacted token with zkp.</p>
+<h3 id="algorithm-for-message-hash-generation">Algorithm for message hash generation:</h3>
+<p>Message hash is a big integer that represents Poseidon Hash. This Poseidon Hash is created using the following algorithm:</p>
+<ol>
+<li>Prepare hash to sign: it’s <em><code>is ASCII(BASE64URL(UTF8(JWZ Protected Header)) || '.' || BASE64URL(JWZ Payload)).</code></em></li>
+<li>Get serialized representation of Prepared message.</li>
+<li>Get the sha256 hash of the message, swap endianness, and create a big Integer.</li>
+<li>If the resulting hash is not a Q field, defined by the go-iden-crypto library, then divide resulted in a big integer from this hash by Q.</li>
+<li>Make Poseidon hash of resulting big Integer.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">token</span><span class="w"> </span><span class="o">*</span><span class="nx">Token</span><span class="p">)</span><span class="w"> </span><span class="nx">Verify</span><span class="p">(</span><span class="nx">verificationKey</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>Verify accepts verification key as a parameter,  computes message hash, and calls defined proving method for proof verification.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">token</span><span class="w"> </span><span class="o">*</span><span class="nx">Token</span><span class="p">)</span><span class="w"> </span><span class="nx">FullSerialize</span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span>
+</code></pre></div>
+<p>Returns serialization of rawJSONWebZeroknowledge as JSON string</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">token</span><span class="w"> </span><span class="o">*</span><span class="nx">Token</span><span class="p">)</span><span class="w"> </span><span class="nx">CompactSerialize</span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span>
+</code></pre></div>
+<p>Returns compacted form (three base64 encoded parts)</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">Parse</span><span class="p">(</span><span class="nx">token</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">Token</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>Parses token string (compacted or full serialized ) to Token struct.</p>
+<p>The last crucial part to implement is ProvingMethod:</p>
+<p>it’s a zero-knowledge protocol-specific algorithm and circuit-specific method for a proof generation:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ProvingMethod can be used to add new methods for proving or verifying tokens.</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">ProvingMethod</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Verify</span><span class="p">(</span><span class="nx">messageHash</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">,</span><span class="w"> </span><span class="nx">proof</span><span class="w"> </span><span class="o">*</span><span class="nx">types</span><span class="p">.</span><span class="nx">ZKProof</span><span class="p">,</span><span class="w"> </span><span class="nx">verificationKey</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="c1">// Returns nil if proof is valid</span>
+<span class="w">    </span><span class="nx">Prove</span><span class="p">(</span><span class="nx">inputs</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">,</span><span class="w"> </span><span class="nx">provingKey</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">,</span><span class="w"> </span><span class="nx">wasm</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">types</span><span class="p">.</span><span class="nx">ZKProof</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w">   </span><span class="c1">// Returns proof or error</span>
+<span class="w">    </span><span class="nx">Alg</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w">                                                                   </span><span class="c1">// Returns the alg identifier for this method (example: &#39;AUTH-GROTH-16&#39;)</span>
+<span class="w">    </span><span class="nx">CircuitID</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>in go-jwz lib, <code>ProvingMethodGroth16AuthV2</code> is defined. It uses “<em>groth16</em>” alg and “<em>authV2</em>” circuit</p>
+<p>Prove method calculates witness and generates proof.</p>
+<p>Verify method verifies zero-knowledge proof and checks that provided messageHash has been included in Auth Circuit public signlas.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// AuthPubSignals auth.circom public signals</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">AuthV2PubSignals</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">UserID</span><span class="w">    </span><span class="o">*</span><span class="nx">core</span><span class="p">.</span><span class="nx">ID</span><span class="w">         </span><span class="s">`json:&quot;userID&quot;`</span>
+<span class="w">    </span><span class="nx">Challenge</span><span class="w"> </span><span class="o">*</span><span class="nx">big</span><span class="p">.</span><span class="nx">Int</span><span class="w">         </span><span class="s">`json:&quot;challenge&quot;`</span>
+<span class="w">    </span><span class="nx">GISTRoot</span><span class="w">  </span><span class="o">*</span><span class="nx">merkletree</span><span class="p">.</span><span class="nx">Hash</span><span class="w"> </span><span class="s">`json:&quot;GISTRoot&quot;`</span>
+<span class="p">}</span>
+</code></pre></div>
+Auth Libraries to fully validate JWZ:
+<a href="https://github.com/iden3/go-iden3-auth">https://github.com/iden3/go-iden3-auth</a></p>
+<p><a href="https://github.com/iden3/js-iden3-auth">https://github.com/iden3/js-iden3-auth</a></p>
+<p>Circuit:
+<a href="https://docs.iden3.io/protocol/main-circuits/#authv2">https://docs.iden3.io/protocol/main-circuits/#authv2</a></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      powered by DIDComm
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
