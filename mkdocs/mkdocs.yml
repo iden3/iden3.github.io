@@ -53,9 +53,10 @@ nav:
           - Onchain-offer: "credentials/1.0/onchain-offer.md"
         - Beta (0.1):
           - Payment Request: "credentials/0.1/payment-request.md"
-          - Payment : "credentials/0.1/payment.md"
+          - Payment: "credentials/0.1/payment.md"
           - Proposal Request: "credentials/0.1/proposal-request.md"
           - Proposal: "credentials/0.1/proposal.md"
+          - Encrypted issuance response: "credentials/0.1/encrypted-issuance-response.md"
     - Authorization:
         - Overview: "authorization/overview.md"
         - Messages:
