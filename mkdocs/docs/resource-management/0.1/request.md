@@ -18,17 +18,17 @@ This message does not start a new permission flow but instead communicates via [
 
 - **Example of request:**
 
- ```json
-   {
-    "id": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
-    "typ": "application/iden3comm-plain-json",
-    "type": "https://iden3-communication.io/resource-management/0.1/request",
-    "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
-    "from": "did:iden3:polygon:amoy:bob",
-    "to": "did:iden3:polygon:amoy:zkroom",
-    "body": {
-        "id": "1",
-        "owner": "did:iden3:polygon:amoy:alice"
-    }
-   }
+  ```json
+  {
+      "id": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
+      "typ": "application/iden3comm-plain-json",
+      "type": "https://iden3-communication.io/resource-management/0.1/request",
+      "thid": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
+      "from": "did:iden3:polygon:amoy:bob",
+      "to": "did:iden3:polygon:amoy:zkroom",
+      "body": {
+          "id": "1",
+          "owner": "did:iden3:polygon:amoy:alice"
+      }
+  }
   ```

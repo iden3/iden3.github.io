@@ -32,7 +32,7 @@ This message is commonly used as a response to [/resource-management/0.1/permiss
 
 - **Example of permissions-list:**
 
-    ```json
+  ```json
    {
     "id": "f8aee09d-f592-4fcc-8d2a-8938aa26676c",
     "typ": "application/iden3comm-plain-json",
@@ -62,4 +62,4 @@ This message is commonly used as a response to [/resource-management/0.1/permiss
       ]
     }
    }
-    ```
+  ```
