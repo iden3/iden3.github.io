@@ -18,7 +18,9 @@ Message to discover supported features by agent. This message follows the DIDCom
 
 | Field         | Description      | Type   | Required |
 |---------------|------------------|--------|----------|
-| queries       | List of queries  | string | ✅        |
+| queries       | List of queries  | object | ✅        |
+| queries[].feature-type| Feature type | string | ✅ |
+| queries[].match| Regex pattern to match features | string | ❌ |
 
 - **Example of report problem message:**
     
@@ -30,7 +32,10 @@ Message to discover supported features by agent. This message follows the DIDCom
         "type": "https://didcomm.org/discover-features/2.0/queries",
         "body": {
           "queries": [
-            { "feature-type": "accept" }
+            {
+              "feature-type": "accept",
+              "match": "iden3comm/v1;env=application/iden3-zkp-json;.*"
+            }
           ]
         },
         "from": "did:polygonid:polygon:amoy:2qaPod1Qxo9UKTzR7K3Yo63gNRFHBm98bh1k1SEY6x",
@@ -50,9 +55,11 @@ Example of response
         "disclosures": [
             {
                 "feature-type": "accept",
-                "accept": [
-                  "iden3comm/v1;env=application/iden3-zkp-json;circuitId=authV2;alg=groth16"
-                ]
+                "id": "iden3comm/v1;env=application/iden3-zkp-json;circuitId=authV2;alg=groth16"
+            },
+            {
+                "feature-type": "accept",
+                "id": "iden3comm/v1;env=application/iden3comm-plain-json"
             }
         ]
     },
@@ -60,5 +67,10 @@ Example of response
   "from": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp"
 }
 ```
+| Field               | Description                                  | Type   | Required |
+|---------------------|----------------------------------------------|--------|----------|
+| disclosures         | List of disclosed features                   | object | ✅        |
+| disclosures[].feature-type | Feature type                        | string | ✅        |
+| disclosures[].id    | List of supported feature identifiers        | string | ✅        |
 
 See possible accept profiles [here](../../media-types/overview.md)
