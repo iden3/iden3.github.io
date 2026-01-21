@@ -67,6 +67,7 @@ Example of response
   "from": "did:polygonid:polygon:mumbai:2qFroxB5kwgCxgVrNGUM6EW3khJgCdHHnKTr3VnTcp"
 }
 ```
+
 | Field               | Description                                  | Type   | Required |
 |---------------------|----------------------------------------------|--------|----------|
 | disclosures         | List of disclosed features                   | object | ✅        |
