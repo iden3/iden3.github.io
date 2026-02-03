@@ -93,6 +93,9 @@ nav:
             - Delivery: "resource-management/0.1/delivery.md"
   - Standard Proposals:
       - JWZ: "proposals/jwz/overview.md"
+  - Implementations:
+    - did:iden3 Implementations: "implementations/implementations.md"
+    - did:iden3 Deployments: "implementations/deployments.md"
 
 plugins:
   - search
