@@ -14,37 +14,38 @@ an existing entry, please submit a [pull request](https://github.com/iden3/iden3
 Implementations of the **iden3 communication protocol**, which defines message formats
 and flows used for authorization requests, responses, and credential-based interactions.
 
-### Core Libraries
+### Resolver Implementations
+
+- **[driver-did-iden3](https://github.com/iden3/driver-did-iden3)**  
+  Universal Resolver driver enabling resolution of `did:iden3` identifiers via
+  standard resolver infrastructure. 
+  See an example resolution here:  [DID resolution](https://resolver.privado.id/1.0/identifiers/did:iden3:polygon:main:wpaFHwfPYjVnimeX1gSxvxonmQ1NG66AcAPPbDWn8).
+
+---
+
+### Core Libraries (Multi-language)
 
 Core libraries provide the fundamental building blocks for working with did:iden3 identities,
 claims, authentication messages, and zero-knowledge proofs.
+Implementations are available across **TypeScript / JavaScript**, **Go**, and **Flutter**.
 
 #### TypeScript / JavaScript
 
-- **[js-iden3-core](https://github.com/iden3/js-iden3-core) — TypeScript Core API**  
+- **[js-iden3-core](https://github.com/iden3/js-iden3-core)**  
   Low-level API to create and manipulate iden3 claims and related cryptographic primitives.
 
-- **[js-iden3-auth](https://github.com/iden3/js-iden3-auth) — Authentication Protocol**  
-  Libraries for handling iden3 authentication messages and communication protocol flows
-  between clients and servers.
-
-- **[js-jwz](https://github.com/iden3/js-jwz) — JSON Web Zero-Knowledge (JWZ)**  
-  JavaScript implementation of the JSON Web Zero-knowledge standard used to encapsulate
-  zero-knowledge proofs and signed messages.
+- **[js-sdk](https://github.com/0xPolygonID/js-sdk)**  
+  High-level JavaScript SDK implementing iden3 communication flows, DID interactions,
+  and verifiable credential usage.  
+  Can be used as a foundation for issuer, holder, and verifier applications.
 
 ---
 
 #### Go
 
-- **[go-iden3-core](https://github.com/iden3/go-iden3-core) — Go Core API**  
+- **[go-iden3-core](https://github.com/iden3/go-iden3-core)**  
   Go implementation of the iden3 core library, providing primitives for claims, proofs,
   and DID-related data structures.
-
-- **[go-iden3-auth](https://github.com/iden3/go-iden3-auth) — Go Authentication Protocol**  
-  Go implementation of iden3 authentication message handling and protocol logic.
-
-- **[go-jwz](https://github.com/iden3/go-jwz) — JSON Web Zero-Knowledge (JWZ)**  
-  Go implementation of the JSON Web Zero-knowledge standard.
 
 - **[iden3comm](https://github.com/iden3/iden3comm)**  
   Go implementation of the iden3 communication protocol used for message exchange,
@@ -52,11 +53,38 @@ claims, authentication messages, and zero-knowledge proofs.
 
 ---
 
-### Resolver Implementations
+#### Flutter / Dart
 
-- **[driver-did-iden3](https://github.com/iden3/driver-did-iden3)**  
-  Universal Resolver driver enabling resolution of `did:iden3` identifiers via
-  standard resolver infrastructure.
+- **[polygonid-flutter-sdk](https://github.com/0xPolygonID/polygonid-flutter-sdk)**  
+  Flutter SDK enabling iden3comm-based authentication and credential presentation
+  in mobile applications.
+
+---
+
+### Authentication & Authorization Libraries
+
+Libraries focused specifically on handling authentication messages in the communication protocol.
+
+#### TypeScript / JavaScript
+
+- **[js-iden3-auth](https://github.com/iden3/js-iden3-auth)**  
+  TypeScript libraries for handling iden3 authentication messages
+  and protocol-level authorization flows.
+
+- **[js-jwz](https://github.com/iden3/js-jwz)**  
+  JavaScript implementation of **JSON Web Zero-Knowledge (JWZ)**,
+  used to encapsulate zero-knowledge proofs and signed messages.
+
+---
+
+#### Go
+
+- **[go-iden3-auth](https://github.com/iden3/go-iden3-auth)**  
+  Go implementation of iden3 authentication message handling
+  and authorization protocol logic.
+
+- **[go-jwz](https://github.com/iden3/go-jwz)**  
+  Go implementation of the JSON Web Zero-Knowledge (JWZ) standard.
 
 ---
 
@@ -108,9 +136,20 @@ applications, SDKs, and backend services.
   Backend service implementing iden3 communication flows for issuing verifiable credentials
   within the Privado ID ecosystem.
 
-- **[verifier-backend](https://github.com/0xPolygonID/verifier-backend)**  
-  Backend service implementing iden3 communication flows for verification of credentials
-  and zero-knowledge proofs.
+---
+
+## Issuer Software
+
+Software components designed for **issuers** to create, manage,
+and issue verifiable credentials using `did:iden3`.
+
+- **[issuer-node](https://github.com/0xPolygonID/issuer-node)**  
+  Backend service for issuers implementing iden3 communication flows
+  and credential issuance logic.
+
+- **[js-sdk](https://github.com/0xPolygonID/js-sdk)**  
+  Can also be used as a building block for custom issuer applications
+  implemented in JavaScript / TypeScript.
 
 ---
 
