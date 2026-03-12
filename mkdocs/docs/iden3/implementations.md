@@ -16,10 +16,10 @@ and flows used for authorization requests, responses, and credential-based inter
 
 ### Resolver Implementations
 
-- **[driver-did-iden3](https://github.com/iden3/driver-did-iden3)**  
+- **[driver-did-iden3](https://github.com/iden3/driver-did-iden3)**
   Universal Resolver driver enabling resolution of `did:iden3` identifiers via
   standard resolver infrastructure. 
-  See an example resolution here:  [DID resolution](https://resolver.privado.id/1.0/identifiers/did:iden3:polygon:main:wpaFHwfPYjVnimeX1gSxvxonmQ1NG66AcAPPbDWn8).
+  See an example resolution here: [DID resolution](https://resolver.privado.id/1.0/identifiers/did:iden3:polygon:main:wpaFHwfPYjVnimeX1gSxvxonmQ1NG66AcAPPbDWn8).
 
 ---
 
