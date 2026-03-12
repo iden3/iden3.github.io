@@ -7,23 +7,24 @@ and build a broader, more interoperable ecosystem.
 
 ---
 
-## Public & Production Deployments
+## Public & Production Deployments:
+- ### Privado ID / Polygon ID Ecosystem / Billions Network
+  The **[Privado ID](https://www.privado.id/)** (formerly Polygon ID) ecosystem includes multiple production deployments
+  based on the `did:iden3` method. These deployments support decentralized identity,
+  verifiable credentials, and zero-knowledge proof–based authentication across web and
+  mobile applications. <br />
+  Deployments within this ecosystem are used by organizations to:
+    - Issue verifiable credentials anchored to `did:iden3` identifiers
+    - Verify credentials and zero-knowledge proofs during authentication and authorization
+    - Manage credential lifecycles, including refresh and revocation workflows
+  <br />
+  These deployments are operated by ecosystem participants and integrators as part of
+  real-world identity solutions.
 
-### Privado ID / Polygon ID Ecosystem
+- ### HSBC and Chaincode Consulting. 
+- ### PoU technlolgy usage by Sentient, Lagrange, Openledger.
+- ### Iden3 libs usage: : Clique, Qacc, Hovi, Nomis, idOS
 
-The **[Privado ID](https://www.privado.id/)** (formerly Polygon ID) ecosystem includes multiple production deployments
-based on the `did:iden3` method. These deployments support decentralized identity,
-verifiable credentials, and zero-knowledge proof–based authentication across web and
-mobile applications.
-
-Deployments within this ecosystem are used by organizations to:
-
-- Issue verifiable credentials anchored to `did:iden3` identifiers
-- Verify credentials and zero-knowledge proofs during authentication and authorization
-- Manage credential lifecycles, including refresh and revocation workflows
-
-These deployments are operated by ecosystem participants and integrators as part of
-real-world identity solutions.
 
 ---
 
