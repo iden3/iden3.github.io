@@ -42,8 +42,7 @@ conformance environments.
 ## Application-Based Deployments
 
 Many `did:iden3` deployments are application-centric rather than exposed as standalone public
-DID endpoints. In these cases, `did:iden3` is embedded within [broader identity platforms and
-applications.](https://marketplace.privado.id/ecosystem)
+DID endpoints. In these cases, `did:iden3` is embedded within [broader identity platforms and applications](https://marketplace.privado.id/ecosystem).
 
 Examples include:
 
