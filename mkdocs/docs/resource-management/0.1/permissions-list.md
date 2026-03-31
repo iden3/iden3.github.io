@@ -11,7 +11,9 @@ This message is commonly used as a response to [/resource-management/0.1/permiss
   "id": "<resource_id>",
   "granted": [{"did": "<did>", "timestamp": <unix_timestamp>}],
   "pending": [{"did": "<did>", "timestamp": <unix_timestamp>}],
-  "rejected": [{"did": "<did>", "timestamp": <unix_timestamp>}]
+  "rejected": [{"did": "<did>", "timestamp": <unix_timestamp>}],
+  "revoked": [{"did": "<did>", "timestamp": <unix_timestamp>}],
+  "deleted": [{"did": "<did>", "timestamp": <unix_timestamp>}]
 }
 ```
 
@@ -22,6 +24,8 @@ This message is commonly used as a response to [/resource-management/0.1/permiss
 | **granted**  | List of objects representing users who have been granted access to the resource. Each entry includes the user’s DID and the timestamp when access was granted.           | object[] | ❌        |
 | **pending**  | List of objects representing users whose permission requests are awaiting approval. Each entry includes the user’s DID and the timestamp when the request was received.  | object[] | ❌        |
 | **rejected** | List of objects representing users whose permission requests were explicitly rejected. Each entry includes the user’s DID and the timestamp when the rejection occurred. | object[] | ❌        |
+| **revoked** | List of objects representing users whose permission requests were explicitly revoked. Each entry includes the user’s DID and the timestamp when the rejection occurred. | object[] | ❌        |
+| **deleted** | List of objects representing users whose permission requests were explicitly deleted. Each entry includes the user’s DID and the timestamp when the rejection occurred. | object[] | ❌        |
 
 
 | Field         | Description                                                                      | Type   | Required |
@@ -57,6 +61,12 @@ This message is commonly used as a response to [/resource-management/0.1/permiss
       "rejected": [
         {
           "did": "did:iden3:polygon:amoy:john",
+          "timestamp": 1738859900
+        }
+      ],
+       "deleted": [
+        {
+          "did": "did:iden3:polygon:amoy:alice",
           "timestamp": 1738859900
         }
       ]
