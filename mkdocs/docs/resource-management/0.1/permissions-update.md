@@ -9,7 +9,8 @@ Attachments may also be included to share encrypted authorization data or other 
 {
   "id": "<resource_id>",
   "grant": ["<list_of_dids_with_granted_access>"],
-  "reject": ["<list_of_dids_with_rejected_access>"]
+  "reject": ["<list_of_dids_with_rejected_access>"],
+  "revoke":  ["<list_of_dids_with_revoked_access>"]
 }
 ```
 
@@ -18,6 +19,8 @@ Attachments may also be included to share encrypted authorization data or other 
 | **id**     | Unique identifier of the resource for which permissions are being updated. In the current implementation, this corresponds to the configuration ID. | string   | ✅        |
 | **grant**  | List of DIDs that have been granted access to the resource.                                                                                         | string[] | ❌        |
 | **reject** | List of DIDs that were explicitly denied access. This field can be omitted if no rejections are needed.                                             | string[] | ❌        |
+| **revoke** | List of DIDs whose access was revoked. This field can be omitted if no revocations are needed.                                                      | string[] | ❌        |
+
 
 
 - **Example of permissions-update:**
@@ -38,6 +41,9 @@ Attachments may also be included to share encrypted authorization data or other 
       ],
       "reject": [
         "did:iden3:polygon:amoy:alex"
+      ],
+      "revoke": [
+        "did:iden3:polygon:amoy:alice"
       ]
     },
     "attachments": [
