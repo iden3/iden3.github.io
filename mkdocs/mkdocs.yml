@@ -18,15 +18,17 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.arithmatex:
       generic: true
-  - mkdocs_graphviz
   - def_list
   - attr_list
   - md_in_html
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - admonition
-  - pymdownx.superfences
   - fenced_code
   - tables
 
@@ -101,6 +103,7 @@ nav:
 plugins:
   - search
   - mermaid2
+  - mkdocs_graphviz
 copyright: powered by DIDComm
 
 extra:
