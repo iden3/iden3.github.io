@@ -1,0 +1,1519 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://iden3.io/proposals/jwz-rdfc/overview/" rel="canonical"/>
+<link href="../../jwz/overview/" rel="prev"/>
+<link href="../../../iden3/implementations/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.8.1" name="generator"/>
+<title>iden3-jwz-rdfc-2026 - Iden3 documentation</title>
+<link href="../../../assets/stylesheets/main.57a0d79d.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.fb2fffe2.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../_mkdocs_graphviz/mkdocs-graphviz.min.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5TKTB44');</script>
+<!-- End Google Tag Manager -->
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="deep-purple" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#iden3-jwz-rdfc-2026-data-integrity-cryptosuite">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Iden3 documentation" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Iden3 documentation">
+<img alt="logo" src="../../../logo-white.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Iden3 documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              iden3-jwz-rdfc-2026
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../w3c/refresh-service/overview/">
+          
+  
+  
+  W3C credential
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../media-types/overview/">
+          
+  
+  
+  Protocol
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../jwz/overview/">
+          
+  
+  
+  Standard Proposals
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../iden3/implementations/">
+          
+  
+  
+  Iden3
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Iden3 documentation" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Iden3 documentation">
+<img alt="logo" src="../../../logo-white.svg"/>
+</a>
+    Iden3 documentation
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    W3C credential
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    W3C credential
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../w3c/refresh-service/overview/">
+<span class="md-ellipsis">
+    
+  
+    Refresh service
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../w3c/status/overview/">
+<span class="md-ellipsis">
+    
+  
+    Credential Statuses
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../w3c/display-method/overview/">
+<span class="md-ellipsis">
+    
+  
+    Display method
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Proofs
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Proofs
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../w3c/proofs/bjj/">
+<span class="md-ellipsis">
+    
+  
+    BJJSignature2021
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../w3c/proofs/smt/">
+<span class="md-ellipsis">
+    
+  
+    Iden3SparseMerkleTreeProof
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Protocol
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Protocol
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../media-types/overview/">
+<span class="md-ellipsis">
+    
+  
+    Media-types
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Credentials
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Credentials
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/overview/">
+<span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Messages (1.0)
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Messages (1.0)
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/1.0/issuance-request/">
+<span class="md-ellipsis">
+    
+  
+    Issuance Request
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/1.0/issuance-response/">
+<span class="md-ellipsis">
+    
+  
+    Issuance Response
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/1.0/fetch-request/">
+<span class="md-ellipsis">
+    
+  
+    Fetch Request
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/1.0/offer/">
+<span class="md-ellipsis">
+    
+  
+    Offer
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/1.0/status-update/">
+<span class="md-ellipsis">
+    
+  
+    Status update
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/1.0/refresh/">
+<span class="md-ellipsis">
+    
+  
+    Refresh
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/1.0/onchain-offer/">
+<span class="md-ellipsis">
+    
+  
+    Onchain-offer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Beta (0.1)
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Beta (0.1)
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/0.1/payment-request/">
+<span class="md-ellipsis">
+    
+  
+    Payment Request
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/0.1/payment/">
+<span class="md-ellipsis">
+    
+  
+    Payment
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/0.1/proposal-request/">
+<span class="md-ellipsis">
+    
+  
+    Proposal Request
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/0.1/proposal/">
+<span class="md-ellipsis">
+    
+  
+    Proposal
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../credentials/0.1/encrypted-issuance-response/">
+<span class="md-ellipsis">
+    
+  
+    Encrypted issuance response
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Authorization
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Authorization
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../authorization/overview/">
+<span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Messages
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Messages
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../authorization/1.0/request/">
+<span class="md-ellipsis">
+    
+  
+    Request
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../authorization/1.0/response/">
+<span class="md-ellipsis">
+    
+  
+    Response
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Proofs
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Proofs
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../proofs/overview/">
+<span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Messages (1.0)
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Messages (1.0)
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../proofs/1.0/contract-invoke-request/">
+<span class="md-ellipsis">
+    
+  
+    Contract invoke request
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../proofs/1.0/contract-invoke-response/">
+<span class="md-ellipsis">
+    
+  
+    Contract invoke response
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Revocation
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Revocation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../revocation/overview/">
+<span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5_2" id="__nav_3_5_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Messages (1.0)
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Messages (1.0)
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../revocation/1.0/request-status/">
+<span class="md-ellipsis">
+    
+  
+    Request status
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../revocation/1.0/status/">
+<span class="md-ellipsis">
+    
+  
+    Status
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Report Problem
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Report Problem
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../report-problem/overview/">
+<span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6_2" id="__nav_3_6_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Messages
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Messages
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../report-problem/2.0/report-problem-message/">
+<span class="md-ellipsis">
+    
+  
+    Report Problem
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Discovery
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Discovery
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../discovery/overview/">
+<span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Messages
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Messages
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../discovery/2.0/discovery/">
+<span class="md-ellipsis">
+    
+  
+    Discovery Queries
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Resource Management
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Resource Management
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../resource-management/overview/">
+<span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_8_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_8_2" id="__nav_3_8_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Messages
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_8_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_8_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Messages
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../resource-management/0.1/permissions-request/">
+<span class="md-ellipsis">
+    
+  
+    Permissions Request
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../resource-management/0.1/request/">
+<span class="md-ellipsis">
+    
+  
+    Request
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../resource-management/0.1/permissions-update-request/">
+<span class="md-ellipsis">
+    
+  
+    Permissions Update Request
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../resource-management/0.1/permissions-update/">
+<span class="md-ellipsis">
+    
+  
+    Permissions Update
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../resource-management/0.1/permissions-requests-list-fetch/">
+<span class="md-ellipsis">
+    
+  
+    Permissions Requests List Fetch
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../resource-management/0.1/permissions-list-fetch/">
+<span class="md-ellipsis">
+    
+  
+    Permissions List Fetch
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../resource-management/0.1/permissions-list/">
+<span class="md-ellipsis">
+    
+  
+    Permissions List
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../resource-management/0.1/delivery/">
+<span class="md-ellipsis">
+    
+  
+    Delivery
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Standard Proposals
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Standard Proposals
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../jwz/overview/">
+<span class="md-ellipsis">
+    
+  
+    JWZ
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    iden3-jwz-rdfc-2026
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Iden3
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Iden3
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../iden3/implementations/">
+<span class="md-ellipsis">
+    
+  
+    did:iden3 Implementations
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../iden3/deployments/">
+<span class="md-ellipsis">
+    
+  
+    did:iden3 Deployments
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5TKTB44" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<h1 id="iden3-jwz-rdfc-2026-data-integrity-cryptosuite">iden3-jwz-rdfc-2026 Data Integrity Cryptosuite</h1>
+<h1 id="summary">Summary</h1>
+<p><code>iden3-jwz-rdfc-2026</code> is a <a href="https://www.w3.org/TR/vc-data-integrity/">W3C Data Integrity</a> cryptosuite that secures a JSON-LD document (for example a DID document, a DID configuration or a verifiable credential) with a <a href="../../jwz/overview/">JSON Web Zero-knowledge (JWZ)</a> token instead of a digital signature.</p>
+<p>It follows the steps of the W3C suite <a href="https://www.w3.org/TR/vc-di-ecdsa/#ecdsa-rdfc-2019"><code>ecdsa-rdfc-2019</code></a>: the document and the proof options are canonicalized with <a href="https://www.w3.org/TR/rdf-canon/">RDF Dataset Canonicalization (RDFC-1.0)</a> and hashed with SHA-256. The resulting hash is then proven with an iden3 authentication circuit, wrapped in a JWZ, instead of being signed with an ECDSA key.</p>
+<p>With this suite an iden3 identity can sign a document with its authentication key (a BabyJubJub key in its claims tree), without publishing that key: the verifier checks a zero-knowledge proof that the identity holds a valid authentication key in a state that is recorded on chain, in the Global Identity State Tree (GIST).</p>
+<p>This document is a draft and is open for public review and feedback. The name <code>iden3-jwz-rdfc-2026</code> is a working name. Only the value of <code>cryptosuite</code> depends on it.</p>
+<h1 id="terminology">Terminology</h1>
+<p><strong>secured document</strong> - a JSON-LD document with a <code>proof</code> member that holds a proof of this suite.</p>
+<p><strong>unsecured document</strong> - the secured document without its <code>proof</code> member.</p>
+<p><strong>proof options</strong> - the proof object without its <code>proofValue</code> member.</p>
+<p><strong>proof configuration</strong> - the proof options, with the <code>@context</code> of the unsecured document added as their <code>@context</code>.</p>
+<p><strong>profile</strong> - the specification of an application that uses this suite. A profile sets the documents it secures, the DID that is expected to sign each of them, and the bounds of a proof's lifetime (<code>created</code> to <code>expires</code>).</p>
+<p><strong>compact JWZ</strong> - the compact serialization of a JWZ token: <code>BASE64URL(header) '.' BASE64URL(payload) '.' BASE64URL(zkp)</code>.</p>
+<p><strong>GIST</strong> - Global Identity State Tree, the tree of the State contract that holds the latest state of every iden3 identity. See <a href="https://docs.iden3.io/protocol/spec/#gist-new">GIST</a>.</p>
+<h1 id="the-proof-object">The proof object</h1>
+<p>A proof is one JSON object, not a list, with exactly these members, all strings:</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>DataIntegrityProof</code></td>
+</tr>
+<tr>
+<td><code>cryptosuite</code></td>
+<td><code>iden3-jwz-rdfc-2026</code></td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>a UTC date and time in whole seconds, <code>YYYY-MM-DDThh:mm:ssZ</code></td>
+</tr>
+<tr>
+<td><code>expires</code></td>
+<td>the same form, later than <code>created</code></td>
+</tr>
+<tr>
+<td><code>verificationMethod</code></td>
+<td><code>&lt;did&gt;#state-info</code>, where <code>&lt;did&gt;</code> is the signer that the document names: the DID document's <code>id</code>, or the credential's <code>issuer</code></td>
+</tr>
+<tr>
+<td><code>proofPurpose</code></td>
+<td><code>assertionMethod</code></td>
+</tr>
+<tr>
+<td><code>proofValue</code></td>
+<td><code>u</code>, then the compact JWZ, base64url-encoded without padding (see <a href="#creating-a-proof">Creating a proof</a>)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Every member is a term of the Data Integrity context <code>https://w3id.org/security/data-integrity/v2</code>, which the <code>@context</code> of the secured document MUST list. The proof has no <code>@context</code> of its own, and no <code>id</code>, <code>challenge</code>, <code>domain</code>, <code>nonce</code> or <code>previousProof</code>.</li>
+<li>The profile sets the lifetime from <code>created</code> to <code>expires</code>.</li>
+<li><code>&lt;did&gt;#state-info</code> is the <code>Iden3StateInfo2023</code> verification method of an iden3 DID. It is not a key, so a verifier does not look for it under the <code>assertionMethod</code> of the DID document. The authority to sign comes from the proof itself: it shows that the identity of <code>&lt;did&gt;</code> holds an authentication key in a state recorded on chain (see <a href="#verifying-a-proof">Verifying a proof</a>, steps 8 and 9).</li>
+</ul>
+<p>Example of a secured DID document. The DID is illustrative, and the <code>proofValue</code> is shortened: it shows only the encoding of the <code>authV3-8-32</code> header and the first dot.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"https://www.w3.org/ns/did/v1"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"https://w3id.org/security/data-integrity/v2"</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:iden3:polygon:amoy:x6x5sor7zpyZX9yNpm8h1rPBDSN9idaEhDj1Qm8Q9"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:iden3:polygon:amoy:x6x5sor7zpyZX9yNpm8h1rPBDSN9idaEhDj1Qm8Q9#linked-domain"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LinkedDomains"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"serviceEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DataIntegrityProof"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"cryptosuite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iden3-jwz-rdfc-2026"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-16T10:00:00Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-30T10:00:00Z"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"verificationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:iden3:polygon:amoy:x6x5sor7zpyZX9yNpm8h1rPBDSN9idaEhDj1Qm8Q9#state-info"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"proofPurpose"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assertionMethod"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"proofValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uZXlKaGJHY2lPaUpuY205MGFERTJJaXdpWTJseVkzVnBkRWxrSWpvaVlYVjBhRll6TFRndE16SWlMQ0pqY21sMElqcGJJbU5wY21OMWFYUkpaQ0pkTENKMGVYQWlPaUpoY0hCc2FXTmhkR2x2Ymk5cFpHVnVNeTE2YTNBdGFuTnZiaUo5Lg..."</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h1 id="circuits-and-the-jwz-header">Circuits and the JWZ header</h1>
+<p>The allowed circuits, with the exact protected header of each:</p>
+<table>
+<thead>
+<tr>
+<th>Circuit</th>
+<th>Protected header (UTF-8 bytes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>authV3-8-32</code></td>
+<td><code>{"alg":"groth16","circuitId":"authV3-8-32","crit":["circuitId"],"typ":"application/iden3-zkp-json"}</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The header is exactly these bytes: the members in this order, with no whitespace. It is what <a href="https://github.com/iden3/go-jwz">go-jwz</a> and <a href="https://github.com/iden3/js-jwz">js-jwz</a> write, with the <code>typ</code> that the ZKP packer of the <a href="https://github.com/0xPolygonID/js-sdk">js-sdk</a> sets.</li>
+<li>go-jwz and js-jwz compute the challenge from the parsed header serialized again with sorted keys, not from the bytes in the token. So a header that differs in spacing, key order or escaping still verifies with those libraries alone. A header with a nested object is even serialized differently by the two libraries, because js-jwz drops nested members its key list does not name. A fixed header per circuit makes the token unambiguous, and the result the same in Go and TypeScript.</li>
+<li>A new circuit is added by amending this table. The secured documents and their contexts do not change.</li>
+</ul>
+<h1 id="hashing">Hashing</h1>
+<p>Creating and verifying a proof both compute the JWZ payload from the secured document:</p>
+<ol>
+<li>Split the secured document into the unsecured document, without its <code>proof</code> member, and the proof options, which are the proof object without <code>proofValue</code>.</li>
+<li>Build the proof configuration: the proof options, with the <code>@context</code> of the unsecured document added as their <code>@context</code>.</li>
+<li>Canonicalize the proof configuration and the unsecured document separately, with RDF Dataset Canonicalization (RDFC-1.0, also called URDNA2015), into canonical N-Quads:<ul>
+<li>processing follows JSON-LD 1.1;</li>
+<li>contexts come only from local copies bundled with the implementation, with no network request, and any other context is an error;</li>
+<li>nothing may be dropped: a member that is not a term of the contexts, a relative IRI, or any other value that would not reach the N-Quads is an error. The document is then rejected, not hashed without it.</li>
+</ul>
+</li>
+<li>The hash data is the SHA-256 of the canonical proof configuration followed by the SHA-256 of the canonical unsecured document: 64 bytes, in that order, as in <code>ecdsa-rdfc-2019</code>.</li>
+<li>The JWZ payload is the hash data, base64url-encoded without padding: 86 ASCII characters. It is text rather than the 64 raw bytes, because js-jwz carries a payload as a UTF-8 string, which arbitrary bytes do not survive.</li>
+</ol>
+<p>The hash covers every member of the document and of the proof options, <code>cryptosuite</code> and <code>expires</code> included. A proof therefore cannot be moved to another document, to another kind of document, or to other dates.</p>
+<h1 id="creating-a-proof">Creating a proof</h1>
+<p>The holder of the identity (usually its wallet) creates the proof:</p>
+<ol>
+<li>Build the proof options of <a href="#the-proof-object">The proof object</a>, without <code>proofValue</code>. <code>created</code> is the current time, and <code>expires</code> follows the profile.</li>
+<li>Compute the payload (see <a href="#hashing">Hashing</a>).</li>
+<li>Make a JWZ over the payload, as the identity of <code>&lt;did&gt;</code>, with a circuit of <a href="#circuits-and-the-jwz-header">Circuits and the JWZ header</a> and its exact header. The circuit's challenge is the JWZ message hash, as go-jwz and js-jwz compute it (see <a href="../../jwz/overview/#algorithm-for-message-hash-generation">JWZ, algorithm for message hash generation</a>): the SHA-256 of <code>BASE64URL(header) || '.' || BASE64URL(payload)</code>, read as a little-endian integer, reduced modulo the BN254 scalar field, then hashed with Poseidon. No other mapping from the document's hash to the challenge applies. The proof uses the GIST root that the State contract holds as its latest when proving.</li>
+<li>Serialize the JWZ in its compact form, <code>BASE64URL(header) '.' BASE64URL(payload) '.' BASE64URL(zkp)</code>, without padding. <code>zkp</code> is the JSON object with exactly the members <code>proof</code> and <code>pub_signals</code>.</li>
+<li>Set <code>proofValue</code> to <code>u</code> followed by the bytes of the compact JWZ, base64url-encoded without padding. Data Integrity requires a <a href="https://datatracker.ietf.org/doc/html/draft-multiformats-multibase">multibase</a> value, and the dots of the compact form are not in the base64url alphabet.</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+    D[unsecured document] --&gt; C1[RDFC-1.0] --&gt; H1[SHA-256]
+    P[proof configuration] --&gt; C2[RDFC-1.0] --&gt; H2[SHA-256]
+    H2 --&gt; HD["hash data (64 bytes)&lt;br/&gt;SHA-256(config) || SHA-256(document)"]
+    H1 --&gt; HD
+    HD --&gt; PL["JWZ payload&lt;br/&gt;base64url, 86 chars"]
+    PL --&gt; J["JWZ (authV3-8-32, groth16)"]
+    J --&gt; PV["proofValue = 'u' + base64url(compact JWZ)"]</code></pre>
+<h1 id="verifying-a-proof">Verifying a proof</h1>
+<p>The inputs are:</p>
+<ul>
+<li>the secured document;</li>
+<li>the DID that the profile expects as the signer;</li>
+<li>the verifier's time, <code>now</code>;</li>
+<li>for each DID network the verifier accepts, the State contract and a way to read it;</li>
+<li>the verification key of each circuit of <a href="#circuits-and-the-jwz-header">Circuits and the JWZ header</a>, bundled with the implementation;</li>
+<li>the profile's lifetime bounds.</li>
+</ul>
+<p>The steps run in this order. The first failure rejects, with the reason given (see <a href="#rejection-reasons">Rejection reasons</a>), and a step that cannot be completed rejects. Steps 1 to 8 are local; step 9 is the only one that uses the network.</p>
+<ol>
+<li><strong>Shape</strong>: the document has one <code>proof</code>, an object of exactly the form of <a href="#the-proof-object">The proof object</a>, whose <code>verificationMethod</code> is <code>&lt;expected DID&gt;#state-info</code>. Otherwise <code>proof_malformed</code>.</li>
+<li><strong>Dates</strong>: <code>created</code> is at most 5 minutes after <code>now</code>, and the time from <code>created</code> to <code>expires</code> lies within the profile's bounds. Otherwise <code>proof_malformed</code>. <code>now</code> is before <code>expires</code>. Otherwise <code>proof_expired</code>.</li>
+<li><strong>Decoding</strong>: <code>proofValue</code> starts with <code>u</code>, and the rest is base64url without padding, in canonical form: encoding the decoded bytes again gives the same text. The decoded bytes are ASCII, and split at <code>.</code> into exactly three segments, each non-empty canonical base64url without padding. Otherwise <code>proof_malformed</code>.</li>
+<li><strong>Header</strong>: the first segment decodes to exactly the header of one circuit of <a href="#circuits-and-the-jwz-header">Circuits and the JWZ header</a>. Otherwise <code>proof_malformed</code>.</li>
+<li><strong>Hash</strong>: the second segment decodes to exactly the payload of <a href="#hashing">Hashing</a>, computed from this document and this proof. Otherwise <code>proof_hash_mismatch</code>. A document that cannot be canonicalized (Hashing, step 3) is rejected with <code>document_malformed</code>.</li>
+<li><strong>Proof form</strong>: the third segment decodes to a JSON object with exactly <code>proof</code> and <code>pub_signals</code>. <code>pub_signals</code> holds the circuit's public signals as decimal field elements: for <code>authV3-8-32</code>, <code>userID</code>, <code>challenge</code> and <code>GISTRoot</code>. Otherwise <code>proof_malformed</code>.</li>
+<li><strong>Zero-knowledge proof</strong>: the <code>challenge</code> signal equals the JWZ message hash (Creating a proof, step 3), and the groth16 proof verifies with the circuit's verification key. Otherwise <code>proof_invalid</code>. go-jwz's <code>Token.Verify</code> and js-jwz's <code>verify</code> check both.</li>
+<li><strong>Signer</strong>: the <code>userID</code> signal is the iden3 identifier of the expected DID. Otherwise <code>proof_signer_mismatch</code>. For a profile DID (an identity profile derived with a nonce), the circuit outputs the profile's identifier, so this holds for the profile's DID.</li>
+<li><strong>State</strong>: the DID's network is one the verifier accepts, and its State contract knows the <code>GISTRoot</code> signal as a GIST root (<code>getGISTRootInfo</code>). Otherwise <code>proof_invalid</code>. If that root has since been replaced, its <code>replacedAtTimestamp</code> is no earlier than 5 minutes before <code>created</code>. Otherwise <code>state_superseded</code>. When the State contract cannot be read (no answer, a timeout, a transport error, or an answer that is not a contract result), the proof is rejected with <code>state_unavailable</code>.</li>
+</ol>
+<p>The proof then verifies.</p>
+<h2 id="the-state-check">The state check</h2>
+<p>Step 9 compares the replacement time of the GIST root with <code>created</code>, not with <code>now</code>: it shows that the root was current when the proof was made, and gives the same result whenever it runs. How long a proof is accepted after <code>created</code> is bounded by step 2, through <code>expires</code> and the profile's lifetime, not by this step.</p>
+<p>With the iden3 authentication libraries (<a href="https://github.com/iden3/go-iden3-auth">go-iden3-auth</a>, <a href="https://github.com/iden3/js-iden3-auth">js-iden3-auth</a>), step 9 is their GIST check with <code>acceptedStateTransitionDelay</code> set to <code>now − created + 5 minutes</code>. Their check compares the replacement time with <code>now</code>; this delay moves the comparison to <code>created</code>. A fixed delay is wrong at any time: the default of 5 minutes would reject documents a few minutes after they were signed, and a delay as long as the lifetime would accept a root replaced long before <code>created</code>.</p>
+<p>A verifier that issued the request for the document (for example a registration challenge) can also check that <code>created</code> is recent, because it knows when it issued the request. A later verifier cannot, and relies on the signed <code>created</code>, which step 2 bounds: at most 5 minutes ahead of <code>now</code>, and at most the profile's longest lifetime before <code>expires</code>.</p>
+<h2 id="what-verification-does-not-check">What verification does not check</h2>
+<ul>
+<li>Whether the identity changed its state after <code>created</code>, for example to revoke the authentication key. The document stays valid until it expires, so the profile's lifetime bounds how long a superseded document is accepted.</li>
+<li>The identity's own state: the circuit proves that the state is in the GIST root, and step 9 checks the root.</li>
+<li><code>proofValue</code> as a value: groth16 proofs can be re-randomized, so a document can carry more than one valid <code>proofValue</code>. Nothing may use <code>proofValue</code> as an identifier.</li>
+</ul>
+<h1 id="rejection-reasons">Rejection reasons</h1>
+<p>Implementations report the failure of a proof with these reasons:</p>
+<table>
+<thead>
+<tr>
+<th>Reason</th>
+<th>Steps of verification</th>
+<th>Can a retry succeed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>proof_malformed</code></td>
+<td>1, 2, 3, 4, 6</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>proof_expired</code></td>
+<td>2</td>
+<td>No; the holder signs again</td>
+</tr>
+<tr>
+<td><code>document_malformed</code></td>
+<td>5</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>proof_hash_mismatch</code></td>
+<td>5</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>proof_invalid</code></td>
+<td>7, 9</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>proof_signer_mismatch</code></td>
+<td>8</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>state_superseded</code></td>
+<td>9</td>
+<td>No; the holder signs again</td>
+</tr>
+<tr>
+<td><code>state_unavailable</code></td>
+<td>9</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="../../jwz/overview/">JSON Web Zero-knowledge (JWZ)</a></li>
+<li><a href="https://www.w3.org/TR/vc-data-integrity/">Verifiable Credential Data Integrity 1.0</a></li>
+<li><a href="https://www.w3.org/TR/vc-di-ecdsa/#ecdsa-rdfc-2019">Data Integrity ECDSA Cryptosuites, <code>ecdsa-rdfc-2019</code></a></li>
+<li><a href="https://www.w3.org/TR/rdf-canon/">RDF Dataset Canonicalization (RDFC-1.0)</a></li>
+<li><a href="https://github.com/iden3/go-jwz">go-jwz</a>, <a href="https://github.com/iden3/js-jwz">js-jwz</a></li>
+<li><a href="https://github.com/iden3/go-iden3-auth">go-iden3-auth</a>, <a href="https://github.com/iden3/js-iden3-auth">js-iden3-auth</a></li>
+<li><a href="https://docs.iden3.io/protocol/main-circuits/">iden3 circuits</a></li>
+</ul>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      powered by DIDComm
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+<script src="../../../_mkdocs_graphviz/mkdocs-graphviz.min.js"></script>
+</body>
+</html>
